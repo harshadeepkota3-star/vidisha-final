@@ -1,145 +1,206 @@
 
 import React from 'react';
-import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, Calculator, Stethoscope } from 'lucide-react';
+import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, Calculator, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react';
 
-const streams = [
-  { 
-    id: 1, 
-    title: "MPC Stream", 
-    subtitle: "Mathematics, Physics, Chemistry",
-    description: "The premier stream for students aspiring for engineering excellence. Focuses on IIT-JEE (Mains & Advanced), EAPCET, and BITSAT.",
-    duration: "2 Year Program", 
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=600", 
-    fee: "Competitive",
-    icon: <Calculator className="w-10 h-10 text-purple-700" />,
-    subjects: ["Advanced Mathematics", "Kinematics & Dynamics", "Organic & Inorganic Chemistry"]
+const mpcCourses = [
+  {
+    title: "Intermediate 1st Year with JEE Mains Coaching",
+    learnings: [
+      "Complete Intermediate 1st Year syllabus (Mathematics, Physics, Chemistry)",
+      "Focused preparation for JEE Mains exam pattern",
+      "Conceptual clarity and problem-solving techniques",
+      "Regular tests and assessments"
+    ],
+    idealFor: "Students beginning intermediate education with engineering aspirations",
+    duration: "1 Academic Year"
   },
-  { 
-    id: 2, 
-    title: "BiPC Stream", 
-    subtitle: "Biology, Physics, Chemistry",
-    description: "The ideal pathway for future medical professionals. Includes intensive preparation for NEET, AIIMS, and Veterinary entrance exams.",
-    duration: "2 Year Program", 
-    image: "https://images.unsplash.com/photo-1530210124550-912dc1381cb8?auto=format&fit=crop&q=80&w=600", 
-    fee: "Competitive",
-    icon: <Stethoscope className="w-10 h-10 text-purple-700" />,
-    subjects: ["Botany & Zoology", "Atomic Physics", "Biochemistry & Chemistry"]
+  {
+    title: "Intermediate 1st Year with JEE Mains & Advanced Coaching",
+    learnings: [
+      "Complete Intermediate 1st Year syllabus",
+      "Comprehensive preparation for both JEE Mains and JEE Advanced",
+      "Advanced problem-solving and analytical thinking",
+      "Special modules for Olympiad-level questions",
+      "In-depth coverage of all topics"
+    ],
+    idealFor: "High-achieving students targeting IITs and top NITs",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Intermediate 2nd Year with JEE Mains Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Intensive JEE Mains preparation",
+      "Revision of 1st Year concepts",
+      "Full-length mock tests and time management strategies",
+      "Final exam preparation"
+    ],
+    idealFor: "2nd Year students preparing for final board exams and JEE Mains",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Intermediate 2nd Year with JEE Mains & Advanced Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Comprehensive preparation for JEE Mains and JEE Advanced",
+      "Advanced-level problem-solving",
+      "Comprehensive revision and doubt-clearing",
+      "Complete exam readiness"
+    ],
+    idealFor: "Ambitious students targeting top IITs and premier engineering institutions",
+    duration: "1 Academic Year"
   }
 ];
 
-const campusFacilities = [
-  "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=400",
-  "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=400",
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400",
-  "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400",
+const bipcCourses = [
+  {
+    title: "Intermediate 1st Year with NEET Coaching",
+    learnings: [
+      "Complete Intermediate 1st Year syllabus (Biology, Physics, Chemistry)",
+      "NEET exam pattern and syllabus coverage",
+      "Conceptual understanding of medical entrance topics",
+      "Biology depth and application-based learning",
+      "Regular practice tests"
+    ],
+    idealFor: "Students beginning intermediate education with medical aspirations",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Intermediate 2nd Year with NEET Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Intensive NEET preparation with full syllabus coverage",
+      "Revision of 1st Year Biology, Physics, Chemistry",
+      "NEET-specific problem-solving and shortcuts",
+      "Full-length mock tests in NEET pattern",
+      "Final exam readiness"
+    ],
+    idealFor: "2nd Year students preparing for board exams and NEET",
+    duration: "1 Academic Year"
+  }
 ];
+
+const CourseCard: React.FC<{ course: any; icon: React.ReactNode; accentColor: string }> = ({ course, icon, accentColor }) => (
+  <div className="group bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+
+    <div className="mb-6 flex items-start justify-between">
+      <div className={`p-3 rounded-2xl ${accentColor.replace('bg-', 'bg-').replace('600', '50').replace('500', '50')} ${accentColor.replace('bg-', 'text-')}`}>
+        {icon}
+      </div>
+      <div className="px-4 py-1.5 rounded-full bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-100">
+        {course.duration}
+      </div>
+    </div>
+
+    <h3 className="text-xl font-black text-purple-950 mb-4 leading-tight min-h-[3.5rem]">{course.title}</h3>
+
+    <div className="space-y-6 flex-grow">
+      <div>
+        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">What You'll Learn</h4>
+        <ul className="space-y-2">
+          {course.learnings.map((item: string, idx: number) => (
+            <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600 font-medium leading-relaxed">
+              <CheckCircle2 className={`w-4 h-4 shrink-0 ${accentColor.replace('bg-', 'text-')} mt-0.5`} />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="bg-slate-50 p-4 rounded-xl border border-slate-100/50">
+        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Ideal For</h4>
+        <p className="text-sm font-semibold text-purple-900 leading-snug">{course.idealFor}</p>
+      </div>
+    </div>
+
+    <button className={`w-full mt-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all text-white shadow-lg hover:opacity-90 active:scale-95 ${accentColor}`}>
+      Enroll Now <ArrowRight size={14} />
+    </button>
+  </div>
+);
 
 const Courses: React.FC = () => {
   return (
-    <div className="py-20 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10">
+    <div className="py-24 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 selection:bg-yellow-200 selection:text-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Page Header */}
         <div className="text-center mb-20">
-          <span className="text-purple-700 font-black uppercase tracking-widest text-sm block mb-4">Academic Pathways</span>
-          <h1 className="text-6xl font-black text-purple-950 mb-6 leading-tight">Our <span className="text-yellow-500">Core Streams</span></h1>
-          <p className="text-xl text-slate-500 max-w-3xl mx-auto">
-            Choosing between MPC and BiPC is the first step toward a successful career. At Hardcoded Junior College, we provide the foundation for both.
+          <span className="text-purple-600 font-bold uppercase tracking-[0.2em] text-xs block mb-3">Excellence in Education</span>
+          <h1 className="text-5xl md:text-7xl font-black text-purple-950 mb-6 leading-tight">
+            Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Streams</span>
+          </h1>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
+            Tailored programs for engineering and medical aspirants, designed to deliver exceptional results in competitive exams and board preparations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {streams.map((stream) => (
-            <div key={stream.id} className="group bg-white rounded-[3rem] border border-slate-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col">
-              <div className="relative h-80 overflow-hidden">
-                <img src={stream.image} alt={stream.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md text-purple-900 text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-xl shadow-sm">
-                  {stream.id === 1 ? 'Engineering Focus' : 'Medical Focus'}
+        {/* MPC Section */}
+        <div className="mb-32">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                  <Calculator size={32} />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-black text-purple-950">MPC Stream</h2>
+                  <p className="text-blue-600 font-bold text-sm tracking-widest uppercase">Mathematics, Physics, Chemistry</p>
                 </div>
               </div>
-              <div className="p-12 flex-grow">
-                <div className="flex items-start justify-between mb-8">
-                  <div>
-                    <h3 className="text-3xl font-black text-purple-950 mb-2">{stream.title}</h3>
-                    <p className="text-yellow-600 font-bold text-sm tracking-wide">{stream.subtitle}</p>
-                  </div>
-                  <div className="p-4 bg-purple-50 rounded-2xl group-hover:bg-purple-900 group-hover:text-yellow-400 transition-colors">
-                    {stream.icon}
-                  </div>
-                </div>
-                
-                <p className="text-slate-500 mb-8 leading-relaxed font-medium">
-                  {stream.description}
-                </p>
-
-                <div className="space-y-4 mb-10">
-                  <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">Core Subjects:</h4>
-                  <ul className="grid grid-cols-1 gap-3">
-                    {stream.subjects.map((sub, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-slate-700 font-semibold">
-                        <BookOpen size={16} className="text-purple-600" />
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-8 border-t border-slate-50 flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-xs font-black text-slate-400 uppercase tracking-widest">
-                    <Clock size={18} className="text-purple-600" />
-                    <span>{stream.duration}</span>
-                  </div>
-                  <button className="bg-purple-900 text-white p-5 rounded-3xl hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-xl group-hover:translate-x-2">
-                    <ChevronRight size={28} />
-                  </button>
-                </div>
-              </div>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Specifically designed for students targeting admissions into premier engineering colleges through <span className="font-bold text-purple-900">IIT-JEE Mains and Advanced</span> exams, while also excelling in intermediate board examinations.
+              </p>
             </div>
-          ))}
-        </div>
-
-        {/* Facilities Section */}
-        <div className="mt-40">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-purple-950">Academic Environment</h2>
-            <p className="text-lg text-slate-500 mt-4">Providing the best infrastructure for MPC and BiPC learning.</p>
+            <div className="bg-blue-50 px-6 py-3 rounded-full text-blue-700 font-bold text-sm uppercase tracking-wide">
+              For Future Engineers
+            </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {campusFacilities.map((img, i) => (
-              <div key={i} className="group relative h-64 md:h-80 rounded-[2rem] overflow-hidden shadow-md">
-                <img src={img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Campus Facility" />
-                <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors"></div>
-              </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {mpcCourses.map((course, idx) => (
+              <CourseCard key={idx} course={course} icon={<Calculator className="w-6 h-6" />} accentColor="bg-blue-600" />
             ))}
           </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center text-center p-8 bg-slate-50 rounded-3xl border border-slate-100">
-              <FlaskConical className="text-purple-700 mb-6" size={40} />
-              <h4 className="font-bold text-slate-900 text-lg">Integrated Labs</h4>
-              <p className="text-sm text-slate-500 mt-3 leading-relaxed">Dedicated Physics, Chemistry, and Biology laboratories with the latest equipment.</p>
+        </div>
+
+        {/* BiPC Section */}
+        <div>
+          <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
+                  <Stethoscope size={32} />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-black text-purple-950">BiPC Stream</h2>
+                  <p className="text-emerald-600 font-bold text-sm tracking-widest uppercase">Biology, Physics, Chemistry</p>
+                </div>
+              </div>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Tailored for students targeting admissions into top medical colleges through <span className="font-bold text-purple-900">NEET</span>, while also ensuring excellent performance in intermediate board examinations.
+              </p>
             </div>
-            <div className="flex flex-col items-center text-center p-8 bg-slate-50 rounded-3xl border border-slate-100">
-              <GraduationCap className="text-purple-700 mb-6" size={40} />
-              <h4 className="font-bold text-slate-900 text-lg">Entrance Excellence</h4>
-              <p className="text-sm text-slate-500 mt-3 leading-relaxed">Systematic coaching for JEE, NEET, and regional entrance exams integrated with academics.</p>
+            <div className="bg-emerald-50 px-6 py-3 rounded-full text-emerald-700 font-bold text-sm uppercase tracking-wide">
+              For Future Doctors
             </div>
-            <div className="flex flex-col items-center text-center p-8 bg-slate-50 rounded-3xl border border-slate-100">
-              <BookOpen className="text-purple-700 mb-6" size={40} />
-              <h4 className="font-bold text-slate-900 text-lg">Resource Rich</h4>
-              <p className="text-sm text-slate-500 mt-3 leading-relaxed">Expansive library with textbooks, journals, and digital entrance preparation modules.</p>
-            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {bipcCourses.map((course, idx) => (
+              <CourseCard key={idx} course={course} icon={<Stethoscope className="w-6 h-6" />} accentColor="bg-emerald-600" />
+            ))}
           </div>
         </div>
 
-        {/* Admission CTA */}
-        <div className="mt-40 bg-purple-950 rounded-[4rem] p-16 md:p-24 flex flex-col md:flex-row items-center justify-between gap-16 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 blob-shape"></div>
-          <div className="max-w-xl relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black leading-tight mb-8">Secure Your Future in MPC or BiPC.</h2>
-            <p className="text-xl font-medium opacity-80 leading-relaxed">Join the most successful academic community in the region. Limited seats available for the 2025 batch.</p>
-          </div>
-          <button className="bg-yellow-400 text-purple-950 font-black px-14 py-7 rounded-2xl hover:bg-white transition-all shadow-2xl text-xl relative z-10">
-            Enquire Now
+        {/* Bottom CTA */}
+        <div className="mt-24 text-center">
+          <p className="text-slate-400 font-medium mb-6">Need guidance on which stream to choose?</p>
+          <button className="inline-flex items-center gap-2 text-purple-900 font-bold hover:text-purple-700 transition-colors border-b-2 border-yellow-400 hover:border-yellow-500 pb-1">
+            Schedule a Counseling Session <ChevronRight size={16} />
           </button>
         </div>
+
       </div>
     </div>
   );
