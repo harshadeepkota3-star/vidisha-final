@@ -33,11 +33,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
             onClick={() => onNavigate('home')}
           >
             <div className="bg-purple-950 p-3 rounded-2xl group-hover:rotate-12 transition-transform shadow-xl shadow-purple-900/10">
-              <GraduationCap className="text-yellow-400 w-8 h-8" />
+              
             </div>
             <div className="hidden sm:block">
-              <span className="text-3xl font-black tracking-tighter text-purple-950 block leading-none">Hardcoded</span>
-              <span className="text-[10px] uppercase tracking-[0.4em] text-yellow-600 font-black">Junior College</span>
+              <span className="text-3xl font-black tracking-tighter text-purple-950 block leading-none">Vidisha</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] text-yellow-600 font-black">Educational Society</span>
             </div>
           </div>
 

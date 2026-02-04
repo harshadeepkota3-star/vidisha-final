@@ -48,7 +48,7 @@ const Home: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-700">
       {/* Hero Section */}
-      <section className="relative h-[700px] flex items-center overflow-hidden">
+      <section className="relative w-full">
         {/* Slim Scrolling Strip - Positioned for better alignment under navbar */}
         <div className="absolute top-0 left-0 w-full z-40 bg-yellow-400 py-2.5 border-b border-purple-900/20 shadow-lg overflow-hidden">
           <div className="animate-marquee whitespace-nowrap flex text-[11px] font-black uppercase tracking-[0.3em] text-purple-950">
@@ -59,44 +59,19 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1920" 
-            alt="College Campus" 
-            className="w-full h-full object-cover"
+        <div className="w-full">
+          <img
+            src="/home_banner.jpg"
+            alt="College Campus"
+            className="w-full h-auto block"
           />
-          {/* Enhanced gradient for text visibility - darker left side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-950 via-purple-900/70 to-purple-900/10"></div>
-          {/* Subtle noise or darkening for better contrast */}
-          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 pt-16">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-yellow-400/30 border border-yellow-400/50 text-yellow-300 px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-10 backdrop-blur-sm">
-              <span className="w-2.5 h-2.5 bg-yellow-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(250,204,21,0.6)]"></span>
-              Admissions Open 2025-26
-            </div>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8 leading-[1.1] drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-              Shape Your Future in <span className="text-yellow-400">MPC & BiPC.</span>
-            </h1>
-            <p className="text-xl text-slate-100 mb-12 leading-relaxed max-w-xl font-medium drop-shadow-md">
-              Professional academic coaching, disciplined environment, and state-of-the-art facilities for aspiring doctors and engineers.
-            </p>
-            <div className="flex flex-wrap gap-6">
-              <a href="#contact" className="bg-yellow-400 hover:bg-yellow-500 text-purple-950 font-black py-4.5 px-12 rounded-2xl transition-all shadow-2xl hover:shadow-yellow-400/40 active:scale-95 flex items-center gap-3 text-lg">
-                Apply for Admission <ArrowRight size={22} />
-              </a>
-              <a href="#courses" className="bg-white/10 hover:bg-white/20 text-white font-black py-4.5 px-12 rounded-2xl backdrop-blur-md transition-all border-2 border-white/30 text-lg">
-                Explore Streams
-              </a>
-            </div>
-          </div>
-        </div>
+
       </section>
 
       {/* Stats Overlay */}
-      <section className="relative -mt-24 z-20 px-4">
+      <section className="relative z-20 px-4 mt-12">
         <div className="max-w-7xl mx-auto">
           <div className="bg-white rounded-[3rem] shadow-2xl border border-slate-100 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 overflow-hidden">
             {stats.map((stat, idx) => (
@@ -168,7 +143,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-24">
             <div className="lg:w-1/2">
-              <h2 className="text-5xl font-black mb-10 leading-[1.15]">Excellence is <br/><span className="text-yellow-400 underline decoration-yellow-400/30 underline-offset-8">Hardcoded</span> in our Students</h2>
+              <h2 className="text-5xl font-black mb-10 leading-[1.15]">Excellence is <br /><span className="text-yellow-400 underline decoration-yellow-400/30 underline-offset-8">Hardcoded</span> in our Students</h2>
               <ul className="space-y-8">
                 {[
                   "Intensive curriculum for MPC and BiPC streams",

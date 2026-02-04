@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="pt-12 border-t border-purple-900 flex flex-col md:row items-center justify-between space-y-6 md:space-y-0 text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
-          <p>© 2024 Hardcoded Junior College. Academic Precision. Student Success.</p>
+          <p>© 2023 Vidisha Educational Society. Academic Precision. Student Success.</p>
           <div className="flex space-x-12">
             <a href="#" className="hover:text-white transition-colors">Accreditation</a>
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
