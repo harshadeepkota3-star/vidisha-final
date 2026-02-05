@@ -32,8 +32,12 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
             className="flex items-center space-x-4 cursor-pointer group"
             onClick={() => onNavigate('home')}
           >
-            <div className="bg-purple-950 p-3 rounded-2xl group-hover:rotate-12 transition-transform shadow-xl shadow-purple-900/10">
-
+            <div className="flex-shrink-0">
+              <img
+                src="/logo.png"
+                alt="Vidisha Logo"
+                className="h-20 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+              />
             </div>
             <div>
               <span className="text-3xl font-black tracking-tighter text-purple-950 block leading-none">Vidisha</span>
@@ -49,17 +53,17 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(item.id, e)}
                 className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${activeTab === item.id
-                    ? 'text-purple-950 bg-yellow-400 shadow-lg shadow-yellow-400/20'
-                    : 'text-slate-500 hover:text-purple-700 hover:bg-slate-50'
+                  ? 'text-purple-950 bg-yellow-400 shadow-lg shadow-yellow-400/20'
+                  : 'text-slate-500 hover:text-purple-700 hover:bg-slate-50'
                   }`}
               >
                 {item.label}
               </a>
             ))}
             <div className="h-8 w-px bg-slate-100 mx-6"></div>
-            <button className="bg-purple-950 text-white px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-md">
+            {/* <button className="bg-purple-950 text-white px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-md">
               Portal Login
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Toggle */}
@@ -84,8 +88,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(item.id, e)}
               className={`flex items-center justify-between px-8 py-6 text-xs font-black uppercase tracking-widest rounded-[2rem] transition-all ${activeTab === item.id
-                  ? 'text-purple-950 bg-yellow-400'
-                  : 'text-slate-600 hover:bg-slate-50'
+                ? 'text-purple-950 bg-yellow-400'
+                : 'text-slate-600 hover:bg-slate-50'
                 }`}
             >
               {item.label}

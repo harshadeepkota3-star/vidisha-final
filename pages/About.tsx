@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-yellow-400 rounded-full opacity-20 group-hover:opacity-30 transition-opacity blur-2xl"></div>
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-[12px] border-white shadow-2xl z-10 mx-auto">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Chairman Kommineni Venkatesh" />
+                    <img src="/public/chairman.png" />
                   </div>
                   <div className="mt-8 text-center relative z-20">
                     <h3 className="text-2xl font-black text-purple-950">Kommineni Venkatesh</h3>
@@ -129,41 +129,6 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Principal */}
-            <div className="flex flex-col lg:flex-row-reverse gap-20 items-center">
-              <div className="lg:w-1/3">
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-purple-400 rounded-full opacity-20 group-hover:opacity-30 transition-opacity blur-2xl"></div>
-                  <div className="relative w-80 h-80 rounded-full overflow-hidden border-[12px] border-white shadow-2xl z-10 mx-auto">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Principal" />
-                  </div>
-                  <div className="mt-8 text-center relative z-20">
-                    <h3 className="text-2xl font-black text-purple-950">Principal</h3>
-                    <p className="text-purple-600 font-black uppercase tracking-widest text-xs mt-2">Vidisha Junior College</p>
-                  </div>
-                </div>
-              </div>
-              <div className="lg:w-2/3 bg-purple-50 p-16 rounded-[4rem] border border-purple-100 relative">
-                <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center text-white rotate-180">
-                  <MessageCircle className="w-8 h-8" />
-                </div>
-                <h4 className="text-2xl font-black text-purple-950 mb-8 border-b border-purple-200 pb-4">Principal's Message</h4>
-                <div className="prose prose-slate max-w-none space-y-6 text-slate-600 font-medium leading-relaxed">
-                  <p>
-                    At Vidisha Junior College, we believe that the right learning environment can transform a student's journey from ordinary to extraordinary.
-                  </p>
-                  <p>
-                    Our campus is designed to provide students with a balanced and focused academic experience, supported by state of the art facilities such as air conditioned classrooms, smart digital learning systems, and technology driven teaching methods that make complex concepts easier to understand and apply.
-                  </p>
-                  <p>
-                    The college management and board stand as a strong pillar of support, ensuring that resources, mentorship, and guidance are always accessible to our learners. I am proud to lead a campus where every day brings new opportunities for growth and achievement.
-                  </p>
-                  <p>
-                    We welcome every learner to join us in this journey of excellence, ambition, and success.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
