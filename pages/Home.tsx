@@ -31,7 +31,8 @@ const Home: React.FC = () => {
       subtext: '10 AM - 4 PM',
       details: 'Visit our campus, meet faculty, explore facilities',
       location: 'Vijayawada',
-      action: 'Book Your Visit'
+      action: 'Book Your Visit',
+      image: '/event_campus.png'
     },
     {
       title: 'Parent-Teacher Orientation',
@@ -44,7 +45,8 @@ const Home: React.FC = () => {
       title: 'Free Counseling Sessions',
       date: 'Ongoing',
       details: 'Career guidance for MPC/BiPC stream selection',
-      action: 'Schedule Consultation'
+      action: 'Schedule Consultation',
+      image: '/event_counseling.jpg'
     }
   ];
 
@@ -431,13 +433,23 @@ const Home: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {events.map((event, idx) => (
+              {events.map((event: any, idx) => (
                 <div key={idx} className="group bg-white rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col h-full">
                   {/* Image Slot */}
-                  <div className="h-56 bg-indigo-50 border-b border-indigo-100 relative group-hover:bg-indigo-100 transition-colors flex flex-col items-center justify-center p-6 text-center cursor-pointer">
-                    <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-4 rounded-[2rem] group-hover:border-indigo-300 transition-colors"></div>
-                    <ImageIcon className="w-10 h-10 text-indigo-300 mb-3 relative z-10 group-hover:scale-110 transition-transform group-hover:text-indigo-500" />
-                    <span className="text-xs font-black uppercase tracking-widest text-indigo-300 relative z-10 group-hover:text-indigo-600 transition-colors">Image Slot {idx + 1}</span>
+                  <div className={`h-56 bg-indigo-50 border-b border-indigo-100 relative group-hover:bg-indigo-100 transition-colors flex flex-col items-center justify-center text-center cursor-pointer overflow-hidden ${(event as any).image ? 'p-0' : 'p-6'}`}>
+                    {(event as any).image ? (
+                      <img
+                        src={(event as any).image}
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-4 rounded-[2rem] group-hover:border-indigo-300 transition-colors"></div>
+                        <ImageIcon className="w-10 h-10 text-indigo-300 mb-3 relative z-10 group-hover:scale-110 transition-transform group-hover:text-indigo-500" />
+                        <span className="text-xs font-black uppercase tracking-widest text-indigo-300 relative z-10 group-hover:text-indigo-600 transition-colors">Image Slot {idx + 1}</span>
+                      </>
+                    )}
                   </div>
 
                   {/* Content */}
