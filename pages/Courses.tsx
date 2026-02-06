@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, Calculator, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, HardHat, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const mpcCourses = [
   {
@@ -141,7 +141,7 @@ const Courses: React.FC = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
-                  <Calculator size={32} />
+                  <HardHat size={32} />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-purple-950">MPC Stream</h2>
@@ -159,7 +159,7 @@ const Courses: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mpcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<Calculator className="w-6 h-6" />} accentColor="bg-blue-600" />
+              <CourseCard key={idx} course={course} icon={<HardHat className="w-6 h-6" />} accentColor="bg-blue-600" />
             ))}
           </div>
         </div>

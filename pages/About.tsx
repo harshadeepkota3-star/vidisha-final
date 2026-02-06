@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-yellow-400 rounded-full opacity-20 group-hover:opacity-30 transition-opacity blur-2xl"></div>
                   <div className="relative w-80 h-80 rounded-full overflow-hidden border-[12px] border-white shadow-2xl z-10 mx-auto">
-                    <img src="/public/chairman.png" />
+                    <img src="/public/mr. chairman.jpg" />
                   </div>
                   <div className="mt-8 text-center relative z-20">
                     <h3 className="text-2xl font-black text-purple-950">Kommineni Venkatesh</h3>

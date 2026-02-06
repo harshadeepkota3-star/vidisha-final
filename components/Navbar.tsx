@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
   const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'Streams', id: 'courses' },
-    { label: 'Campus Life', id: 'gallery' },
+    { label: 'Campuses', id: 'gallery' },
     { label: 'About Us', id: 'about' },
     { label: 'Admissions', id: 'contact' },
   ];

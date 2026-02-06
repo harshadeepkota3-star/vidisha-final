@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BookOpen, Award, Users, GraduationCap, ArrowRight, CheckCircle2, FlaskConical, ChevronLeft, ChevronRight, Monitor, Home as HomeIcon, Bus, Calendar, MapPin, Image as ImageIcon, Plus, Minus, X, ChevronDown } from 'lucide-react';
+import { BookOpen, Award, Users, GraduationCap, ArrowRight, CheckCircle2, FlaskConical, ChevronLeft, ChevronRight, Monitor, Home as HomeIcon, Bus, Calendar, MapPin, Image as ImageIcon, Plus, Minus, X, ChevronDown, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const bannerImages = [
@@ -13,8 +13,8 @@ const bannerImages = [
 const Home: React.FC = () => {
   const stats = [
     { label: 'Success Rate', value: '98%' },
-    { label: 'Students Enrolled', value: '1200+' },
-    { label: 'Expert Faculty', value: '45+' },
+    { label: 'Students Enrolled', value: '6000+' },
+    { label: 'Expert Faculty', value: '100+' },
   ];
 
   const events = [
@@ -23,7 +23,8 @@ const Home: React.FC = () => {
       date: 'Now Open',
       details: 'Limited seats for MPC (JEE) and BiPC (NEET) streams',
       action: 'Apply Now',
-      isPrimary: true
+      isPrimary: true,
+      image: '/admission_time.jpg'
     },
     {
       title: 'Campus Open House',
@@ -39,7 +40,8 @@ const Home: React.FC = () => {
       date: 'Monthly',
       subtext: '1st Saturday',
       details: 'Interactive sessions for parents to track student progress',
-      action: 'Register'
+      action: 'Register',
+      image: '/parents_meet.jpg'
     },
     {
       title: 'Free Counseling Sessions',
@@ -335,13 +337,17 @@ const Home: React.FC = () => {
         </section>
 
         {/* Stats Overlay */}
-        <section className="relative z-20 px-4 mt-12">
+        <section className="relative z-20 px-4 mt-6 md:mt-12">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-white rounded-[3rem] shadow-2xl border border-slate-100 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 overflow-hidden">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-xl border border-slate-100 grid grid-cols-3 divide-x divide-slate-100 overflow-hidden">
               {stats.map((stat, idx) => (
-                <div key={idx} className="p-14 text-center group hover:bg-slate-50 transition-colors">
-                  <div className="text-6xl font-black text-purple-950 mb-3 group-hover:scale-110 transition-transform">{stat.value}</div>
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">{stat.label}</div>
+                <div key={idx} className="py-4 md:py-10 px-2 text-center group hover:bg-slate-50 transition-colors">
+                  <div className="text-xl sm:text-3xl md:text-5xl font-black text-purple-950 mb-0.5 md:mb-2 group-hover:scale-110 transition-transform">
+                    {stat.value}
+                  </div>
+                  <div className="text-[6px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-wider md:tracking-[0.2em] text-slate-400">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -495,9 +501,14 @@ const Home: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-16 bg-white text-purple-950 font-black px-16 py-6 rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-lg uppercase tracking-widest">
+                <a
+                  href="/academic_brochure.pdf"
+                  download="Vidisha_Academic_Brochure.pdf"
+                  className="mt-16 bg-white text-purple-950 font-black px-12 py-6 rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-lg uppercase tracking-widest inline-flex items-center gap-3 group"
+                >
+                  <Download className="w-6 h-6 group-hover:animate-bounce" />
                   Download Academic Brochure
-                </button>
+                </a>
               </div>
               <div className="lg:w-1/2 grid grid-cols-2 gap-6">
                 <div className="space-y-6">

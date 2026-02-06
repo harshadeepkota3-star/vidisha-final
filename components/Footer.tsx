@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="bg-yellow-400 p-2 rounded-xl">
                 <GraduationCap className="text-purple-950 w-7 h-7" />
               </div>
-              <span className="text-2xl font-black text-white tracking-tighter">Hardcoded JC</span>
+              <span className="text-2xl font-black text-white tracking-tighter">Vidisha</span>
             </div>
             <p className="text-sm leading-relaxed mb-10 text-slate-400 font-medium">
               A premier intermediate education hub dedicated to excellence in MPC and BiPC streams. Empowering future leaders since 1997.
@@ -47,8 +47,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 { name: 'Academic Calendar', id: 'about' }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={`#${link.id}`} 
+                  <a
+                    href={`#${link.id}`}
                     onClick={(e) => handleLinkClick(link.id, e)}
                     className="hover:text-yellow-400 transition-colors flex items-center gap-3 group"
                   >
@@ -76,7 +76,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-8 text-sm">
               <li className="flex items-start space-x-5">
                 <MapPin size={24} className="text-yellow-400 shrink-0 mt-1" />
-                <span className="text-slate-400 leading-tight font-bold">Road No. 45, Jubilee Hills,<br/>Hyderabad, Telangana 500033</span>
+                <span className="text-slate-400 leading-tight font-bold">Road No. 45, Jubilee Hills,<br />Hyderabad, Telangana 500033</span>
               </li>
               <li className="flex items-center space-x-5">
                 <Phone size={24} className="text-yellow-400 shrink-0" />
