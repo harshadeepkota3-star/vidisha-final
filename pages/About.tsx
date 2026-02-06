@@ -1,8 +1,139 @@
-
-import React from 'react';
-import { Target, Eye, ShieldCheck, Users2, Sparkles, Zap, Shield, Heart, GraduationCap, BookOpen, FlaskConical, Monitor, Bus, Home as HomeIcon, CheckCircle2, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Target, Eye, ShieldCheck, Users2, Sparkles, Zap, Shield, Heart, GraduationCap, BookOpen, FlaskConical, Monitor, Bus, Home as HomeIcon, CheckCircle2, MessageCircle, ChevronDown } from 'lucide-react';
 
 const About: React.FC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "What courses does Vidisha Junior College offer?",
+      answer: (
+        <div className="space-y-4 text-left">
+          <p className="font-semibold text-purple-900">We offer Intermediate 1st and 2nd Year programs in:</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
+              <h4 className="font-bold text-purple-900 mb-2">MPC Stream</h4>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 1st Year with JEE Mains Coaching</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 1st Year with JEE Mains & Advanced Coaching</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 2nd Year with JEE Mains Coaching</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 2nd Year with JEE Mains & Advanced Coaching</li>
+              </ul>
+            </div>
+            <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
+              <h4 className="font-bold text-purple-900 mb-2">BiPC Stream</h4>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 1st Year with NEET Coaching</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 shrink-0"></div>Intermediate 2nd Year with NEET Coaching</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-sm font-medium text-slate-500 italic border-l-4 border-yellow-400 pl-3">All courses integrate board preparation with competitive exam training.</p>
+        </div>
+      )
+    },
+    {
+      question: "What facilities are available for students?",
+      answer: (
+        <div className="space-y-4 text-left">
+          <p className="text-slate-600">Vidisha Junior College provides:</p>
+          <ul className="grid sm:grid-cols-2 gap-3">
+            {[
+              "Air-conditioned smart classrooms with digital teaching systems",
+              "Advanced Physics, Chemistry, and Biology laboratories",
+              "Comprehensive library with reference materials",
+              "Separate hostel facilities for boys and girls with nutritious, home-like food",
+              "Safe transportation for day-scholar students across Vijayawada",
+              "Regular doubt-clearing sessions and personalized mentoring"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-slate-600 text-sm bg-slate-50 p-3 rounded-lg">
+                <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    },
+    {
+      question: "Is hostel accommodation available?",
+      answer: (
+        <div className="space-y-4 text-left">
+          <p className="text-slate-600 font-medium">Yes, we provide separate hostel facilities for boys and girls with:</p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Comfortable, safe living spaces",
+              "Nutritious meals prepared with home-like care",
+              "24/7 security and supervision",
+              "Study-friendly environment",
+              "All basic amenities included"
+            ].map((tag, i) => (
+              <span key={i} className="px-3 py-1 bg-yellow-100 text-purple-900 text-xs font-bold uppercase tracking-wider rounded-full border border-yellow-200">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      question: "Do you provide transportation for day scholars?",
+      answer: (
+        <div className="flex items-start gap-4 text-left">
+          <div className="p-3 bg-indigo-50 rounded-full text-indigo-600 hidden sm:block">
+            <Bus className="w-6 h-6" />
+          </div>
+          <div>
+            <p className="text-slate-600 leading-relaxed">
+              Yes, we offer <span className="font-bold text-slate-800">reliable and safe transportation facility</span> for day-scholar students covering major areas across Vijayawada.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      question: "How is the faculty at Vidisha Junior College?",
+      answer: (
+        <div className="bg-purple-900 text-white p-5 rounded-xl relative overflow-hidden text-left">
+          <div className="relative z-10">
+            <p className="leading-relaxed opacity-90">
+              Our faculty comprises <span className="font-bold text-yellow-400">highly qualified and experienced teachers</span> who specialize in both intermediate board syllabus and competitive exam preparation. They provide personalized attention, regular doubt-clearing, progress monitoring, and focused guidance to help every student succeed.
+            </p>
+          </div>
+          <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+        </div>
+      )
+    },
+    {
+      question: "How do you integrate board preparation with competitive exam coaching?",
+      answer: (
+        <div className="space-y-3 text-slate-600 text-left">
+          <p className="leading-relaxed">
+            Our curriculum is designed to cover both <span className="font-semibold text-purple-900">intermediate board syllabus</span> and <span className="font-semibold text-purple-900">IIT-JEE/NEET exam patterns</span> simultaneously.
+          </p>
+          <div className="grid grid-cols-2 gap-2 text-sm font-medium">
+            <div className="flex items-center gap-2 p-2 bg-white border border-slate-100 rounded shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-green-500"></div> Regular Tests
+            </div>
+            <div className="flex items-center gap-2 p-2 bg-white border border-slate-100 rounded shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-blue-500"></div> Topic-wise Modules
+            </div>
+            <div className="flex items-center gap-2 p-2 bg-white border border-slate-100 rounded shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-purple-500"></div> Problem-solving Sessions
+            </div>
+            <div className="flex items-center gap-2 p-2 bg-white border border-slate-100 rounded shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-orange-500"></div> Entrance Test Prep
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="py-20 animate-in fade-in duration-500 relative z-10 selection:bg-yellow-200 selection:text-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -244,6 +375,52 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-indigo-50/30 rounded-[4rem] relative overflow-hidden mb-32 border border-indigo-100">
+          <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <div className="text-center mb-16">
+              <span className="text-purple-600 font-bold uppercase tracking-widest text-xs mb-2 block">Got Questions?</span>
+              <h2 className="text-5xl font-black text-purple-900 mb-6">Frequently Asked Questions</h2>
+              <div className="h-2 w-24 bg-yellow-400 mx-auto rounded-full shadow-lg"></div>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className={`bg-white rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${openFaq === idx
+                    ? 'border-purple-200 shadow-xl ring-2 ring-purple-100'
+                    : 'border-slate-100 shadow-md hover:shadow-lg hover:border-purple-100'
+                    }`}
+                >
+                  <button
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full px-8 py-6 flex items-center justify-between text-left gap-4"
+                  >
+                    <span className={`text-lg font-bold transition-colors ${openFaq === idx ? 'text-purple-900' : 'text-slate-700'}`}>
+                      {faq.question}
+                    </span>
+                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === idx ? 'bg-purple-900 text-white rotate-180' : 'bg-slate-100 text-slate-500 hover:bg-purple-100 hover:text-purple-900'
+                      }`}>
+                      <ChevronDown size={20} />
+                    </div>
+                  </button>
+
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${openFaq === idx ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                  >
+                    <div className="px-8 pb-8 pt-0">
+                      <div className="h-px w-full bg-slate-100 mb-6"></div>
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Parental Partnership */}
         <div className="bg-slate-900 rounded-[5rem] p-20 text-white relative overflow-hidden mb-20">

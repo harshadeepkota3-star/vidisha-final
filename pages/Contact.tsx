@@ -98,30 +98,36 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Campus Visit Block */}
+            {/* Email Support Block */}
             <div className="bg-purple-950 text-white rounded-[3rem] p-10 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-              <h3 className="text-2xl font-black mb-6">Campus Visit</h3>
-              <p className="text-purple-200 text-sm font-medium mb-8 leading-relaxed">
-                <span className="text-yellow-400 font-black">Walk-in Counseling & Campus Tours:</span><br />
-                Every Saturday: 10:00 AM - 4:00 PM
-              </p>
-              <ul className="space-y-4 mb-10">
+              <h3 className="text-2xl font-black mb-8 flex items-center gap-4">
+                <Mail className="text-yellow-400" size={28} />
+                Email Us
+              </h3>
+              <div className="space-y-6">
                 {[
-                  "Campus tour & facilities",
-                  "Meet faculty members",
-                  "Career guidance sessions",
-                  "Fee structure discussion",
-                  "Hostel & Transport info"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-xs font-bold text-purple-100">
-                    <CheckCircle2 className="text-yellow-400" size={16} /> {item}
-                  </li>
+                  "Chairman@vidishaedusociety.com",
+                  "Management@vidishaedusociety.com",
+                  "Accounts@vidishaedusociety.com",
+                  "Enquiry@vidishaedusociety.com",
+                  "Vijayawada@vidishaedusociety.com",
+                  "Visakhapatnam@vidishaedusociety.com",
+                  "Hyderabad@vidishaedusociety.com",
+                  "Guntur@vidishaedusociety.com",
+                  "Kakinada@vidishaedusociety.com"
+                ].map((email, i) => (
+                  <div key={i} className="group cursor-pointer">
+                    <a
+                      href={`mailto:${email}`}
+                      className="text-xs font-bold text-purple-200 hover:text-yellow-400 transition-colors block break-all leading-relaxed tracking-wider"
+                    >
+                      {email}
+                    </a>
+                    <div className="h-[1px] w-full bg-white/5 mt-3"></div>
+                  </div>
                 ))}
-              </ul>
-              <button className="w-full bg-yellow-400 text-purple-950 font-black py-5 rounded-2xl hover:bg-white transition-all text-xs uppercase tracking-widest shadow-xl">
-                Book Your Campus Visit
-              </button>
+              </div>
             </div>
 
             <div className="mt-12">

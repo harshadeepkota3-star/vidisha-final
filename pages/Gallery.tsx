@@ -1,31 +1,45 @@
 
 import React, { useState } from 'react';
-import { Search, ImageIcon, FlaskConical, BookOpen, GraduationCap, Users, ChevronRight, MapPin, Phone } from 'lucide-react';
+import { Search, ImageIcon, FlaskConical, BookOpen, GraduationCap, Users, ChevronRight, MapPin, Phone, X, Download } from 'lucide-react';
 
 const Gallery: React.FC = () => {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('Events');
+  const [selectedImage, setSelectedImage] = useState<any>(null);
 
-  const categories = ['All', 'Labs', 'Classrooms', 'Events', 'Achievements'];
+  const categories = ['Events', 'Labs', 'Classrooms', 'Achievements'];
 
   const images = [
-    { id: 1, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
-    { id: 2, url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800', title: 'Interactive MPC Classroom', cat: 'Classrooms' },
-    { id: 3, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
-    { id: 4, url: 'https://images.unsplash.com/photo-1523580494863-6f303122469a?auto=format&fit=crop&q=80&w=800', title: 'Annual Convocation', cat: 'Events' },
-    { id: 5, url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800', title: 'Chemistry Analysis', cat: 'Labs' },
-    { id: 6, url: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800', title: 'Central Library', cat: 'Classrooms' },
-    { id: 7, url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', title: 'Science Fair Winners', cat: 'Achievements' },
-    { id: 8, url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800', title: 'JEE Workshop', cat: 'Events' },
-    { id: 9, url: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800', title: 'Main Campus Entrance', cat: 'Achievements' },
-    { id: 10, url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800', title: 'Student Study Zone', cat: 'Classrooms' },
-    { id: 11, url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800', title: 'Cultural Festival', cat: 'Events' },
-    { id: 12, url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800', title: 'BiPC Field Trip', cat: 'Labs' },
+    // Events - 11 slots
+    { id: 1, url: '/events0.JPG', title: 'Event 0', cat: 'Events' },
+    { id: 2, url: '/events1.JPG', title: 'Event 1', cat: 'Events' },
+    { id: 3, url: '/events2.JPG', title: 'Event 2', cat: 'Events' },
+    { id: 4, url: '/events3.JPG', title: 'Event 3', cat: 'Events' },
+    { id: 5, url: '/events4.JPG', title: 'Event 4', cat: 'Events' },
+    { id: 6, url: '/events5.JPG', title: 'Event 5', cat: 'Events' },
+    { id: 7, url: '/events6.JPG', title: 'Event 6', cat: 'Events' },
+    { id: 8, url: '/events7.JPG', title: 'Event 7', cat: 'Events' },
+    { id: 9, url: '/events8.JPG', title: 'Event 8', cat: 'Events' },
+    { id: 10, url: '/events9.JPG', title: 'Event 9', cat: 'Events' },
+    { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
+
+    // Labs
+    { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
+    { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
+
+    // Classrooms
+    { id: 14, url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800', title: 'Interactive MPC Classroom', cat: 'Classrooms' },
+    { id: 15, url: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800', title: 'Central Library', cat: 'Classrooms' },
+
+    // Achievements
+    { id: 16, url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', title: 'Science Fair Winners', cat: 'Achievements' },
+    { id: 17, url: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800', title: 'Main Campus Entrance', cat: 'Achievements' },
   ];
 
-  const filteredImages = filter === 'All' ? images : images.filter(i => i.cat === filter);
+  const filteredImages = images.filter(i => i.cat === filter);
+
 
   return (
-    <div className="py-20 min-h-screen relative z-10">
+    <div className="py-10 min-h-screen relative z-10">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-24">
           <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-xs block mb-6">Campus Gallery</span>
@@ -36,7 +50,7 @@ const Gallery: React.FC = () => {
         </div>
 
         {/* Vijayawada Main Branches Section */}
-        <div className="mb-40">
+        <div className="mb-20">
           <div className="text-center mb-16">
             <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-xs block mb-4">Our Presence</span>
             <h2 className="text-5xl font-black text-purple-950">Our <span className="text-silver-400">Branches</span></h2>
@@ -159,15 +173,21 @@ const Gallery: React.FC = () => {
         </div>
 
 
+        {/* Gallery Section Header */}
+        <div className="text-center mb-10">
+          <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Visual Journey</span>
+          <h2 className="text-5xl font-black text-purple-950">Campus <span className="text-silver-400">Gallery</span></h2>
+        </div>
+
         {/* Filter Bar */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-6 mb-8">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-10 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all border-2 ${filter === cat
-                ? 'bg-purple-900 text-white border-purple-900 shadow-xl'
-                : 'bg-white text-slate-400 border-slate-100 hover:border-purple-200'
+              className={`px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all border-b-2 ${filter === cat
+                ? 'text-purple-950 border-purple-950'
+                : 'text-slate-400 border-transparent hover:text-purple-400'
                 }`}
             >
               {cat}
@@ -176,35 +196,75 @@ const Gallery: React.FC = () => {
         </div>
 
         {/* Main Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-10 space-y-10">
-          {filteredImages.map((img) => (
-            <div
-              key={img.id}
-              className="relative group overflow-hidden rounded-[3rem] bg-slate-50 border border-slate-100 cursor-pointer break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-700"
-            >
-              <img
-                src={img.url}
-                alt={img.title}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-12">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <span className="text-yellow-400 text-xs font-black uppercase tracking-widest block mb-2">{img.cat}</span>
-                    <h3 className="text-white font-bold text-2xl leading-tight">{img.title}</h3>
+        <div className="relative">
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-[2px] space-y-[2px]">
+            {filteredImages.map((img) => (
+              <div
+                key={img.id}
+                onClick={() => setSelectedImage(img)}
+                className="relative group cursor-pointer break-inside-avoid overflow-hidden bg-white"
+              >
+                <img
+                  src={img.url}
+                  alt={img.title}
+                  className="w-full h-auto transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                />
+                {/* Subtle Hover Overlay for Download */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500">
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <a
+                      href={img.url}
+                      download
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-2 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-widest text-purple-950 shadow-2xl hover:bg-purple-950 hover:text-white transition-all"
+                    >
+                      <Download size={14} />
+                      Save
+                    </a>
                   </div>
-                  <button className="p-4 bg-white/20 backdrop-blur-md rounded-2xl text-white hover:bg-yellow-400 hover:text-purple-950 transition-all">
-                    <Search size={24} />
-                  </button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
+        {/* Lightbox */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </button>
+            <div className="relative max-w-full max-h-full flex items-center justify-center" onClick={e => e.stopPropagation()}>
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                className="max-w-full max-h-[90vh] object-contain shadow-2xl"
+              />
+              <div className="absolute -bottom-12 left-0 right-0 flex justify-between items-center text-white/70">
+                <span className="text-xs font-bold uppercase tracking-widest">{selectedImage.cat} — {selectedImage.title}</span>
+                <a
+                  href={selectedImage.url}
+                  download
+                  className="flex items-center gap-2 hover:text-white transition-colors"
+                >
+                  <Download size={16} />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Download Original</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Additional Image Areas */}
-        <div className="mt-40 border-t border-slate-100 pt-32">
-          <div className="flex flex-col md:flex-row gap-20 items-center">
+        <div className="mt-0 border-t border-slate-100 pt-4">
+          <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-1/2 grid grid-cols-2 gap-6">
               <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg mt-12" alt="Scene 1" />
               <img src="https://images.unsplash.com/photo-1523580494863-6f303122469a?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg" alt="Scene 2" />
@@ -236,14 +296,38 @@ const Gallery: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-40 bg-purple-950 rounded-[4rem] p-20 text-center text-white relative overflow-hidden">
+        <div className="mt-20 bg-purple-950 rounded-[4rem] p-8 md:p-16 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-yellow-400/5 rotate-12 -translate-y-1/2 rounded-[50%]"></div>
-          <ImageIcon className="mx-auto text-yellow-400 mb-8" size={64} />
-          <h2 className="text-4xl font-black mb-6">Discover Campus Life</h2>
-          <p className="text-purple-200 text-lg mb-12 max-w-2xl mx-auto">Explore more about our campus facilities, our hostel blocks, and our dedicated entrance exam coaching zones.</p>
-          <button className="bg-yellow-400 text-purple-950 font-black px-14 py-6 rounded-2xl hover:bg-white transition-all text-lg shadow-2xl">
-            Book a Campus Tour
-          </button>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+            {/* Image Slot - Left Side */}
+            <div className="w-full md:w-[45%]">
+              <div className="aspect-[16/10] bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
+                <img
+                  src="/book campus.jpg"
+                  alt="Campus Perspective"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = '<div class="text-white/10 font-black uppercase tracking-[0.2em] text-sm">Image Placement Slot</div>';
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Content Slot - Right Side */}
+            <div className="w-full md:w-[55%] text-center md:text-left">
+              <p className="text-xl md:text-2xl text-purple-50 leading-relaxed font-semibold mb-12">
+                Choose your path to success with our specialized streams: <span className="text-yellow-400">MPC (Mathematics, Physics, Chemistry)</span> integrated with IIT-JEE coaching, or <span className="text-yellow-400">BiPC (Biology, Physics, Chemistry)</span> combined with NEET preparation for aspiring medical professionals.
+              </p>
+
+              <button className="group relative inline-flex items-center gap-4 bg-transparent border-2 border-yellow-400 text-yellow-400 font-black px-12 py-5 rounded-full hover:bg-yellow-400 hover:text-purple-950 transition-all duration-500 text-sm tracking-[0.2em] uppercase">
+                Book Campus Visit
+                <ChevronRight size={18} className="group-hover:translate-x-2 transition-transform" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
