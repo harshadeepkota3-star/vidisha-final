@@ -263,7 +263,7 @@ const Gallery: React.FC = () => {
         )}
 
         {/* Additional Image Areas */}
-        <div className="mt-0 border-t border-slate-100 pt-4">
+        <div className="mt-20 border-t border-slate-100 pt-16">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-1/2 grid grid-cols-2 gap-6">
               <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg mt-12" alt="Scene 1" />

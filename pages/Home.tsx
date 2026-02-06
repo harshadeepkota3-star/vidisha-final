@@ -8,7 +8,11 @@ const bannerImages = [
   "/banner_slide_4.jpg"
 ];
 
-const Home: React.FC = () => {
+interface HomeProps {
+  onNavigate: (tab: string) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const stats = [
     { label: 'Success Rate', value: '98%' },
     { label: 'Students Enrolled', value: '6000+' },
@@ -52,11 +56,6 @@ const Home: React.FC = () => {
 
   const vidishaFeatures = [
     {
-      title: 'Air-Conditioned Smart Classrooms',
-      description: 'State-of-the-art learning environment with digital teaching systems for enhanced understanding',
-      icon: <Monitor className="w-8 h-8" />
-    },
-    {
       title: 'Experienced Faculty',
       description: 'Highly qualified and passionate teachers dedicated to student success in both boards and competitive exams',
       icon: <Users className="w-8 h-8" />
@@ -80,6 +79,11 @@ const Home: React.FC = () => {
       title: 'Integrated Coaching',
       description: 'Board preparation combined with IIT-JEE Mains, Advanced, and NEET coaching under one roof',
       icon: <BookOpen className="w-8 h-8" />
+    },
+    {
+      title: 'Air-Conditioned Smart Classrooms',
+      description: 'State-of-the-art learning environment with digital teaching systems for enhanced understanding',
+      icon: <Monitor className="w-8 h-8" />
     }
   ];
 
@@ -118,11 +122,17 @@ const Home: React.FC = () => {
         >
           <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
         </button>
-        <div className="relative bg-white rounded-3xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20">
+        <div
+          className="relative bg-white rounded-3xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 cursor-pointer"
+          onClick={() => {
+            setShowPopup(false);
+            onNavigate('contact');
+          }}
+        >
           <img
             src="/popup_announcement.jpg"
             alt="Admissions Open 2026-27"
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
       </div>
@@ -134,12 +144,12 @@ const Home: React.FC = () => {
       {popupContent}
       <div className="animate-in fade-in duration-700">
         <section className="flex flex-col w-full text-center">
-          <div className="w-full z-40 bg-yellow-400 py-2.5 border-b border-purple-900/20 shadow-sm overflow-hidden relative">
-            <div className="animate-marquee whitespace-nowrap flex text-[11px] font-black uppercase tracking-[0.3em] text-purple-950">
-              <span className="px-6">{marqueeText}</span>
-              <span className="px-6">{marqueeText}</span>
-              <span className="px-6">{marqueeText}</span>
-              <span className="px-6">{marqueeText}</span>
+          <div className="w-full z-40 bg-yellow-400 py-2 lg:py-2.5 border-b border-purple-900/20 shadow-sm overflow-hidden relative">
+            <div className="animate-marquee whitespace-nowrap flex text-[8px] lg:text-[11px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-purple-950">
+              <span className="px-4 lg:px-6">{marqueeText}</span>
+              <span className="px-4 lg:px-6">{marqueeText}</span>
+              <span className="px-4 lg:px-6">{marqueeText}</span>
+              <span className="px-4 lg:px-6">{marqueeText}</span>
             </div>
           </div>
 
@@ -191,20 +201,20 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-white relative text-center">
+        <section className="py-12 lg:py-24 bg-white relative text-center">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-black text-purple-900 mb-6">Why Choose Vidisha</h2>
-              <div className="h-2 w-32 bg-yellow-400 mx-auto rounded-full shadow-lg"></div>
+            <div className="text-center mb-8 lg:mb-16">
+              <h2 className="text-2xl lg:text-5xl font-black text-purple-900 mb-4 lg:mb-6">Why Choose Vidisha</h2>
+              <div className="h-1.5 lg:h-2 w-20 lg:w-32 bg-yellow-400 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
               {vidishaFeatures.map((feature, idx) => (
-                <div key={idx} className="group p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-purple-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-yellow-400 transition-colors mx-auto">
-                    {React.cloneElement(feature.icon as React.ReactElement, { className: 'w-8 h-8 text-purple-900' })}
+                <div key={idx} className="group p-6 lg:p-8 rounded-2xl lg:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-purple-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2">
+                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-sm group-hover:bg-yellow-400 transition-colors mx-auto">
+                    {React.cloneElement(feature.icon as React.ReactElement, { className: 'w-6 h-6 lg:w-8 lg:h-8 text-purple-900' })}
                   </div>
-                  <h3 className="text-xl font-black mb-3 group-hover:text-white text-purple-950 transition-colors text-center">{feature.title}</h3>
-                  <p className="font-medium text-slate-500 leading-relaxed group-hover:text-purple-100 transition-colors text-sm text-center">
+                  <h3 className="text-lg lg:text-xl font-black mb-2 lg:mb-3 group-hover:text-white text-purple-950 transition-colors text-center">{feature.title}</h3>
+                  <p className="font-medium text-slate-500 leading-relaxed group-hover:text-purple-100 transition-colors text-xs lg:text-sm text-center">
                     {feature.description}
                   </p>
                 </div>
@@ -213,34 +223,34 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-32 bg-slate-50 relative overflow-hidden text-center">
+        <section className="py-12 lg:py-32 bg-slate-50 relative overflow-hidden text-center">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl font-black text-purple-900">Important Dates & Updates</h2>
-              <div className="h-2 w-32 bg-yellow-400 mx-auto mt-6 rounded-full shadow-lg"></div>
+            <div className="text-center mb-10 lg:mb-20">
+              <h2 className="text-2xl lg:text-5xl font-black text-purple-900">Important Dates & Updates</h2>
+              <div className="h-1.5 lg:h-2 w-20 lg:w-32 bg-yellow-400 mx-auto mt-4 lg:mt-6 rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
               {events.map((event: any, idx) => (
-                <div key={idx} className="group bg-white rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col h-full">
-                  <div className={`h-56 bg-indigo-50 border-b border-indigo-100 relative group-hover:bg-indigo-100 transition-colors flex flex-col items-center justify-center text-center cursor-pointer overflow-hidden ${event.image ? 'p-0' : 'p-6'}`}>
+                <div key={idx} className="group bg-white rounded-2xl lg:rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col h-full">
+                  <div className={`h-40 lg:h-56 bg-indigo-50 border-b border-indigo-100 relative group-hover:bg-indigo-100 transition-colors flex flex-col items-center justify-center text-center cursor-pointer overflow-hidden ${event.image ? 'p-0' : 'p-4 lg:p-6'}`}>
                     {event.image ? (
                       <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     ) : (
                       <>
-                        <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-4 rounded-[2rem] group-hover:border-indigo-300 transition-colors"></div>
-                        <ImageIcon className="w-10 h-10 text-indigo-300 mb-3 relative z-10 group-hover:scale-110 transition-transform group-hover:text-indigo-500" />
-                        <span className="text-xs font-black uppercase tracking-widest text-indigo-300 relative z-10 group-hover:text-indigo-600 transition-colors">Image Slot {idx + 1}</span>
+                        <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-3 lg:m-4 rounded-xl lg:rounded-[2rem] group-hover:border-indigo-300 transition-colors"></div>
+                        <ImageIcon className="w-8 h-8 lg:w-10 lg:h-10 text-indigo-300 mb-2 lg:mb-3 relative z-10 group-hover:scale-110 transition-transform group-hover:text-indigo-500" />
+                        <span className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-indigo-300 relative z-10 group-hover:text-indigo-600 transition-colors">Image Slot {idx + 1}</span>
                       </>
                     )}
                   </div>
-                  <div className="p-8 flex flex-col flex-1 text-left">
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-purple-900 text-white">{event.date}</span>
+                  <div className="p-5 lg:p-8 flex flex-col flex-1 text-left">
+                    <div className="flex items-start justify-between mb-3 lg:mb-4">
+                      <span className="px-3 lg:px-4 py-1 lg:py-1.5 rounded-full text-[9px] lg:text-[10px] font-black uppercase tracking-wider bg-purple-900 text-white">{event.date}</span>
                     </div>
-                    <h3 className="text-xl font-black text-purple-950 mb-3 leading-tight">{event.title}</h3>
-                    <p className="text-slate-500 text-sm font-medium mb-8 leading-relaxed flex-1">{event.details}</p>
-                    <button className="w-full py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all bg-yellow-400 text-purple-950 hover:bg-yellow-500 shadow-lg hover:shadow-yellow-400/50">
-                      {event.action} <ArrowRight size={14} />
+                    <h3 className="text-base lg:text-xl font-black text-purple-950 mb-2 lg:mb-3 leading-tight">{event.title}</h3>
+                    <p className="text-slate-500 text-xs lg:text-sm font-medium mb-4 lg:mb-8 leading-relaxed flex-1">{event.details}</p>
+                    <button className="w-full py-3 lg:py-4 rounded-xl font-black text-[10px] lg:text-xs uppercase tracking-[0.15em] lg:tracking-[0.2em] flex items-center justify-center gap-2 transition-all bg-yellow-400 text-purple-950 hover:bg-yellow-500 shadow-lg hover:shadow-yellow-400/50">
+                      {event.action} <ArrowRight size={12} className="lg:w-3.5 lg:h-3.5" />
                     </button>
                   </div>
                 </div>
@@ -249,33 +259,34 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-32 bg-purple-950 text-white overflow-hidden relative text-center">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-yellow-400/5 -skew-x-12 translate-x-1/4"></div>
+        <section className="py-12 lg:py-32 bg-purple-950 text-white overflow-hidden relative text-center">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-yellow-400/5 -skew-x-12 translate-x-1/4 hidden lg:block"></div>
           <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-24">
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
               <div className="lg:w-1/2 text-left">
-                <h2 className="text-5xl font-black mb-10 leading-[1.15]">Excellence is <br /><span className="text-yellow-400 underline decoration-yellow-400/30 underline-offset-8">Hardcoded</span> in our Students</h2>
-                <ul className="space-y-8">
+                <h2 className="text-2xl lg:text-5xl font-black mb-6 lg:mb-10 leading-tight lg:leading-[1.15]">Excellence is <br className="hidden lg:block" /><span className="text-yellow-400 underline decoration-yellow-400/30 underline-offset-4 lg:underline-offset-8">Hardcoded</span> in our Students</h2>
+                <ul className="space-y-4 lg:space-y-8">
                   {["Intensive curriculum for MPC and BiPC streams", "Weekly mock tests for JEE and NEET preparation", "Dedicated doubt-clearing sessions with senior faculty", "Holistic development and personality grooming"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-6 text-xl font-medium">
-                      <CheckCircle2 className="text-yellow-400 shrink-0" size={32} />
+                    <li key={i} className="flex items-start gap-3 lg:gap-6 text-sm lg:text-xl font-medium">
+                      <CheckCircle2 className="text-yellow-400 shrink-0 w-5 h-5 lg:w-8 lg:h-8 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="mt-16 bg-white text-purple-950 font-black px-12 py-6 rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-lg uppercase tracking-widest inline-flex items-center gap-3 group">
-                  <Download className="w-6 h-6 group-hover:animate-bounce" />
-                  Download Academic Brochure
+                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="mt-8 lg:mt-16 bg-white text-purple-950 font-black px-6 lg:px-12 py-4 lg:py-6 rounded-2xl lg:rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-xs lg:text-lg uppercase tracking-widest inline-flex items-center gap-2 lg:gap-3 group">
+                  <Download className="w-4 h-4 lg:w-6 lg:h-6 group-hover:animate-bounce" />
+                  <span className="hidden sm:inline">Download Academic Brochure</span>
+                  <span className="sm:hidden">Brochure</span>
                 </a>
               </div>
-              <div className="lg:w-1/2 grid grid-cols-2 gap-6">
-                <div className="space-y-6">
-                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full h-64 object-cover rounded-[3rem] shadow-2xl border-4 border-white/10" alt="Students Studying" />
-                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" className="w-full h-80 object-cover rounded-[3rem] shadow-2xl border-4 border-white/10" alt="Laboratory" />
+              <div className="lg:w-1/2 grid grid-cols-2 gap-3 lg:gap-6 w-full">
+                <div className="space-y-3 lg:space-y-6">
+                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Students Studying" />
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-80 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Laboratory" />
                 </div>
-                <div className="space-y-6 pt-16">
-                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" className="w-full h-80 object-cover rounded-[3rem] shadow-2xl border-4 border-white/10" alt="Classroom" />
-                  <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="w-full h-64 object-cover rounded-[3rem] shadow-2xl border-4 border-white/10" alt="Library" />
+                <div className="space-y-3 lg:space-y-6 pt-6 lg:pt-16">
+                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-80 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Classroom" />
+                  <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Library" />
                 </div>
               </div>
             </div>

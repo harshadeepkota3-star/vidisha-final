@@ -18,7 +18,7 @@ const BackgroundDecor: React.FC = () => {
       <div className="absolute top-[70%] right-[10%] w-24 h-24 bg-purple-900/5 rounded-2xl rotate-6 shadow-[15px_15px_40px_#bebebe,-15px_-15px_40px_#ffffff]"></div>
       <div className="absolute top-[15%] right-[20%] w-16 h-16 bg-yellow-400/10 rounded-xl -rotate-45 shadow-[10px_10px_30px_#bebebe,-10px_-10px_30px_#ffffff]"></div>
       <div className="absolute bottom-[40%] left-[25%] w-40 h-40 bg-purple-900/5 rounded-[2rem] rotate-12 shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] opacity-40"></div>
-      
+
       {/* Subtle Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
     </div>
@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'home': return <Home />;
+      case 'home': return <Home onNavigate={navigateTo} />;
       case 'courses': return <Courses />;
       case 'gallery': return <Gallery />;
       case 'about': return <About />;
