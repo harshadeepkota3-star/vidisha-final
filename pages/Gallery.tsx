@@ -296,39 +296,6 @@ const Gallery: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-20 bg-purple-950 rounded-[4rem] p-8 md:p-16 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-yellow-400/5 rotate-12 -translate-y-1/2 rounded-[50%]"></div>
-
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-24">
-            {/* Image Slot - Left Side */}
-            <div className="w-full md:w-[45%]">
-              <div className="aspect-[16/10] bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
-                <img
-                  src="/book campus.jpg"
-                  alt="Campus Perspective"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = '<div class="text-white/10 font-black uppercase tracking-[0.2em] text-sm">Image Placement Slot</div>';
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Content Slot - Right Side */}
-            <div className="w-full md:w-[55%] text-center md:text-left">
-              <p className="text-xl md:text-2xl text-purple-50 leading-relaxed font-semibold mb-12">
-                Choose your path to success with our specialized streams: <span className="text-yellow-400">MPC (Mathematics, Physics, Chemistry)</span> integrated with IIT-JEE coaching, or <span className="text-yellow-400">BiPC (Biology, Physics, Chemistry)</span> combined with NEET preparation for aspiring medical professionals.
-              </p>
-
-              <button className="group relative inline-flex items-center gap-4 bg-transparent border-2 border-yellow-400 text-yellow-400 font-black px-12 py-5 rounded-full hover:bg-yellow-400 hover:text-purple-950 transition-all duration-500 text-sm tracking-[0.2em] uppercase">
-                Book Campus Visit
-                <ChevronRight size={18} className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

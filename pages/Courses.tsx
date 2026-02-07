@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, HardHat, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const mpcCourses = [
   {
@@ -84,7 +84,7 @@ const CourseCard: React.FC<{ course: any; icon: React.ReactNode; accentColor: st
   <div className="group bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
 
     <div className="mb-6 flex items-start justify-between">
-      <div className={`p-3 rounded-2xl ${accentColor.replace('bg-', 'bg-').replace('600', '50').replace('500', '50')} ${accentColor.replace('bg-', 'text-')}`}>
+      <div className="flex items-center justify-center">
         {icon}
       </div>
       <div className="px-4 py-1.5 rounded-full bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-100">
@@ -140,8 +140,8 @@ const Courses: React.FC = () => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
-                  <HardHat size={32} />
+                <div className="flex items-center justify-center">
+                  <img src="/mpc-stream.png" alt="MPC Stream" className="w-16 h-16 object-contain" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-purple-950">MPC Stream</h2>
@@ -159,7 +159,7 @@ const Courses: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mpcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<HardHat className="w-6 h-6" />} accentColor="bg-blue-600" />
+              <CourseCard key={idx} course={course} icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />} accentColor="bg-blue-600" />
             ))}
           </div>
         </div>
@@ -169,8 +169,8 @@ const Courses: React.FC = () => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
-                  <Stethoscope size={32} />
+                <div className="flex items-center justify-center">
+                  <img src="/bipc-stream.png" alt="BiPC Stream" className="w-16 h-16 object-contain" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-purple-950">BiPC Stream</h2>
@@ -188,7 +188,7 @@ const Courses: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {bipcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<Stethoscope className="w-6 h-6" />} accentColor="bg-emerald-600" />
+              <CourseCard key={idx} course={course} icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />} accentColor="bg-emerald-600" />
             ))}
           </div>
         </div>

@@ -89,6 +89,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+  const [filter, setFilter] = useState('Events');
+  const [selectedImage, setSelectedImage] = useState<any>(null);
+
+  const categories = ['Events', 'Labs', 'Classrooms', 'Achievements'];
+
+  const images = [
+    // Events - 11 slots
+    { id: 1, url: '/events0.JPG', title: 'Event 0', cat: 'Events' },
+    { id: 2, url: '/events1.JPG', title: 'Event 1', cat: 'Events' },
+    { id: 3, url: '/events2.JPG', title: 'Event 2', cat: 'Events' },
+    { id: 4, url: '/events3.JPG', title: 'Event 3', cat: 'Events' },
+    { id: 5, url: '/events4.JPG', title: 'Event 4', cat: 'Events' },
+    { id: 6, url: '/events5.JPG', title: 'Event 5', cat: 'Events' },
+    { id: 7, url: '/events6.JPG', title: 'Event 6', cat: 'Events' },
+    { id: 8, url: '/events7.JPG', title: 'Event 7', cat: 'Events' },
+    { id: 9, url: '/events8.JPG', title: 'Event 8', cat: 'Events' },
+    { id: 10, url: '/events9.JPG', title: 'Event 9', cat: 'Events' },
+    { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
+
+    // Labs
+    { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
+    { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
+
+    // Classrooms
+    { id: 14, url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800', title: 'Interactive MPC Classroom', cat: 'Classrooms' },
+    { id: 15, url: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800', title: 'Central Library', cat: 'Classrooms' },
+
+    // Achievements
+    { id: 16, url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', title: 'Science Fair Winners', cat: 'Achievements' },
+    { id: 17, url: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800', title: 'Main Campus Entrance', cat: 'Achievements' },
+  ];
+
+  const filteredImages = images.filter(i => i.cat === filter);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowPopup(true), 500);
@@ -153,16 +186,28 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          <div className="w-full relative group">
-            <div className="w-full relative overflow-hidden">
-              {bannerImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100 relative' : 'opacity-0 absolute inset-0'}`}
-                >
-                  <img src={img} alt={`Banner ${index + 1}`} className="w-full h-auto block" />
-                </div>
-              ))}
+          <div className="w-full relative group [perspective:3000px]">
+            <div className="w-full relative overflow-hidden min-h-[200px] sm:min-h-[400px] lg:min-h-[500px]">
+              {/* Invisible anchor image to maintain h-auto aspect ratio responsiveness */}
+              <img src={bannerImages[0]} alt="spacer" className="w-full h-auto block opacity-0 pointer-events-none" aria-hidden="true" />
+
+              <div className="absolute inset-0 w-full h-full [transform-style:preserve-3d]">
+                {bannerImages.map((img, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out origin-left [backface-visibility:hidden] ${index === currentSlide
+                        ? 'z-20 [transform:rotateY(0deg)] opacity-100 invisible:opacity-0'
+                        : index < currentSlide
+                          ? 'z-10 [transform:rotateY(-150deg)] opacity-0 pointer-events-none'
+                          : 'z-0 [transform:rotateY(0deg)] opacity-0 pointer-events-none'
+                      }`}
+                  >
+                    <img src={img} alt={`Banner ${index + 1}`} className="w-full h-full object-cover" />
+                    {/* Depth shadow vignette during transition */}
+                    <div className={`absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent transition-opacity duration-1000 ${index === currentSlide ? 'opacity-0' : 'opacity-100'}`}></div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <button onClick={prevSlide} className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 z-10">
@@ -201,7 +246,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
         </section>
 
-        <section className="py-12 lg:py-24 bg-white relative text-center">
+        <section className="py-12 lg:py-16 bg-white relative text-center">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8 lg:mb-16">
               <h2 className="text-2xl lg:text-5xl font-black text-purple-900 mb-4 lg:mb-6">Why Choose Vidisha</h2>
@@ -223,7 +268,46 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
         </section>
 
-        <section className="py-12 lg:py-32 bg-slate-50 relative overflow-hidden text-center">
+        <div className="max-w-7xl mx-auto px-4 mb-20">
+          <div className="bg-purple-950 rounded-2xl p-8 lg:p-16 text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 bg-yellow-400/5 rotate-12 -translate-y-1/2 rounded-[50%]"></div>
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+              {/* Image Slot - Left Side */}
+              <div className="w-full lg:w-[45%]">
+                <div className="aspect-[16/10] bg-white/5 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
+                  <img
+                    src="/book campus.jpg"
+                    alt="Campus Perspective"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = '<div class="text-white/10 font-black uppercase tracking-[0.2em] text-sm">Image Placement Slot</div>';
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Content Slot - Right Side */}
+              <div className="w-full lg:w-[55%] text-center lg:text-left">
+                <p className="text-lg lg:text-2xl text-purple-50 leading-relaxed font-semibold mb-8 lg:mb-12">
+                  Choose your path to success with our specialized streams: <span className="text-yellow-400">MPC (Mathematics, Physics, Chemistry)</span> integrated with IIT-JEE coaching, or <span className="text-yellow-400">BiPC (Biology, Physics, Chemistry)</span> combined with NEET preparation.
+                </p>
+
+                <button
+                  onClick={() => onNavigate('contact')}
+                  className="group relative inline-flex items-center gap-4 bg-transparent border-2 border-yellow-400 text-yellow-400 font-black px-8 lg:px-12 py-4 lg:py-5 rounded-xl hover:bg-yellow-400 hover:text-purple-950 transition-all duration-500 text-[10px] lg:text-xs tracking-[0.2em] uppercase shadow-lg shadow-yellow-400/10"
+                >
+                  Book Campus Visit
+                  <ChevronRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section className="py-12 lg:py-20 bg-slate-50 relative overflow-hidden text-center">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-10 lg:mb-20">
               <h2 className="text-2xl lg:text-5xl font-black text-purple-900">Important Dates & Updates</h2>
@@ -244,13 +328,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     )}
                   </div>
                   <div className="p-5 lg:p-8 flex flex-col flex-1 text-left">
-                    <div className="flex items-start justify-between mb-3 lg:mb-4">
-                      <span className="px-3 lg:px-4 py-1 lg:py-1.5 rounded-full text-[9px] lg:text-[10px] font-black uppercase tracking-wider bg-purple-900 text-white">{event.date}</span>
-                    </div>
                     <h3 className="text-base lg:text-xl font-black text-purple-950 mb-2 lg:mb-3 leading-tight">{event.title}</h3>
                     <p className="text-slate-500 text-xs lg:text-sm font-medium mb-4 lg:mb-8 leading-relaxed flex-1">{event.details}</p>
-                    <button className="w-full py-3 lg:py-4 rounded-xl font-black text-[10px] lg:text-xs uppercase tracking-[0.15em] lg:tracking-[0.2em] flex items-center justify-center gap-2 transition-all bg-yellow-400 text-purple-950 hover:bg-yellow-500 shadow-lg hover:shadow-yellow-400/50">
-                      {event.action} <ArrowRight size={12} className="lg:w-3.5 lg:h-3.5" />
+                    <button className="w-full py-3 lg:py-4 px-4 rounded-xl font-black text-[10px] lg:text-xs uppercase tracking-[0.15em] lg:tracking-[0.2em] flex items-center justify-center gap-2 transition-all bg-yellow-400 text-purple-950 hover:bg-yellow-500 shadow-lg hover:shadow-yellow-400/50 group/btn">
+                      <span className="text-center leading-tight">{event.action}</span>
+                      <ArrowRight size={12} className="lg:w-3.5 lg:h-3.5 shrink-0 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -259,34 +341,119 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
         </section>
 
-        <section className="py-12 lg:py-32 bg-purple-950 text-white overflow-hidden relative text-center">
+        <section className="py-12 lg:py-20 bg-white relative overflow-hidden text-center">
+          <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Visual Journey</span>
+              <h2 className="text-3xl lg:text-5xl font-black text-purple-950">Campus <span className="text-silver-400">Gallery</span></h2>
+              <div className="h-1 lg:h-1.5 w-16 lg:w-24 bg-yellow-400 mx-auto mt-4 rounded-full shadow-lg"></div>
+            </div>
+
+            {/* Filter Bar */}
+            <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mb-8 mt-12">
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all border-b-2 ${filter === cat
+                    ? 'text-purple-950 border-purple-950'
+                    : 'text-slate-400 border-transparent hover:text-purple-400'
+                    }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Main Masonry Grid */}
+            <div className="relative">
+              <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-[2px] space-y-[2px]">
+                {filteredImages.map((img) => (
+                  <div
+                    key={img.id}
+                    onClick={() => setSelectedImage(img)}
+                    className="relative group cursor-pointer break-inside-avoid overflow-hidden bg-white"
+                  >
+                    <img
+                      src={img.url}
+                      alt={img.title}
+                      className="w-full h-auto transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500">
+                      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                        <div
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-2 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-widest text-purple-950 shadow-2xl hover:bg-purple-950 hover:text-white transition-all"
+                        >
+                          <Download size={14} />
+                          Save
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Lightbox */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-[100000] bg-black/95 flex items-center justify-center p-4 md:p-10"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </button>
+            <div className="relative max-w-full max-h-full flex items-center justify-center" onClick={e => e.stopPropagation()}>
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                className="max-w-full max-h-[90vh] object-contain shadow-2xl"
+              />
+              <div className="absolute -bottom-12 left-0 right-0 flex justify-between items-center text-white/70">
+                <span className="text-xs font-bold uppercase tracking-widest">{selectedImage.cat} — {selectedImage.title}</span>
+                <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  <Download size={16} />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Download Original</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <section className="py-12 lg:py-20 bg-purple-950 text-white overflow-hidden relative text-center">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-yellow-400/5 -skew-x-12 translate-x-1/4 hidden lg:block"></div>
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
               <div className="lg:w-1/2 text-left">
                 <h2 className="text-2xl lg:text-5xl font-black mb-6 lg:mb-10 leading-tight lg:leading-[1.15]">Excellence is <br className="hidden lg:block" /><span className="text-yellow-400 underline decoration-yellow-400/30 underline-offset-4 lg:underline-offset-8">Hardcoded</span> in our Students</h2>
-                <ul className="space-y-4 lg:space-y-8">
+                <ul className="space-y-4 lg:space-y-6">
                   {["Intensive curriculum for MPC and BiPC streams", "Weekly mock tests for JEE and NEET preparation", "Dedicated doubt-clearing sessions with senior faculty", "Holistic development and personality grooming"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 lg:gap-6 text-sm lg:text-xl font-medium">
-                      <CheckCircle2 className="text-yellow-400 shrink-0 w-5 h-5 lg:w-8 lg:h-8 mt-0.5" />
+                    <li key={i} className="flex items-start gap-3 lg:gap-6 text-sm lg:text-lg font-medium">
+                      <CheckCircle2 className="text-yellow-400 shrink-0 w-5 h-5 lg:w-7 lg:h-7 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="mt-8 lg:mt-16 bg-white text-purple-950 font-black px-6 lg:px-12 py-4 lg:py-6 rounded-2xl lg:rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-xs lg:text-lg uppercase tracking-widest inline-flex items-center gap-2 lg:gap-3 group">
-                  <Download className="w-4 h-4 lg:w-6 lg:h-6 group-hover:animate-bounce" />
+                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="mt-8 lg:mt-12 bg-white text-purple-950 font-black px-6 lg:px-12 py-4 lg:py-5 rounded-2xl lg:rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-xs lg:text-base uppercase tracking-widest inline-flex items-center gap-2 lg:gap-3 group">
+                  <Download className="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" />
                   <span className="hidden sm:inline">Download Academic Brochure</span>
                   <span className="sm:hidden">Brochure</span>
                 </a>
               </div>
               <div className="lg:w-1/2 grid grid-cols-2 gap-3 lg:gap-6 w-full">
                 <div className="space-y-3 lg:space-y-6">
-                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Students Studying" />
-                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-80 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Laboratory" />
+                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Students Studying" />
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Laboratory" />
                 </div>
-                <div className="space-y-3 lg:space-y-6 pt-6 lg:pt-16">
-                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-80 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Classroom" />
-                  <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Library" />
+                <div className="space-y-3 lg:space-y-6 pt-6 lg:pt-12">
+                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Classroom" />
+                  <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Library" />
                 </div>
               </div>
             </div>
