@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
           <div className="lg:w-1/2 relative w-full">
             <div className="absolute -top-8 lg:-top-16 -right-8 lg:-right-16 w-32 lg:w-64 h-32 lg:h-64 bg-yellow-400 rounded-2xl lg:rounded-[4rem] -z-10 rotate-12 opacity-20"></div>
             <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800"
+              src="/branch_bharathi_nagar_1.png"
               className="w-full h-64 lg:h-[550px] object-cover rounded-2xl lg:rounded-[5rem] shadow-2xl border-4 lg:border-[10px] border-white"
               alt="College Entrance"
             />
@@ -108,15 +108,15 @@ const Contact: React.FC = () => {
               </h3>
               <div className="space-y-4 lg:space-y-6">
                 {[
-                  "Chairman@vidishaedusociety.com",
-                  "Management@vidishaedusociety.com",
-                  "Accounts@vidishaedusociety.com",
-                  "Enquiry@vidishaedusociety.com",
-                  "Vijayawada@vidishaedusociety.com",
-                  "Visakhapatnam@vidishaedusociety.com",
-                  "Hyderabad@vidishaedusociety.com",
-                  "Guntur@vidishaedusociety.com",
-                  "Kakinada@vidishaedusociety.com"
+                  "chairman@vidishaedusociety.com",
+                  "management@vidishaedusociety.com",
+                  "accounts@vidishaedusociety.com",
+                  "enquiry@vidishaedusociety.com",
+                  "vijayawada@vidishaedusociety.com",
+                  "visakhapatnam@vidishaedusociety.com",
+                  "hyderabad@vidishaedusociety.com",
+                  "guntur@vidishaedusociety.com",
+                  "kakinada@vidishaedusociety.com"
                 ].map((email, i) => (
                   <div key={i} className="group cursor-pointer">
                     <a

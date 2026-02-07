@@ -112,13 +112,25 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
     { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
 
-    // Classrooms
-    { id: 14, url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800', title: 'Interactive MPC Classroom', cat: 'Classrooms' },
-    { id: 15, url: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800', title: 'Central Library', cat: 'Classrooms' },
-
-    // Achievements
-    { id: 16, url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', title: 'Science Fair Winners', cat: 'Achievements' },
-    { id: 17, url: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800', title: 'Main Campus Entrance', cat: 'Achievements' },
+    // Classrooms - 7 slots
+    { id: 14, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
+    { id: 15, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
+    { id: 16, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
+    { id: 17, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
+    { id: 18, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
+    { id: 19, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
+    { id: 20, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
+    { id: 21, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
+    // Achievements - 11 slots
+    { id: 22, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
+    { id: 23, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
+    { id: 24, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
+    { id: 25, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
+    { id: 26, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
+    { id: 27, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
+    { id: 28, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
+    { id: 29, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
+    { id: 30, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
   ];
 
   const filteredImages = images.filter(i => i.cat === filter);
@@ -196,10 +208,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <div
                     key={index}
                     className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out origin-left [backface-visibility:hidden] ${index === currentSlide
-                        ? 'z-20 [transform:rotateY(0deg)] opacity-100 invisible:opacity-0'
-                        : index < currentSlide
-                          ? 'z-10 [transform:rotateY(-150deg)] opacity-0 pointer-events-none'
-                          : 'z-0 [transform:rotateY(0deg)] opacity-0 pointer-events-none'
+                      ? 'z-20 [transform:rotateY(0deg)] opacity-100 invisible:opacity-0'
+                      : index < currentSlide
+                        ? 'z-10 [transform:rotateY(-150deg)] opacity-0 pointer-events-none'
+                        : 'z-0 [transform:rotateY(0deg)] opacity-0 pointer-events-none'
                       }`}
                   >
                     <img src={img} alt={`Banner ${index + 1}`} className="w-full h-full object-cover" />
@@ -448,12 +460,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
               <div className="lg:w-1/2 grid grid-cols-2 gap-3 lg:gap-6 w-full">
                 <div className="space-y-3 lg:space-y-6">
-                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Students Studying" />
-                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Laboratory" />
+                  <img src="/classrooms1.jpg" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Students Studying" />
+                  <img src="/achievement2.jpg" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Laboratory" />
                 </div>
                 <div className="space-y-3 lg:space-y-6 pt-6 lg:pt-12">
-                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Classroom" />
-                  <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Library" />
+                  <img src="/events3.JPG" className="w-full h-40 lg:h-64 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Classroom" />
+                  <img src="/classrooms2.jpeg" className="w-full h-32 lg:h-48 object-cover rounded-2xl lg:rounded-[3rem] shadow-2xl border-2 lg:border-4 border-white/10" alt="Library" />
                 </div>
               </div>
             </div>

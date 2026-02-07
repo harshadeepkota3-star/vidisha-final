@@ -159,10 +159,10 @@ const About: React.FC = () => {
           </div>
           <div className="lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-8 relative w-full">
             <div className="absolute inset-0 bg-purple-900/5 blur-[120px] -z-10 rounded-full"></div>
-            <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=400" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl mt-6 lg:mt-12" alt="College Building" />
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl" alt="Students" />
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl" alt="Lab Work" />
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl -mt-6 lg:-mt-12" alt="Classroom" />
+            <img src="/classrooms1.jpg" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl mt-6 lg:mt-12" alt="College Building" />
+            <img src="/classrooms2.jpeg" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl" alt="Students" />
+            <img src="/classrooms3.jpeg" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl" alt="Lab Work" />
+            <img src="/classrooms4.jpeg" className="w-full aspect-square object-cover rounded-2xl lg:rounded-[3rem] shadow-xl lg:shadow-2xl -mt-6 lg:-mt-12" alt="Classroom" />
           </div>
         </div>
 

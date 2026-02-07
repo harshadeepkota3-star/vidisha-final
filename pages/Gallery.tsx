@@ -26,13 +26,25 @@ const Gallery: React.FC = () => {
     { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
     { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
 
-    // Classrooms
-    { id: 14, url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800', title: 'Interactive MPC Classroom', cat: 'Classrooms' },
-    { id: 15, url: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800', title: 'Central Library', cat: 'Classrooms' },
-
-    // Achievements
-    { id: 16, url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', title: 'Science Fair Winners', cat: 'Achievements' },
-    { id: 17, url: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800', title: 'Main Campus Entrance', cat: 'Achievements' },
+    // Classrooms - 7 slots
+    { id: 14, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
+    { id: 15, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
+    { id: 16, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
+    { id: 17, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
+    { id: 18, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
+    { id: 19, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
+    { id: 20, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
+    { id: 21, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
+    // Achievements - 11 slots
+    { id: 22, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
+    { id: 23, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
+    { id: 24, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
+    { id: 25, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
+    { id: 26, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
+    { id: 27, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
+    { id: 28, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
+    { id: 29, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
+    { id: 30, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
   ];
 
   const filteredImages = images.filter(i => i.cat === filter);
@@ -103,7 +115,7 @@ const Gallery: React.FC = () => {
                 location: "Hyderabad",
                 address: "1st Floor, ATC, ATC - Anil Trading Co., Bolaram Rd, Lal Bahadur Colony, Tirumalagiri, Secunderabad, Telangana 500015",
                 title: "Hyderabad Branch",
-                image: "/branch_hyderabad.png",
+                image: "/branch_hyderabad.jpeg",
                 phone: "6366527167"
               },
               {
@@ -266,10 +278,10 @@ const Gallery: React.FC = () => {
         <div className="mt-20 border-t border-slate-100 pt-16">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-1/2 grid grid-cols-2 gap-6">
-              <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg mt-12" alt="Scene 1" />
-              <img src="https://images.unsplash.com/photo-1523580494863-6f303122469a?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg" alt="Scene 2" />
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg" alt="Scene 3" />
-              <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=400" className="rounded-3xl shadow-lg -mt-12" alt="Scene 4" />
+              <img src="events5.JPG" className="rounded-3xl shadow-lg mt-12" alt="Scene 1" />
+              <img src="classrooms5.jpg" className="rounded-3xl shadow-lg" alt="Scene 2" />
+              <img src="events7.JPG" className="rounded-3xl shadow-lg" alt="Scene 3" />
+              <img src="classrooms4.jpeg" className="rounded-3xl shadow-lg -mt-12" alt="Scene 4" />
             </div>
             <div className="md:w-1/2">
               <h2 className="text-5xl font-black text-purple-950 mb-8 leading-tight">Beyond <span className="text-yellow-500">Academics.</span></h2>
