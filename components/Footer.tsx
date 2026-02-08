@@ -12,12 +12,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="bg-purple-950 text-slate-200 pt-16 pb-8 border-t border-purple-900 relative z-0 overflow-hidden">
+    <footer className="bg-purple-950 text-slate-200 pt-10 pb-6 border-t border-purple-900 relative z-0 overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-400/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px] pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div className="lg:col-span-1 flex flex-col items-start text-left">
-            <div className="flex flex-row items-center gap-4 mb-6 group cursor-pointer" onClick={() => onNavigate('home')}>
+            <div className="flex flex-row items-center gap-3 mb-4 group cursor-pointer" onClick={() => onNavigate('home')}>
               <img
                 src="/footer_logo.png"
                 alt="Vidisha Logo"
@@ -31,37 +31,22 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="space-y-3 text-sm leading-relaxed text-slate-200 font-medium italic">
               <p className="font-bold text-white not-italic">Vidisha Junior College</p>
               <p>Empowering tomorrow's engineers and doctors through excellence in intermediate education and integrated competitive exam coaching.</p>
-              <div className="flex flex-col items-start gap-1 text-[10px] uppercase tracking-widest text-slate-300 font-black not-italic pt-4">
+              <div className="flex flex-col items-start gap-1 text-[10px] uppercase tracking-widest text-slate-300 font-black not-italic pt-3">
                 <span>Founded: 2023 • Location: Vijayawada, AP</span>
                 <span className="text-yellow-400/80">"Every house must have an engineer or a doctor"</span>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center">
-            <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8 w-full text-center relative -left-4">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-x-12 mx-auto">
-              <ul className="space-y-4 text-sm font-bold text-left">
+          <div className="flex flex-col items-start md:items-center">
+            <div className="w-full md:w-fit text-left">
+              <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-5">Quick Links</h3>
+              <ul className="space-y-2.5 text-sm font-bold">
                 {[
                   { name: 'Home', id: 'home' },
                   { name: 'Streams', id: 'courses' },
                   { name: 'Campuses', id: 'gallery' },
-                  { name: 'About Us', id: 'about' }
-                ].map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={`#${link.id}`}
-                      onClick={(e) => handleLinkClick(link.id, e)}
-                      className="hover:text-yellow-400 transition-colors block text-left group"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <ul className="space-y-4 text-sm font-bold text-left">
-                {[
-                  { name: 'Gallery', id: 'gallery' },
+                  { name: 'About Us', id: 'about' },
                   { name: 'Admissions', id: 'contact' },
                   { name: 'Careers', id: 'careers' }
                 ].map((link, idx) => (
@@ -69,7 +54,33 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     <a
                       href={`#${link.id}`}
                       onClick={(e) => handleLinkClick(link.id, e)}
-                      className="hover:text-yellow-400 transition-colors block text-left group"
+                      className="hover:text-yellow-400 transition-colors block text-left"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-start md:items-center">
+            <div className="w-full md:w-fit text-left">
+              <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-5">Streams</h3>
+              <ul className="space-y-2.5 text-sm font-bold">
+                {[
+                  { name: 'MPC Stream', id: 'courses-mpc' },
+                  { name: 'BiPC Stream', id: 'courses-bipc' },
+                  { name: 'IIT Preparation', id: 'courses-iit' },
+                  { name: 'JEE Coaching', id: 'courses-jee' },
+                  { name: 'NEET Coaching', id: 'courses-neet' },
+                  { name: 'Long Term', id: 'courses-longterm' }
+                ].map((link, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={`#${link.id}`}
+                      onClick={(e) => handleLinkClick(link.id, e)}
+                      className="hover:text-yellow-400 transition-colors block text-left"
                     >
                       {link.name}
                     </a>
@@ -80,8 +91,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Registered Office</h3>
-            <ul className="space-y-6 text-sm">
+            <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-5">Registered Office</h3>
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-5">
                 <MapPin size={22} className="text-yellow-400 shrink-0 mt-1" />
                 <span className="text-slate-200 leading-tight font-bold">54-14/8-68, Srinagar Colony SBI Road,<br />Bharathi Nagar, Vijayawada, AP 520008</span>
@@ -99,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span className="text-slate-200 font-bold">Mon-Sun: 8 AM - 8 PM</span>
               </li>
             </ul>
-            <div className="flex space-x-4 items-center mt-10 ml-1">
+            <div className="flex space-x-4 items-center mt-8 ml-1">
               {[
                 { Icon: Facebook, color: 'hover:bg-blue-600', href: '#' },
                 { Icon: Instagram, color: 'hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', href: '#' },
@@ -118,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-purple-900 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
+        <div className="pt-6 border-t border-purple-900 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
           <p className="w-full">© 2025 Vidisha Junior College. All Rights Reserved.</p>
         </div>
       </div>

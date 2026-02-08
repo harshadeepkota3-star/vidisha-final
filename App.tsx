@@ -40,8 +40,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') || 'home';
-      if (['home', 'courses', 'gallery', 'about', 'contact', 'careers'].includes(hash)) {
-        setActiveTab(hash);
+      const mainTab = hash.split('-')[0];
+      if (['home', 'courses', 'gallery', 'about', 'contact', 'careers'].includes(mainTab)) {
+        setActiveTab(mainTab);
       }
     };
 

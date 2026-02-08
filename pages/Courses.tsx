@@ -114,8 +114,9 @@ const CourseCard: React.FC<{
   accentColor: string;
   onNavigate: (tab: string) => void;
   isFeatured?: boolean;
-}> = ({ course, icon, accentColor, onNavigate, isFeatured }) => (
-  <div className={`group bg-white rounded-xl border border-slate-100 ${isFeatured ? 'p-8 lg:p-12' : 'p-8'} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden ${isFeatured ? 'lg:flex-row lg:items-center lg:gap-12' : ''}`}>
+  id?: string;
+}> = ({ course, icon, accentColor, onNavigate, isFeatured, id }) => (
+  <div id={id} className={`group bg-white rounded-xl border border-slate-100 ${isFeatured ? 'p-8 lg:p-12' : 'p-8'} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden ${isFeatured ? 'lg:flex-row lg:items-center lg:gap-12' : ''}`}>
 
     <div className={`mb-6 flex items-start justify-between ${isFeatured ? 'lg:flex-col lg:mb-0 lg:justify-center' : ''}`}>
       <div className={`flex items-center justify-center ${isFeatured ? 'lg:scale-125 lg:mb-6' : ''}`}>
@@ -163,8 +164,31 @@ const CourseCard: React.FC<{
 );
 
 const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
+  React.useEffect(() => {
+    const handleNavigation = () => {
+      const hash = window.location.hash;
+      if (hash.includes('-')) {
+        const targetId = hash.split('-')[1];
+        const element = document.getElementById(`target-${targetId}`);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            element.classList.add('golden-glow-animation');
+            setTimeout(() => {
+              element.classList.remove('golden-glow-animation');
+            }, 3000);
+          }, 500);
+        }
+      }
+    };
+
+    handleNavigation();
+    window.addEventListener('hashchange', handleNavigation);
+    return () => window.removeEventListener('hashchange', handleNavigation);
+  }, []);
+
   return (
-    <div className="py-24 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 selection:bg-yellow-200 selection:text-purple-900">
+    <div className="pt-8 pb-24 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 selection:bg-yellow-200 selection:text-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page Header */}
@@ -179,7 +203,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
         </div>
 
         {/* MPC Section */}
-        <div className="mb-32">
+        <div className="mb-32" id="target-mpc">
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
@@ -202,7 +226,14 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mpcCourses.slice(0, 4).map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />} accentColor="bg-blue-600" onNavigate={onNavigate} />
+              <CourseCard
+                key={idx}
+                course={course}
+                icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />}
+                accentColor="bg-blue-600"
+                onNavigate={onNavigate}
+                id={idx === 0 ? "target-jee" : idx === 1 ? "target-iit" : undefined}
+              />
             ))}
           </div>
 
@@ -213,12 +244,13 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
               accentColor="bg-blue-600"
               onNavigate={onNavigate}
               isFeatured={true}
+              id="target-longterm"
             />
           </div>
         </div>
 
         {/* BiPC Section */}
-        <div>
+        <div id="target-bipc">
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
@@ -241,7 +273,14 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {bipcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />} accentColor="bg-emerald-600" onNavigate={onNavigate} />
+              <CourseCard
+                key={idx}
+                course={course}
+                icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />}
+                accentColor="bg-emerald-600"
+                onNavigate={onNavigate}
+                id={idx === 0 ? "target-neet" : undefined}
+              />
             ))}
           </div>
         </div>
