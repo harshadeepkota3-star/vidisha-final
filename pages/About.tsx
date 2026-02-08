@@ -230,7 +230,7 @@ const About: React.FC = () => {
                   </div>
                   <div className="mt-6 lg:mt-8 text-center relative z-20">
                     <h3 className="text-xl lg:text-2xl font-black text-purple-950">Kommineni Venkatesh</h3>
-                    <p className="text-yellow-600 font-black uppercase tracking-widest text-[10px] lg:text-xs mt-2">Chairman, Vidisha Junior College</p>
+                    <p className="text-yellow-600 font-black uppercase tracking-widest text-[10px] lg:text-xs mt-2">Chairman, Vidisha Educational Society</p>
                   </div>
                 </div>
               </div>
@@ -241,13 +241,13 @@ const About: React.FC = () => {
                 <h4 className="text-xl lg:text-2xl font-black text-purple-950 mb-4 lg:mb-8 border-b border-slate-200 pb-4">Chairman's Message</h4>
                 <div className="space-y-4 lg:space-y-6 text-slate-600 font-medium leading-relaxed text-sm lg:text-base">
                   <p>
-                    It gives me immense pride and purpose to present Vidisha Junior College as a beacon of learning, ambition, and excellence for the youth of Vijayawada and beyond.
+                    It gives me immense pride and purpose to present Vidisha Educational Society as a beacon of learning, ambition, and excellence for the youth of Vijayawada and beyond.
                   </p>
                   <p>
                     When I established this institution in 2023, my dream was simple yet powerful: to ensure that every household in our community has both an engineer and a doctor.
                   </p>
                   <p>
-                    To every parent who entrusts us with their child's future and to every student who chooses Vidisha Junior College, I promise that we will walk with you every step of the way.
+                    To every parent who entrusts us with their child's future and to every student who chooses Vidisha Educational Society, I promise that we will walk with you every step of the way.
                   </p>
                 </div>
               </div>

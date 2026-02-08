@@ -80,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Registrar Office</h3>
+            <h3 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Registered Office</h3>
             <ul className="space-y-6 text-sm">
               <li className="flex items-start space-x-5">
                 <MapPin size={22} className="text-yellow-400 shrink-0 mt-1" />
@@ -96,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li className="flex items-center space-x-5">
                 <Clock size={22} className="text-yellow-400 shrink-0" />
-                <span className="text-slate-400 font-bold">Mon-Sat: 9 AM - 6 PM</span>
+                <span className="text-slate-400 font-bold">Mon-Sun: 8 AM - 8 PM</span>
               </li>
             </ul>
             <div className="flex space-x-4 items-center mt-10 ml-1">

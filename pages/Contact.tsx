@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
               <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-[3rem] border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
                 <Clock className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
                 <h4 className="font-black text-slate-900 text-sm lg:text-base">Visiting Hours</h4>
-                <p className="text-xs lg:text-sm text-slate-500 mt-2 lg:mt-3 font-medium">Mon-Sat, 9 AM - 6 PM<br /><span className="text-[10px] lg:text-xs italic opacity-70">Sunday: Appointment Only</span></p>
+                <p className="text-xs lg:text-sm text-slate-500 mt-2 lg:mt-3 font-medium">Mon-Sun, 8 AM - 8 PM<br /><span className="text-[10px] lg:text-xs italic opacity-70">Sunday: Appointment Only</span></p>
               </div>
               <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-[3rem] border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
                 <MessageSquare className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">WhatsApp Support</h3>
                   <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
-                    <a href="https://wa.me/919121147747" target="_blank" rel="noopener noreferrer">+91 91211 47747</a>
+                    <a href="https://wa.me/919121147747" target="_blank" rel="noopener noreferrer">+91 93462703067</a>
                   </p>
                 </div>
               </div>
