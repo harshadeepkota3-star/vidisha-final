@@ -111,28 +111,36 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
 
     // Labs
-    { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
-    { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 12, url: '/labs0.jpeg', title: 'Physics Research Lab', cat: 'Labs' },
+    { id: 13, url: '/labs1.jpeg', title: 'Chemistry Lab Session', cat: 'Labs' },
+    { id: 14, url: '/labs2.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 15, url: '/labs3.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 16, url: '/labs4.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 17, url: '/labs5.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 18, url: '/labs6.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 19, url: '/labs7.jpeg', title: 'Physics Lab Session', cat: 'Labs' },
+    { id: 20, url: '/labs8.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 21, url: '/labs9.jpeg', title: 'Lab Session', cat: 'Labs' },
 
-    // Classrooms - 7 slots
-    { id: 14, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
-    { id: 15, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
-    { id: 16, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
-    { id: 17, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
-    { id: 18, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
-    { id: 19, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
-    { id: 20, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
-    { id: 21, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
-    // Achievements - 11 slots
-    { id: 22, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
-    { id: 23, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
-    { id: 24, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
-    { id: 25, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
-    { id: 26, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
-    { id: 27, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
-    { id: 28, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
-    { id: 29, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
-    { id: 30, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
+    // Classrooms
+    { id: 22, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
+    { id: 23, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
+    { id: 24, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
+    { id: 25, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
+    { id: 26, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
+    { id: 27, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
+    { id: 28, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
+    { id: 29, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
+    // Achievements
+    { id: 30, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
+    { id: 31, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
+    { id: 32, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
+    { id: 33, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
+    { id: 34, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
+    { id: 35, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
+    { id: 36, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
+    { id: 37, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
+    { id: 38, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
   ];
 
   const dropdownItems = [
@@ -544,7 +552,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="lg:w-[45%] lg:mt-0 mt-12 grid grid-cols-2 gap-3 lg:gap-5 w-full">
                 <div className="space-y-3 lg:space-y-5">
                   <img src="/classrooms1.jpg" className="w-full h-32 lg:h-44 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Students Studying" />
-                  <img src="/achievement2.jpg" className="w-full h-44 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Laboratory" />
+                  <img src="/labs1.jpeg" className="w-full h-44 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Laboratory" />
                 </div>
                 <div className="space-y-3 lg:space-y-5 pt-8 lg:pt-16">
                   <img src="/events3.JPG" className="w-full h-44 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Classroom" />
