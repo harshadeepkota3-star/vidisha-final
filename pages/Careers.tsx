@@ -87,13 +87,14 @@ const Careers: React.FC = () => {
     const [dob, setDob] = useState('');
     const [age, setAge] = useState<number | string>('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // File states
-    const [photoFile, setPhotoFile] = useState<string | null>(null);
-    const [resumeFile, setResumeFile] = useState<string | null>(null);
-    const [certFile, setCertFile] = useState<string | null>(null);
-    const [idFile, setIdFile] = useState<string | null>(null);
-    const [marksFile, setMarksFile] = useState<string | null>(null);
+    // File states - storing actual File objects for upload
+    const [photoFile, setPhotoFile] = useState<File | null>(null);
+    const [resumeFile, setResumeFile] = useState<File | null>(null);
+    const [certFile, setCertFile] = useState<File | null>(null);
+    const [idFile, setIdFile] = useState<File | null>(null);
+    const [marksFile, setMarksFile] = useState<File | null>(null);
 
     const [formData, setFormData] = useState<any>({
         applicantType: 'Teacher', // Default to Teacher
@@ -173,14 +174,55 @@ const Careers: React.FC = () => {
         window.open(`https://wa.me/919346270306?text=${message}`, '_blank');
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.declaration) {
             alert("Please agree to the declaration to proceed.");
             return;
         }
-        setIsSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setIsSubmitting(true);
+
+        try {
+            const data = new FormData();
+            data.append('type', 'career');
+
+            // Append basic form fields
+            Object.keys(formData).forEach(key => {
+                data.append(key, formData[key]);
+            });
+
+            // Append specific calculated fields
+            data.append('dob', dob);
+            data.append('age', age.toString());
+
+            // Append actual file objects
+            if (photoFile) data.append('photo', photoFile);
+            if (resumeFile) data.append('resume', resumeFile);
+            if (certFile) data.append('cert', certFile);
+            if (idFile) data.append('idProof', idFile);
+            if (marksFile) data.append('marksMemo', marksFile);
+
+            const response = await fetch('/api/submit.php', {
+                method: 'POST',
+                body: data
+                // Note: fetch automatically sets the correct Multipart/Form-Data boundary
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setIsSubmitted(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                alert(result.message || "Submission failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Connection error. Please check your internet or try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (isSubmitted) {
@@ -382,7 +424,7 @@ const Careers: React.FC = () => {
                                                 {photoFile ? (
                                                     <div className="flex flex-col items-center">
                                                         <CheckCircle2 className="w-8 h-8 text-green-500 mb-2" />
-                                                        <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{photoFile}</p>
+                                                        <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{photoFile.name}</p>
                                                         <button type="button" onClick={(e) => { e.stopPropagation(); setPhotoFile(null); }} className="text-red-500 text-[10px] font-black uppercase mt-2 hover:underline">Remove</button>
                                                     </div>
                                                 ) : (
@@ -391,7 +433,7 @@ const Careers: React.FC = () => {
                                                         <p className="text-slate-400 text-sm font-bold">Upload Photograph (JPG/PNG)</p>
                                                     </>
                                                 )}
-                                                <input type="file" accept="image/*" onChange={(e) => setPhotoFile(e.target.files?.[0]?.name || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
+                                                <input type="file" accept="image/*" onChange={(e) => setPhotoFile(e.target.files?.[0] || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
                                             </div>
                                         </div>
                                     </div>
@@ -560,7 +602,7 @@ const Careers: React.FC = () => {
                                                         {resumeFile ? (
                                                             <div className="flex flex-col items-center">
                                                                 <CheckCircle2 className="w-8 h-8 text-green-500 mb-2" />
-                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{resumeFile}</p>
+                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{resumeFile.name}</p>
                                                                 <button type="button" onClick={(e) => { e.stopPropagation(); setResumeFile(null); }} className="text-red-500 text-[10px] font-black uppercase mt-2 hover:underline">Remove</button>
                                                             </div>
                                                         ) : (
@@ -569,7 +611,7 @@ const Careers: React.FC = () => {
                                                                 <p className="text-slate-400 text-sm font-bold">Upload Resume (PDF)</p>
                                                             </>
                                                         )}
-                                                        <input type="file" accept=".pdf" onChange={(e) => setResumeFile(e.target.files?.[0]?.name || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
+                                                        <input type="file" accept=".pdf" onChange={(e) => setResumeFile(e.target.files?.[0] || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
                                                     </div>
                                                 </div>
 
@@ -579,7 +621,7 @@ const Careers: React.FC = () => {
                                                         {certFile ? (
                                                             <div className="flex flex-col items-center">
                                                                 <CheckCircle2 className="w-8 h-8 text-green-500 mb-2" />
-                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{certFile}</p>
+                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{certFile.name}</p>
                                                                 <button type="button" onClick={(e) => { e.stopPropagation(); setCertFile(null); }} className="text-red-500 text-[10px] font-black uppercase mt-2 hover:underline">Remove</button>
                                                             </div>
                                                         ) : (
@@ -588,7 +630,7 @@ const Careers: React.FC = () => {
                                                                 <p className="text-slate-400 text-sm font-bold">Upload Certificates (PDF/JPG)</p>
                                                             </>
                                                         )}
-                                                        <input type="file" multiple onChange={(e) => setCertFile(e.target.files?.[0]?.name || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
+                                                        <input type="file" multiple onChange={(e) => setCertFile(e.target.files?.[0] || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -708,7 +750,7 @@ const Careers: React.FC = () => {
                                                         {idFile ? (
                                                             <div className="flex flex-col items-center">
                                                                 <CheckCircle2 className="w-8 h-8 text-green-500 mb-2" />
-                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{idFile}</p>
+                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{idFile.name}</p>
                                                                 <button type="button" onClick={(e) => { e.stopPropagation(); setIdFile(null); }} className="text-red-500 text-[10px] font-black uppercase mt-2 hover:underline">Remove</button>
                                                             </div>
                                                         ) : (
@@ -717,7 +759,7 @@ const Careers: React.FC = () => {
                                                                 <p className="text-slate-400 text-sm font-bold">Upload ID/Bonafide (PDF/Image)</p>
                                                             </>
                                                         )}
-                                                        <input type="file" onChange={(e) => setIdFile(e.target.files?.[0]?.name || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
+                                                        <input type="file" onChange={(e) => setIdFile(e.target.files?.[0] || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
                                                     </div>
                                                 </div>
 
@@ -727,7 +769,7 @@ const Careers: React.FC = () => {
                                                         {marksFile ? (
                                                             <div className="flex flex-col items-center">
                                                                 <CheckCircle2 className="w-8 h-8 text-green-500 mb-2" />
-                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{marksFile}</p>
+                                                                <p className="text-purple-900 font-bold text-sm truncate max-w-full px-4">{marksFile.name}</p>
                                                                 <button type="button" onClick={(e) => { e.stopPropagation(); setMarksFile(null); }} className="text-red-500 text-[10px] font-black uppercase mt-2 hover:underline">Remove</button>
                                                             </div>
                                                         ) : (
@@ -736,7 +778,7 @@ const Careers: React.FC = () => {
                                                                 <p className="text-slate-400 text-sm font-bold">Upload Marks Memo (PDF/Image)</p>
                                                             </>
                                                         )}
-                                                        <input type="file" onChange={(e) => setMarksFile(e.target.files?.[0]?.name || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
+                                                        <input type="file" onChange={(e) => setMarksFile(e.target.files?.[0] || null)} className="absolute inset-0 opacity-0 cursor-pointer" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -762,8 +804,13 @@ const Careers: React.FC = () => {
                                     </div>
 
                                     <div className="flex flex-col sm:flex-row gap-6">
-                                        <button type="submit" className="flex-1 bg-purple-950 text-white font-black px-8 py-6 rounded-3xl hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-2xl flex items-center justify-center gap-4 group text-lg lg:text-xl">
-                                            Submit Application <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className={`flex-1 bg-purple-950 text-white font-black px-8 py-6 rounded-3xl transition-all shadow-2xl flex items-center justify-center gap-4 group text-lg lg:text-xl ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-yellow-400 hover:text-purple-950'}`}
+                                        >
+                                            {isSubmitting ? "Submitting..." : "Submit Application"}
+                                            {!isSubmitting && <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                                         </button>
                                         <button type="button" onClick={handleCounselling} className="flex-1 bg-white border-4 border-purple-950 text-purple-950 font-black px-8 py-6 rounded-3xl hover:bg-purple-950 hover:text-white transition-all shadow-xl flex items-center justify-center gap-4 text-lg lg:text-xl">
                                             WhatsApp Support <MessageCircle size={24} />

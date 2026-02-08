@@ -56,9 +56,61 @@ const campusData = [
 const Contact: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isCityOpen, setIsCityOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    parentName: '',
+    phone: '',
+    email: '',
+    currentClass: 'Completed 10th (Joining 1st Year)',
+    interestedStream: 'MPC with JEE Mains',
+    city: '',
+    hostel: 'No',
+    transport: 'No',
+    message: ''
+  });
 
   const cities = ["Vijayawada", "Visakhapatnam", "Guntur", "Kakinada", "Hyderabad"];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const data = new FormData();
+      data.append('type', 'enquiry');
+
+      Object.keys(formData).forEach(key => {
+        data.append(key, (formData as any)[key]);
+      });
+
+      const response = await fetch('/api/submit.php', {
+        method: 'POST',
+        body: data
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Connection error. Please check your internet or try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -75,6 +127,28 @@ const Contact: React.FC = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center py-20 animate-in fade-in zoom-in duration-700">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="w-28 h-28 bg-green-100/50 rounded-full flex items-center justify-center mx-auto mb-10 shadow-inner">
+            <CheckCircle2 className="w-14 h-14 text-green-600 animate-bounce" />
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-black text-purple-950 mb-8 tracking-tight">Message Sent!</h1>
+          <p className="text-xl text-slate-600 mb-12 leading-relaxed font-medium">
+            Thank you for reaching out. Your enquiry has been sent to our admissions team. A counselor will contact you shortly to guide you through the process.
+          </p>
+          <button
+            onClick={() => setIsSubmitted(false)}
+            className="bg-purple-950 text-white font-black px-12 py-5 rounded-2xl hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-xl hover:-translate-y-1"
+          >
+            Back to Form
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="py-10 lg:py-20 animate-in fade-in slide-in-from-right-4 duration-500">
@@ -245,12 +319,15 @@ const Contact: React.FC = () => {
             <div className="bg-slate-50 rounded-2xl lg:rounded-[5rem] p-6 lg:p-10 xl:p-20 border border-slate-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 lg:w-48 h-32 lg:h-48 bg-purple-900/5 blob-shape"></div>
               <h2 className="text-xl lg:text-3xl font-black text-purple-950 mb-6 lg:mb-12">Enquiry Form</h2>
-              <form className="space-y-6 lg:space-y-10" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6 lg:space-y-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4">
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Your Name*</label>
                     <input
                       type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
                       placeholder="Enter Your Full Name"
                       className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
                       required
@@ -260,6 +337,9 @@ const Contact: React.FC = () => {
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Parent/Guardian Name*</label>
                     <input
                       type="text"
+                      name="parentName"
+                      value={formData.parentName}
+                      onChange={handleInputChange}
                       placeholder="Enter Parent Name"
                       className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
                       required
@@ -272,6 +352,9 @@ const Contact: React.FC = () => {
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Phone Number*</label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="+91 XXXXX XXXXX"
                       className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
                       required
@@ -281,6 +364,9 @@ const Contact: React.FC = () => {
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Email Address*</label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="example@email.com"
                       className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
                       required
@@ -291,8 +377,12 @@ const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4">
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Student's Current Class*</label>
-                    <select className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base">
-                      <option>Select Current Status</option>
+                    <select
+                      name="currentClass"
+                      value={formData.currentClass}
+                      onChange={handleInputChange}
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base"
+                    >
                       <option>Completed 10th (Joining 1st Year)</option>
                       <option>Completed Inter 1st Year (Joining 2nd Year)</option>
                       <option>Other</option>
@@ -300,8 +390,12 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-2 lg:space-y-4">
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Interested Stream*</label>
-                    <select className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base">
-                      <option>Select Stream</option>
+                    <select
+                      name="interestedStream"
+                      value={formData.interestedStream}
+                      onChange={handleInputChange}
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base"
+                    >
                       <option>MPC with JEE Mains</option>
                       <option>MPC with JEE Mains & Advanced</option>
                       <option>BiPC with NEET</option>
@@ -318,9 +412,9 @@ const Contact: React.FC = () => {
                         type="button"
                         onClick={() => setIsCityOpen(!isCityOpen)}
                         className={`w-full bg-white border-2 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 transition-all font-bold text-left flex items-center justify-between shadow-sm text-sm lg:text-base ${isCityOpen ? 'border-purple-900 ring-4 ring-purple-900/10' : 'border-slate-100 hover:border-slate-200'
-                          } ${selectedCity ? 'text-slate-700' : 'text-slate-400'}`}
+                          } ${formData.city ? 'text-slate-700' : 'text-slate-400'}`}
                       >
-                        <span>{selectedCity || "Select Your City"}</span>
+                        <span>{formData.city || "Select Your City"}</span>
                         <ChevronRight className={`transition-transform duration-300 ${isCityOpen ? 'rotate-90' : 'rotate-0'}`} size={20} />
                       </button>
 
@@ -331,7 +425,7 @@ const Contact: React.FC = () => {
                               key={city}
                               type="button"
                               onClick={() => {
-                                setSelectedCity(city);
+                                setFormData(prev => ({ ...prev, city }));
                                 setIsCityOpen(false);
                               }}
                               className="w-full text-left px-8 py-4 hover:bg-purple-50 hover:text-purple-950 font-bold text-slate-600 transition-colors border-b border-slate-50 last:border-0"
@@ -350,11 +444,11 @@ const Contact: React.FC = () => {
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Interested in Hostel?</label>
                     <div className="flex gap-6 lg:gap-10">
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
-                        <input type="radio" name="hostel" className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
+                        <input type="radio" name="hostel" value="Yes" checked={formData.hostel === 'Yes'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
                         <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
                       </label>
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
-                        <input type="radio" name="hostel" className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
+                        <input type="radio" name="hostel" value="No" checked={formData.hostel === 'No'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
                         <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
                       </label>
                     </div>
@@ -363,11 +457,11 @@ const Contact: React.FC = () => {
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Need Transportation?</label>
                     <div className="flex gap-6 lg:gap-10">
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
-                        <input type="radio" name="transport" className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
+                        <input type="radio" name="transport" value="Yes" checked={formData.transport === 'Yes'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
                         <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
                       </label>
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
-                        <input type="radio" name="transport" className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
+                        <input type="radio" name="transport" value="No" checked={formData.transport === 'No'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
                         <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
                       </label>
                     </div>
@@ -378,14 +472,21 @@ const Contact: React.FC = () => {
                   <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Your Message/Questions</label>
                   <textarea
                     rows={3}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Ask about scholarships, coaching, or campus specifics..."
                     className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-[3rem] px-5 lg:px-8 py-5 lg:py-8 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all resize-none font-bold text-slate-700 shadow-sm text-sm lg:text-base"
                   ></textarea>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-10 pt-4 lg:pt-6">
-                  <button className="w-full md:w-auto bg-purple-950 text-white font-black px-8 lg:px-16 py-5 lg:py-7 rounded-2xl lg:rounded-3xl hover:bg-yellow-400 hover:text-purple-950 transition-all shadow-2xl flex items-center justify-center gap-3 lg:gap-4 group text-base lg:text-xl">
-                    Send Message <Send className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <button
+                    disabled={isSubmitting}
+                    className={`w-full md:w-auto text-white font-black px-8 lg:px-16 py-5 lg:py-7 rounded-2xl lg:rounded-3xl transition-all shadow-2xl flex items-center justify-center gap-3 lg:gap-4 group text-base lg:text-xl ${isSubmitting ? 'bg-purple-900/70 cursor-not-allowed' : 'bg-purple-950 hover:bg-yellow-400 hover:text-purple-950'}`}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {!isSubmitting && <Send className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                   </button>
                   <p className="text-[9px] lg:text-[10px] text-slate-400 uppercase tracking-widest max-w-[240px] font-black leading-relaxed text-center md:text-left">
                     By submitting, you agree to receive updates via WhatsApp and Email.
