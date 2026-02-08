@@ -4,13 +4,13 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Clock, ArrowUpRight, Facebook
 
 const campusData = [
   {
-    image: "/branch_bharathi_nagar_1.png",
+    image: "/branch_novotel.png",
     address: "54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar, Vijayawada, AP 520008",
     city: "Vijayawada",
     maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+Vijayawada+Novotel"
   },
   {
-    image: "/branch_bharathi_nagar_2.png",
+    image: "/branch_bharathinagar.png",
     address: "VMC Revenue, 54-1-7/2D, High Tension Line Road, Bharathi Nagar, Ward 2, Vijayawada, AP 520008",
     city: "Vijayawada",
     maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+High+Tension+Line+Road"

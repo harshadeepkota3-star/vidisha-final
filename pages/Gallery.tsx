@@ -83,7 +83,7 @@ const Gallery: React.FC = () => {
                 location: "Vijayawada",
                 address: "VMC Revenue, 54-1-7/2D, High Tension Line Road, Bharathi Nagar, Ward 2, Vijayawada, Andhra Pradesh 520008",
                 title: "Bharathi Nagar (High Tension Line Branch)",
-                image: "/branch_bharathi_nagar_2.png",
+                image: "/branch_bharathinagar.png",
                 phone: "6366527168"
               },
               {
@@ -91,7 +91,7 @@ const Gallery: React.FC = () => {
                 location: "Vijayawada",
                 address: "54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar, Vijayawada, Andhra Pradesh 520008",
                 title: "Novotel Branch",
-                image: "/branch_bharathi_nagar_1.png",
+                image: "/branch_novotel.png",
                 phone: "9885812847"
               },
               {
