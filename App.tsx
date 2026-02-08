@@ -7,6 +7,7 @@ import Courses from './pages/Courses';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
 
 const BackgroundDecor: React.FC = () => {
   return (
@@ -39,7 +40,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') || 'home';
-      if (['home', 'courses', 'gallery', 'about', 'contact'].includes(hash)) {
+      if (['home', 'courses', 'gallery', 'about', 'contact', 'careers'].includes(hash)) {
         setActiveTab(hash);
       }
     };
@@ -57,6 +58,7 @@ const App: React.FC = () => {
       case 'gallery': return <Gallery />;
       case 'about': return <About />;
       case 'contact': return <Contact />;
+      case 'careers': return <Careers />;
       default: return <Home />;
     }
   };
