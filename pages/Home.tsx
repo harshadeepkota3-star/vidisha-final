@@ -212,7 +212,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
         </button>
         <div
-          className="relative bg-white rounded-3xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 cursor-pointer"
+          className="relative bg-white rounded-xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 cursor-pointer"
           onClick={() => {
             setShowPopup(false);
             onNavigate('contact');
@@ -305,7 +305,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <div className="text-2xl sm:text-4xl md:text-5xl font-black text-purple-950 mb-1 md:mb-3 group-hover:scale-110 transition-transform duration-500">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-purple-700 transition-colors">
+                  <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-800 group-hover:text-purple-700 transition-colors">
                     {stat.label}
                   </div>
                 </div>
@@ -327,7 +327,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     {React.cloneElement(feature.icon as React.ReactElement, { className: 'w-6 h-6 lg:w-8 lg:h-8 text-purple-900' })}
                   </div>
                   <h3 className="text-lg lg:text-xl font-black mb-2 lg:mb-3 group-hover:text-white text-purple-950 transition-colors text-center">{feature.title}</h3>
-                  <p className="font-medium text-slate-500 leading-relaxed group-hover:text-purple-100 transition-colors text-xs lg:text-sm text-center">
+                  <p className="font-bold text-slate-900 leading-relaxed group-hover:text-purple-100 transition-colors text-xs lg:text-sm text-center">
                     {feature.description}
                   </p>
                 </div>
@@ -389,7 +389,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                       <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     ) : (
                       <>
-                        <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-3 lg:m-4 rounded-xl lg:rounded-[2rem] group-hover:border-indigo-300 transition-colors"></div>
+                        <div className="absolute inset-0 border-2 border-dashed border-indigo-200/50 m-3 lg:m-4 rounded-xl lg:rounded-xl group-hover:border-indigo-300 transition-colors"></div>
                         <ImageIcon className="w-8 h-8 lg:w-10 lg:h-10 text-indigo-300 mb-2 lg:mb-3 relative z-10 group-hover:scale-110 transition-transform group-hover:text-indigo-500" />
                         <span className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-indigo-300 relative z-10 group-hover:text-indigo-600 transition-colors">Image Slot {idx + 1}</span>
                       </>
@@ -397,7 +397,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   </div>
                   <div className="p-5 lg:p-8 flex flex-col flex-1 text-left">
                     <h3 className="text-base lg:text-xl font-black text-purple-950 mb-2 lg:mb-3 leading-tight">{event.title}</h3>
-                    <p className="text-slate-500 text-xs lg:text-sm font-medium mb-4 lg:mb-8 leading-relaxed flex-1">{event.details}</p>
+                    <p className="text-slate-900 text-xs lg:text-sm font-bold mb-4 lg:mb-8 leading-relaxed flex-1">{event.details}</p>
                     <button
                       onClick={() => onNavigate('contact')}
                       className="w-full py-3 lg:py-4 px-4 rounded-xl font-black text-[10px] lg:text-xs uppercase tracking-[0.15em] lg:tracking-[0.2em] flex items-center justify-center gap-2 transition-all bg-yellow-400 text-purple-950 hover:bg-yellow-500 shadow-lg hover:shadow-yellow-400/50 group/btn"
@@ -507,7 +507,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   A Pathway to <span className="text-yellow-400">Success</span>
                 </h2>
 
-                <p className="text-sm lg:text-lg text-purple-100/70 mb-10 leading-relaxed font-medium max-w-2xl">
+                <p className="text-sm lg:text-lg text-purple-100 mb-10 leading-relaxed font-bold max-w-2xl">
                   Vidisha Junior College stands as Vijayawada's dedicated institution committed to shaping the next generation of engineers, doctors, and leaders. Founded in 2023 with a powerful vision to ensure every household has an engineer and a doctor, we represent more than just an educational institution, we are a promise of transformation.
                 </p>
 
@@ -536,7 +536,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                       </button>
                       <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openAccordion === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                         }`}>
-                        <div className="pb-6 pt-1 text-slate-300 text-xs lg:text-sm font-medium leading-relaxed pl-10 pr-4">
+                        <div className="pb-6 pt-1 text-slate-200 text-xs lg:text-sm font-bold leading-relaxed pl-10 pr-4">
                           {item.content}
                         </div>
                       </div>
@@ -544,7 +544,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   ))}
                 </div>
 
-                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="bg-white text-purple-950 font-black px-8 lg:px-12 py-4 lg:py-5 rounded-2xl lg:rounded-3xl hover:bg-yellow-400 transition-all shadow-2xl text-[10px] lg:text-sm uppercase tracking-widest inline-flex items-center gap-3 lg:gap-4 group">
+                <a href="/academic_brochure.pdf" download="Vidisha_Academic_Brochure.pdf" className="bg-white text-purple-950 font-black px-8 lg:px-12 py-4 lg:py-5 rounded-2xl lg:rounded-xl hover:bg-yellow-400 transition-all shadow-2xl text-[10px] lg:text-sm uppercase tracking-widest inline-flex items-center gap-3 lg:gap-4 group">
                   <Download className="w-4 h-4 lg:w-5 lg:h-5 group-hover:animate-bounce" />
                   <span>Download Academic Brochure</span>
                 </a>

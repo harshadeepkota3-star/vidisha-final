@@ -115,7 +115,7 @@ const CourseCard: React.FC<{
   onNavigate: (tab: string) => void;
   isFeatured?: boolean;
 }> = ({ course, icon, accentColor, onNavigate, isFeatured }) => (
-  <div className={`group bg-white rounded-[2rem] border border-slate-100 ${isFeatured ? 'p-8 lg:p-12' : 'p-8'} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden ${isFeatured ? 'lg:flex-row lg:items-center lg:gap-12' : ''}`}>
+  <div className={`group bg-white rounded-xl border border-slate-100 ${isFeatured ? 'p-8 lg:p-12' : 'p-8'} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden ${isFeatured ? 'lg:flex-row lg:items-center lg:gap-12' : ''}`}>
 
     <div className={`mb-6 flex items-start justify-between ${isFeatured ? 'lg:flex-col lg:mb-0 lg:justify-center' : ''}`}>
       <div className={`flex items-center justify-center ${isFeatured ? 'lg:scale-125 lg:mb-6' : ''}`}>
@@ -132,10 +132,10 @@ const CourseCard: React.FC<{
 
         <div className="space-y-6">
           <div>
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">What You'll Learn</h4>
+            <h4 className="text-xs font-black text-slate-600 uppercase tracking-wider mb-3">What You'll Learn</h4>
             <ul className="space-y-2">
               {course.learnings.map((item: string, idx: number) => (
-                <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600 font-medium leading-relaxed">
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-950 font-black leading-relaxed">
                   <CheckCircle2 className={`w-4 h-4 shrink-0 ${accentColor.replace('bg-', 'text-')} mt-0.5`} />
                   <span>{item}</span>
                 </li>
@@ -147,8 +147,8 @@ const CourseCard: React.FC<{
 
       <div className="flex flex-col h-full justify-between">
         <div className={`bg-slate-50 p-4 rounded-xl border border-slate-100/50 ${isFeatured ? 'lg:p-6 lg:mb-6' : 'mt-6'}`}>
-          <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Ideal For</h4>
-          <p className={`font-semibold text-purple-900 leading-snug ${isFeatured ? 'text-base' : 'text-sm'}`}>{course.idealFor}</p>
+          <h4 className="text-xs font-black text-slate-600 uppercase tracking-wider mb-1">Ideal For</h4>
+          <p className={`font-black text-purple-900 leading-snug ${isFeatured ? 'text-base' : 'text-sm'}`}>{course.idealFor}</p>
         </div>
 
         <button
@@ -173,7 +173,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
           <h1 className="text-5xl md:text-7xl font-black text-purple-950 mb-6 leading-tight">
             Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Streams</span>
           </h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-slate-900 max-w-2xl mx-auto leading-relaxed font-bold">
             Tailored programs for engineering and medical aspirants, designed to deliver exceptional results in competitive exams and board preparations.
           </p>
         </div>
@@ -191,7 +191,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
                   <p className="text-blue-600 font-bold text-sm tracking-widest uppercase">Mathematics, Physics, Chemistry</p>
                 </div>
               </div>
-              <p className="text-slate-600 text-lg leading-relaxed">
+              <p className="text-slate-950 text-lg leading-relaxed font-bold">
                 Specifically designed for students targeting admissions into premier engineering colleges through <span className="font-bold text-purple-900">IIT-JEE Mains and Advanced</span> exams, while also excelling in intermediate board examinations.
               </p>
             </div>
@@ -230,7 +230,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
                   <p className="text-emerald-600 font-bold text-sm tracking-widest uppercase">Biology, Physics, Chemistry</p>
                 </div>
               </div>
-              <p className="text-slate-600 text-lg leading-relaxed">
+              <p className="text-slate-950 text-lg leading-relaxed font-bold">
                 Tailored for students targeting admissions into top medical colleges through <span className="font-bold text-purple-900">NEET</span>, while also ensuring excellent performance in intermediate board examinations.
               </p>
             </div>
@@ -272,7 +272,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-slate-400 font-medium mb-6">Need guidance on which stream to choose?</p>
+          <p className="text-slate-900 font-black mb-6">Need guidance on which stream to choose?</p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center gap-2 text-purple-900 font-bold hover:text-purple-700 transition-colors border-b-2 border-yellow-400 hover:border-yellow-500 pb-1"

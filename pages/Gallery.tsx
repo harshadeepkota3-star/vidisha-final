@@ -64,7 +64,7 @@ const Gallery: React.FC = () => {
         <div className="text-center mb-24">
           <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-xs block mb-6">Campus Gallery</span>
           <h1 className="text-6xl font-black text-purple-950 mb-8 leading-tight">Visualizing <span className="text-silver-400">Excellence.</span></h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-900 max-w-2xl mx-auto font-black leading-relaxed">
             A window into the vibrant academic life at Hardcoded Junior College, where MPC and BiPC dreams take flight.
           </p>
         </div>
@@ -162,7 +162,7 @@ const Gallery: React.FC = () => {
                   {/* Body Content - Added 10px More Space */}
                   <div className="p-8 pt-60 flex flex-col h-full bg-white rounded-2xl">
                     <div className="mb-6">
-                      <span className="inline-flex items-center gap-2 bg-slate-50 text-slate-500 px-5 py-2.5 rounded-lg text-[11px] font-black uppercase tracking-[0.2em] border border-slate-50 shadow-sm">
+                      <span className="inline-flex items-center gap-2 bg-slate-50 text-slate-800 px-5 py-2.5 rounded-lg text-[11px] font-black uppercase tracking-[0.2em] border border-slate-50 shadow-sm">
                         <MapPin size={14} className="text-purple-500" />
                         {branch.location}
                       </span>
@@ -172,7 +172,7 @@ const Gallery: React.FC = () => {
                       <h3 className="text-purple-950 font-black text-[1.75rem] mb-3 leading-tight group-hover:text-purple-700 transition-colors">
                         {branch.title}
                       </h3>
-                      <p className="text-slate-500 text-base leading-relaxed font-semibold mb-6">
+                      <p className="text-slate-900 text-base leading-relaxed font-black mb-6">
                         {branch.address}
                       </p>
                     </div>
@@ -210,7 +210,7 @@ const Gallery: React.FC = () => {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all border-b-2 ${filter === cat
                 ? 'text-purple-950 border-purple-950'
-                : 'text-slate-400 border-transparent hover:text-purple-400'
+                : 'text-slate-800 border-transparent hover:text-purple-400'
                 }`}
             >
               {cat}
@@ -289,14 +289,14 @@ const Gallery: React.FC = () => {
         <div className="mt-20 border-t border-slate-100 pt-16">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-1/2 grid grid-cols-2 gap-6">
-              <img src="events5.JPG" className="rounded-3xl shadow-lg mt-12" alt="Scene 1" />
-              <img src="classrooms5.jpg" className="rounded-3xl shadow-lg" alt="Scene 2" />
-              <img src="events7.JPG" className="rounded-3xl shadow-lg" alt="Scene 3" />
-              <img src="classrooms4.jpeg" className="rounded-3xl shadow-lg -mt-12" alt="Scene 4" />
+              <img src="events5.JPG" className="rounded-xl shadow-lg mt-12" alt="Scene 1" />
+              <img src="classrooms5.jpg" className="rounded-xl shadow-lg" alt="Scene 2" />
+              <img src="events7.JPG" className="rounded-xl shadow-lg" alt="Scene 3" />
+              <img src="classrooms4.jpeg" className="rounded-xl shadow-lg -mt-12" alt="Scene 4" />
             </div>
             <div className="md:w-1/2">
               <h2 className="text-5xl font-black text-purple-950 mb-8 leading-tight">Beyond <span className="text-yellow-500">Academics.</span></h2>
-              <p className="text-xl text-slate-500 leading-relaxed mb-10 font-medium">
+              <p className="text-xl text-slate-900 leading-relaxed mb-10 font-black">
                 Our campus in the heart of the educational hub is designed to nurture discipline, creativity, and mental well-being for our MPC and BiPC students.
               </p>
               <div className="space-y-8">
@@ -310,7 +310,7 @@ const Gallery: React.FC = () => {
                     <div className="bg-slate-50 p-4 rounded-2xl h-fit border border-slate-100">{item.icon}</div>
                     <div>
                       <h4 className="font-black text-purple-950 mb-1">{item.title}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                      <p className="text-sm text-slate-900 font-bold leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}

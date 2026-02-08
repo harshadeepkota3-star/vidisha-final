@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
                 onClick={(e) => handleNavClick(item.id, e)}
                 className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${activeTab === item.id
                   ? 'text-purple-950 bg-yellow-400 shadow-lg shadow-yellow-400/20'
-                  : 'text-slate-500 hover:text-purple-700 hover:bg-slate-50'
+                  : 'text-slate-900 hover:text-purple-700 hover:bg-slate-50'
                   }`}
               >
                 {item.label}
@@ -87,9 +87,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(item.id, e)}
-              className={`flex items-center justify-between px-8 py-6 text-xs font-black uppercase tracking-widest rounded-[2rem] transition-all ${activeTab === item.id
+              className={`flex items-center justify-between px-8 py-6 text-xs font-black uppercase tracking-widest rounded-xl transition-all ${activeTab === item.id
                 ? 'text-purple-950 bg-yellow-400'
-                : 'text-slate-600 hover:bg-slate-50'
+                : 'text-slate-900 hover:bg-slate-50'
                 }`}
             >
               {item.label}

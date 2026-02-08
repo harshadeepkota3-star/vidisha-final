@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
             <CheckCircle2 className="w-14 h-14 text-green-600 animate-bounce" />
           </div>
           <h1 className="text-4xl lg:text-6xl font-black text-purple-950 mb-8 tracking-tight">Message Sent!</h1>
-          <p className="text-xl text-slate-600 mb-12 leading-relaxed font-medium">
+          <p className="text-xl text-slate-900 mb-12 leading-relaxed font-bold">
             Thank you for reaching out. Your enquiry has been sent to our admissions team. A counselor will contact you shortly to guide you through the process.
           </p>
           <button
@@ -158,25 +158,25 @@ const Contact: React.FC = () => {
           <div className="lg:w-1/2">
             <span className="text-yellow-500 font-black text-xs uppercase tracking-widest block mb-3 lg:mb-4">Admissions & Inquiries</span>
             <h1 className="text-3xl lg:text-6xl font-black text-purple-950 mb-4 lg:mb-8 leading-tight">Get in Touch with <br className="hidden lg:block" /><span className="text-purple-700 font-black tracking-tighter">Vidisha Junior College</span></h1>
-            <p className="text-base lg:text-xl text-slate-500 leading-relaxed mb-8 lg:mb-12 font-medium">
+            <p className="text-base lg:text-xl text-slate-950 leading-relaxed mb-8 lg:mb-12 font-black">
               We're here to answer your questions and guide you toward academic success. Reach out to our admissions office today for a detailed counselor interaction.
             </p>
             <div className="grid grid-cols-2 gap-4 lg:gap-8">
-              <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-[3rem] border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
+              <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-2xl border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
                 <Clock className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
                 <h4 className="font-black text-slate-900 text-sm lg:text-base">Visiting Hours</h4>
-                <p className="text-xs lg:text-sm text-slate-500 mt-2 lg:mt-3 font-medium">Mon-Sun, 8 AM - 8 PM<br /><span className="text-[10px] lg:text-xs italic opacity-70">Sunday: Appointment Only</span></p>
+                <p className="text-xs lg:text-sm text-slate-800 mt-2 lg:mt-3 font-bold">Mon-Sun, 8 AM - 8 PM<br /><span className="text-[10px] lg:text-xs italic opacity-70">Sunday: Appointment Only</span></p>
               </div>
-              <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-[3rem] border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
+              <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-2xl border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
                 <MessageSquare className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
                 <h4 className="font-black text-slate-900 text-sm lg:text-base">Career Counseling</h4>
-                <p className="text-xs lg:text-sm text-slate-500 mt-2 lg:mt-3 font-medium">Free 30-min expert consultation for MPC & BiPC.</p>
+                <p className="text-xs lg:text-sm text-slate-800 mt-2 lg:mt-3 font-bold">Free 30-min expert consultation for MPC & BiPC.</p>
               </div>
             </div>
           </div>
           <div className="lg:w-1/2 relative w-full">
-            <div className="absolute -top-8 lg:-top-16 -right-8 lg:-right-16 w-32 lg:w-64 h-32 lg:h-64 bg-yellow-400 rounded-2xl lg:rounded-[4rem] -z-10 rotate-12 opacity-20"></div>
-            <div className="relative w-full h-64 lg:h-[550px] overflow-hidden rounded-2xl lg:rounded-[5rem] shadow-2xl border-4 lg:border-[10px] border-white bg-white">
+            <div className="absolute -top-8 lg:-top-16 -right-8 lg:-right-16 w-32 lg:w-64 h-32 lg:h-64 bg-yellow-400 rounded-2xl lg:rounded-2xl -z-10 rotate-12 opacity-20"></div>
+            <div className="relative w-full h-64 lg:h-[550px] overflow-hidden rounded-2xl lg:rounded-2xl shadow-2xl border-4 lg:border-[10px] border-white bg-white">
               {campusData.map((campus, index) => (
                 <img
                   key={index}
@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="absolute bottom-4 lg:bottom-12 left-0 lg:-left-12 bg-white p-5 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-2xl max-w-[280px] lg:max-w-sm border border-slate-50 transition-all duration-500">
+            <div className="absolute bottom-4 lg:bottom-12 left-0 lg:-left-12 bg-white p-5 lg:p-10 rounded-2xl lg:rounded-2xl shadow-2xl max-w-[280px] lg:max-w-sm border border-slate-50 transition-all duration-500">
               <div key={`info-${currentSlide}`} className="animate-in fade-in duration-700">
                 <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-6">
                   <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-500 rounded-full animate-pulse"></div>
@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Email Your Queries</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg break-all">
+                  <p className="text-slate-900 font-black text-sm lg:text-lg break-all">
                     <a href="mailto:admissions@vidishaedusociety.com" className="hover:text-purple-700 transition-colors">admissions@vidishaedusociety.com</a>
                   </p>
                 </div>
@@ -230,7 +230,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Call Us Directly</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
+                  <p className="text-slate-900 font-black text-sm lg:text-lg hover:text-purple-700 transition-colors">
                     <a href="tel:+919121147747">+91 91211 47747</a>
                   </p>
                   <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
@@ -245,7 +245,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Vijayawada HQ</h3>
-                  <p className="text-slate-500 font-bold leading-relaxed text-sm lg:text-base">54-14/8-68, Srinagar Colony SBI Road,<br />Bharathi Nagar, Vijayawada, AP 520008</p>
+                  <p className="text-slate-900 font-black leading-relaxed text-sm lg:text-base">54-14/8-68, Srinagar Colony SBI Road,<br />Bharathi Nagar, Vijayawada, AP 520008</p>
                 </div>
               </div>
 
@@ -263,7 +263,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">WhatsApp Support</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
+                  <p className="text-slate-900 font-black text-sm lg:text-lg hover:text-purple-700 transition-colors">
                     <a href="https://wa.me/919346270306" target="_blank" rel="noopener noreferrer">+91 9346270306</a>
                   </p>
                 </div>
@@ -271,7 +271,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Email Support Block */}
-            <div className="bg-purple-950 text-white rounded-2xl lg:rounded-[3rem] p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+            <div className="bg-purple-950 text-white rounded-2xl lg:rounded-2xl p-6 lg:p-10 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 lg:w-32 h-24 lg:h-32 bg-yellow-400/10 rounded-full -mr-12 lg:-mr-16 -mt-12 lg:-mt-16 blur-2xl"></div>
               <h3 className="text-xl lg:text-2xl font-black mb-6 lg:mb-8 flex items-center gap-3 lg:gap-4">
                 <Mail className="text-yellow-400 w-5 h-5 lg:w-7 lg:h-7" />
@@ -316,32 +316,32 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="lg:w-2/3">
-            <div className="bg-slate-50 rounded-2xl lg:rounded-[5rem] p-6 lg:p-10 xl:p-20 border border-slate-100 shadow-sm relative overflow-hidden">
+            <div className="bg-slate-50 rounded-2xl lg:rounded-2xl p-6 lg:p-10 xl:p-20 border border-slate-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 lg:w-48 h-32 lg:h-48 bg-purple-900/5 blob-shape"></div>
               <h2 className="text-xl lg:text-3xl font-black text-purple-950 mb-6 lg:mb-12">Enquiry Form</h2>
               <form className="space-y-6 lg:space-y-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Your Name*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Your Name*</label>
                     <input
                       type="text"
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="Enter Your Full Name"
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm text-sm lg:text-base"
                       required
                     />
                   </div>
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Parent/Guardian Name*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Parent/Guardian Name*</label>
                     <input
                       type="text"
                       name="parentName"
                       value={formData.parentName}
                       onChange={handleInputChange}
                       placeholder="Enter Parent Name"
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm text-sm lg:text-base"
                       required
                     />
                   </div>
@@ -349,26 +349,26 @@ const Contact: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Phone Number*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Phone Number*</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm text-sm lg:text-base"
                       required
                     />
                   </div>
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Email Address*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Email Address*</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="example@email.com"
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm text-sm lg:text-base"
                       required
                     />
                   </div>
@@ -376,12 +376,12 @@ const Contact: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Student's Current Class*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Student's Current Class*</label>
                     <select
                       name="currentClass"
                       value={formData.currentClass}
                       onChange={handleInputChange}
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm appearance-none text-sm lg:text-base"
                     >
                       <option>Completed 10th (Joining 1st Year)</option>
                       <option>Completed Inter 1st Year (Joining 2nd Year)</option>
@@ -389,12 +389,12 @@ const Contact: React.FC = () => {
                     </select>
                   </div>
                   <div className="space-y-2 lg:space-y-4">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Interested Stream*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Interested Stream*</label>
                     <select
                       name="interestedStream"
                       value={formData.interestedStream}
                       onChange={handleInputChange}
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm appearance-none text-sm lg:text-base"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-black text-slate-950 shadow-sm appearance-none text-sm lg:text-base"
                     >
                       <option>MPC with JEE Mains</option>
                       <option>MPC with JEE Mains & Advanced</option>
@@ -406,20 +406,20 @@ const Contact: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-2 lg:space-y-4 relative">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">City*</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">City*</label>
                     <div className="relative" onClick={(e) => e.stopPropagation()}>
                       <button
                         type="button"
                         onClick={() => setIsCityOpen(!isCityOpen)}
-                        className={`w-full bg-white border-2 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 transition-all font-bold text-left flex items-center justify-between shadow-sm text-sm lg:text-base ${isCityOpen ? 'border-purple-900 ring-4 ring-purple-900/10' : 'border-slate-100 hover:border-slate-200'
-                          } ${formData.city ? 'text-slate-700' : 'text-slate-400'}`}
+                        className={`w-full bg-white border-2 rounded-2xl lg:rounded-xl px-5 lg:px-8 py-4 lg:py-6 transition-all font-black text-left flex items-center justify-between shadow-sm text-sm lg:text-base ${isCityOpen ? 'border-purple-900 ring-4 ring-purple-900/10' : 'border-slate-100 hover:border-slate-200'
+                          } ${formData.city ? 'text-slate-950' : 'text-slate-500'}`}
                       >
                         <span>{formData.city || "Select Your City"}</span>
                         <ChevronRight className={`transition-transform duration-300 ${isCityOpen ? 'rotate-90' : 'rotate-0'}`} size={20} />
                       </button>
 
                       {isCityOpen && (
-                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl shadow-2xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-slate-100 rounded-2xl lg:rounded-xl shadow-2xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                           {cities.map((city) => (
                             <button
                               key={city}
@@ -441,54 +441,54 @@ const Contact: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
                   <div className="space-y-3 lg:space-y-6">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Interested in Hostel?</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Interested in Hostel?</label>
                     <div className="flex gap-6 lg:gap-10">
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
                         <input type="radio" name="hostel" value="Yes" checked={formData.hostel === 'Yes'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
-                        <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
+                        <span className="font-black text-slate-800 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
                       </label>
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
                         <input type="radio" name="hostel" value="No" checked={formData.hostel === 'No'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
-                        <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
+                        <span className="font-black text-slate-800 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
                       </label>
                     </div>
                   </div>
                   <div className="space-y-3 lg:space-y-6">
-                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Need Transportation?</label>
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Need Transportation?</label>
                     <div className="flex gap-6 lg:gap-10">
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
                         <input type="radio" name="transport" value="Yes" checked={formData.transport === 'Yes'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
-                        <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
+                        <span className="font-black text-slate-800 group-hover:text-purple-900 transition-colors text-sm lg:text-base">Yes</span>
                       </label>
                       <label className="flex items-center gap-2 lg:gap-3 cursor-pointer group">
                         <input type="radio" name="transport" value="No" checked={formData.transport === 'No'} onChange={handleInputChange} className="w-4 h-4 lg:w-5 lg:h-5 accent-purple-900" />
-                        <span className="font-bold text-slate-600 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
+                        <span className="font-black text-slate-800 group-hover:text-purple-900 transition-colors text-sm lg:text-base">No</span>
                       </label>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2 lg:space-y-4">
-                  <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">Your Message/Questions</label>
+                  <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-800 ml-1">Your Message/Questions</label>
                   <textarea
                     rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Ask about scholarships, coaching, or campus specifics..."
-                    className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-[3rem] px-5 lg:px-8 py-5 lg:py-8 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all resize-none font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                    className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-2xl px-5 lg:px-8 py-5 lg:py-8 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all resize-none font-black text-slate-950 shadow-sm text-sm lg:text-base"
                   ></textarea>
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-10 pt-4 lg:pt-6">
                   <button
                     disabled={isSubmitting}
-                    className={`w-full md:w-auto text-white font-black px-8 lg:px-16 py-5 lg:py-7 rounded-2xl lg:rounded-3xl transition-all shadow-2xl flex items-center justify-center gap-3 lg:gap-4 group text-base lg:text-xl ${isSubmitting ? 'bg-purple-900/70 cursor-not-allowed' : 'bg-purple-950 hover:bg-yellow-400 hover:text-purple-950'}`}
+                    className={`w-full md:w-auto text-white font-black px-8 lg:px-16 py-5 lg:py-7 rounded-2xl lg:rounded-xl transition-all shadow-2xl flex items-center justify-center gap-3 lg:gap-4 group text-base lg:text-xl ${isSubmitting ? 'bg-purple-900/70 cursor-not-allowed' : 'bg-purple-950 hover:bg-yellow-400 hover:text-purple-950'}`}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     {!isSubmitting && <Send className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                   </button>
-                  <p className="text-[9px] lg:text-[10px] text-slate-400 uppercase tracking-widest max-w-[240px] font-black leading-relaxed text-center md:text-left">
+                  <p className="text-[9px] lg:text-[10px] text-slate-800 uppercase tracking-widest max-w-[240px] font-black leading-relaxed text-center md:text-left">
                     By submitting, you agree to receive updates via WhatsApp and Email.
                   </p>
                 </div>
