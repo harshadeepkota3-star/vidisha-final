@@ -278,49 +278,52 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Campus Contact Strip */}
-        <div className="mt-32 w-full bg-purple-950 py-3 lg:py-4 border-y border-yellow-400/30 overflow-hidden relative shadow-2xl rounded-2xl lg:rounded-[2rem]">
-          <div className="animate-marquee whitespace-nowrap flex text-[10px] lg:text-[12px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-white items-center">
-            {[
-              { name: "Novotel Branch", phone: "9885812847" },
-              { name: "Benz Circle Branch", phone: "9121147747" },
-              { name: "Edupugallu Branch", phone: "7675992821" },
-              { name: "Bharathi Nagar Branch", phone: "6366527168" },
-              { name: "Visakhapatnam Branch", phone: "9966789198" },
-              { name: "Hyderabad Branch", phone: "6366527167" },
-              { name: "Guntur Branch", phone: "6305086386" },
-              { name: "Kakinada Branch", phone: "6304531313" }
-            ].map((branch, i) => (
-              <span key={i} className="flex items-center">
-                <span className="mx-8 lg:mx-12 flex items-center gap-3">
-                  <span className="text-yellow-400">{branch.name}:</span>
-                  <span className="text-white/90">{branch.phone}</span>
-                </span>
-                <span className="text-yellow-400/30">•</span>
-              </span>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {[
-              { name: "Novotel Branch", phone: "9885812847" },
-              { name: "Benz Circle Branch", phone: "9121147747" },
-              { name: "Edupugallu Branch", phone: "7675992821" },
-              { name: "Bharathi Nagar Branch", phone: "6366527168" },
-              { name: "Visakhapatnam Branch", phone: "9966789198" },
-              { name: "Hyderabad Branch", phone: "6366527167" },
-              { name: "Guntur Branch", phone: "6305086386" },
-              { name: "Kakinada Branch", phone: "6304531313" }
-            ].map((branch, i) => (
-              <span key={`dup-${i}`} className="flex items-center">
-                <span className="mx-8 lg:mx-12 flex items-center gap-3">
-                  <span className="text-yellow-400">{branch.name}:</span>
-                  <span className="text-white/90">{branch.phone}</span>
-                </span>
-                <span className="text-yellow-400/30">•</span>
-              </span>
-            ))}
-          </div>
-        </div>
+      </div>
 
+      {/* Campus Contact Strip - Full Width */}
+      <div className="mt-16 w-full bg-purple-950 py-4 lg:py-6 border-y border-yellow-400/30 overflow-hidden relative shadow-2xl">
+        <div className="animate-marquee whitespace-nowrap flex text-sm lg:text-base font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-white items-center">
+          {[
+            { name: "Novotel Branch", phone: "9885812847" },
+            { name: "Benz Circle Branch", phone: "9121147747" },
+            { name: "Edupugallu Branch", phone: "7675992821" },
+            { name: "Bharathi Nagar Branch", phone: "6366527168" },
+            { name: "Visakhapatnam Branch", phone: "9966789198" },
+            { name: "Hyderabad Branch", phone: "6366527167" },
+            { name: "Guntur Branch", phone: "6305086386" },
+            { name: "Kakinada Branch", phone: "6304531313" }
+          ].map((branch, i) => (
+            <span key={i} className="flex items-center">
+              <span className="mx-8 lg:mx-12 flex items-center gap-3">
+                <span className="text-yellow-400">{branch.name}:</span>
+                <span className="text-white/90">{branch.phone}</span>
+              </span>
+              <span className="text-yellow-400/30">•</span>
+            </span>
+          ))}
+          {/* Duplicate for seamless loop */}
+          {[
+            { name: "Novotel Branch", phone: "9885812847" },
+            { name: "Benz Circle Branch", phone: "9121147747" },
+            { name: "Edupugallu Branch", phone: "7675992821" },
+            { name: "Bharathi Nagar Branch", phone: "6366527168" },
+            { name: "Visakhapatnam Branch", phone: "9966789198" },
+            { name: "Hyderabad Branch", phone: "6366527167" },
+            { name: "Guntur Branch", phone: "6305086386" },
+            { name: "Kakinada Branch", phone: "6304531313" }
+          ].map((branch, i) => (
+            <span key={`dup-${i}`} className="flex items-center">
+              <span className="mx-8 lg:mx-12 flex items-center gap-3">
+                <span className="text-yellow-400">{branch.name}:</span>
+                <span className="text-white/90">{branch.phone}</span>
+              </span>
+              <span className="text-yellow-400/30">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <p className="text-slate-400 font-medium mb-6">Need guidance on which stream to choose?</p>
@@ -331,7 +334,6 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
             Schedule a Counseling Session <ChevronRight size={16} />
           </button>
         </div>
-
       </div>
     </div>
   );

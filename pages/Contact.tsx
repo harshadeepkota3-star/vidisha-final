@@ -1,24 +1,77 @@
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock, ArrowUpRight, Facebook, Instagram, Youtube, Linkedin, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, ArrowUpRight, Facebook, Instagram, Youtube, Linkedin, CheckCircle2, MessageCircle, ChevronRight } from 'lucide-react';
 
-const campusImages = [
-  "/branch_bharathi_nagar_1.png",
-  "/branch_bharathi_nagar_2.png",
-  "/branch_benz_circle.png",
-  "/branch_edupugallu.png",
-  "/branch_guntur.png",
-  "/branch_hyderabad.jpeg",
-  "/branch_kakinada.png",
-  "/branch_visakhapatnam.png"
+const campusData = [
+  {
+    image: "/branch_bharathi_nagar_1.png",
+    address: "54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar, Vijayawada, AP 520008",
+    city: "Vijayawada",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+Vijayawada+Novotel"
+  },
+  {
+    image: "/branch_bharathi_nagar_2.png",
+    address: "VMC Revenue, 54-1-7/2D, High Tension Line Road, Bharathi Nagar, Ward 2, Vijayawada, AP 520008",
+    city: "Vijayawada",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+High+Tension+Line+Road"
+  },
+  {
+    image: "/branch_benz_circle.png",
+    address: "Chaganti Mercantile, Near Nirmala Convent Signal, Benz Circle, Vijayawada, AP 520010",
+    city: "Vijayawada",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Benz+Circle+Vijayawada"
+  },
+  {
+    image: "/branch_edupugallu.png",
+    address: "Vijayawada Rd, beside Anjaneya Towers, Edupugallu Vijayawada, AP 521151",
+    city: "Vijayawada",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Edupugallu+Vijayawada"
+  },
+  {
+    image: "/branch_guntur.png",
+    address: "YS Plaza, beside Gorantla Venkateswara Swami Temple, Gorantla, Guntur, AP 522034",
+    city: "Guntur",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Gorantla+Guntur"
+  },
+  {
+    image: "/branch_hyderabad.jpeg",
+    address: "1st Floor, ATC - Anil Trading Co., Bolaram Rd, Lal Bahadur Colony, Tirumalagiri, Secunderabad 500015",
+    city: "Secunderabad",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Tirumalagiri+Secunderabad"
+  },
+  {
+    image: "/branch_kakinada.png",
+    address: "D.no.2-4-24, LRKS Plaza, Behind Anand theatre Opp: abhaya blood bank, Kakinada, AP 533003",
+    city: "Kakinada",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Kakinada"
+  },
+  {
+    image: "/branch_visakhapatnam.png",
+    address: "Rednam Gardens, 10-12-1/b, Jail Road Junction opp: Central Park, Ramnagar, Visakhapatnam, AP 530002",
+    city: "Visakhapatnam",
+    maps: "https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Ramnagar+Visakhapatnam"
+  }
 ];
 
 const Contact: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isCityOpen, setIsCityOpen] = useState(false);
+  const [selectedCity, setSelectedCity] = useState('');
+
+  const cities = ["Vijayawada", "Visakhapatnam", "Guntur", "Kakinada", "Hyderabad"];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => setIsCityOpen(false);
+    if (isCityOpen) {
+      window.addEventListener('click', handleClickOutside);
+    }
+    return () => window.removeEventListener('click', handleClickOutside);
+  }, [isCityOpen]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % campusImages.length);
+      setCurrentSlide((prev) => (prev + 1) % campusData.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -50,22 +103,33 @@ const Contact: React.FC = () => {
           <div className="lg:w-1/2 relative w-full">
             <div className="absolute -top-8 lg:-top-16 -right-8 lg:-right-16 w-32 lg:w-64 h-32 lg:h-64 bg-yellow-400 rounded-2xl lg:rounded-[4rem] -z-10 rotate-12 opacity-20"></div>
             <div className="relative w-full h-64 lg:h-[550px] overflow-hidden rounded-2xl lg:rounded-[5rem] shadow-2xl border-4 lg:border-[10px] border-white bg-white">
-              {campusImages.map((img, index) => (
+              {campusData.map((campus, index) => (
                 <img
                   key={index}
-                  src={img}
+                  src={campus.image}
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                   alt={`Campus ${index + 1}`}
                 />
               ))}
             </div>
-            <div className="absolute bottom-4 lg:bottom-12 left-0 lg:-left-12 bg-white p-5 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-2xl max-w-[280px] lg:max-w-sm border border-slate-50">
-              <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-6">
-                <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] text-slate-400">Vijayawada</span>
+            <div className="absolute bottom-4 lg:bottom-12 left-0 lg:-left-12 bg-white p-5 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-2xl max-w-[280px] lg:max-w-sm border border-slate-50 transition-all duration-500">
+              <div key={`info-${currentSlide}`} className="animate-in fade-in duration-700">
+                <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-6">
+                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] text-slate-400">{campusData[currentSlide].city}</span>
+                </div>
+                <p className="text-slate-900 font-black text-sm lg:text-lg leading-tight min-h-[3em]">
+                  {campusData[currentSlide].address}
+                </p>
+                <a
+                  href={campusData[currentSlide].maps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-700 text-[10px] lg:text-xs font-black uppercase tracking-widest mt-4 lg:mt-6 inline-flex items-center gap-2 lg:gap-3 hover:text-yellow-600 transition-colors"
+                >
+                  Get Directions <ArrowUpRight size={14} />
+                </a>
               </div>
-              <p className="text-slate-900 font-black text-sm lg:text-lg leading-tight">54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+Vijayawada+Srinagar+Colony+SBI+Road" target="_blank" rel="noopener noreferrer" className="text-purple-700 text-[10px] lg:text-xs font-black uppercase tracking-widest mt-4 lg:mt-6 inline-flex items-center gap-2 lg:gap-3 hover:text-yellow-600 transition-colors">Get Directions <ArrowUpRight size={14} /></a>
             </div>
           </div>
         </div>
@@ -247,22 +311,37 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
-                  <div className="space-y-2 lg:space-y-4">
+                  <div className="space-y-2 lg:space-y-4 relative">
                     <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">City*</label>
-                    <input
-                      list="city-options"
-                      placeholder="Select or Type City"
-                      autoComplete="off"
-                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
-                      required
-                    />
-                    <datalist id="city-options">
-                      <option value="Vijayawada" />
-                      <option value="Visakhapatnam" />
-                      <option value="Guntur" />
-                      <option value="Kakinada" />
-                      <option value="Hyderabad" />
-                    </datalist>
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
+                      <button
+                        type="button"
+                        onClick={() => setIsCityOpen(!isCityOpen)}
+                        className={`w-full bg-white border-2 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 transition-all font-bold text-left flex items-center justify-between shadow-sm text-sm lg:text-base ${isCityOpen ? 'border-purple-900 ring-4 ring-purple-900/10' : 'border-slate-100 hover:border-slate-200'
+                          } ${selectedCity ? 'text-slate-700' : 'text-slate-400'}`}
+                      >
+                        <span>{selectedCity || "Select Your City"}</span>
+                        <ChevronRight className={`transition-transform duration-300 ${isCityOpen ? 'rotate-90' : 'rotate-0'}`} size={20} />
+                      </button>
+
+                      {isCityOpen && (
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl shadow-2xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                          {cities.map((city) => (
+                            <button
+                              key={city}
+                              type="button"
+                              onClick={() => {
+                                setSelectedCity(city);
+                                setIsCityOpen(false);
+                              }}
+                              className="w-full text-left px-8 py-4 hover:bg-purple-50 hover:text-purple-950 font-bold text-slate-600 transition-colors border-b border-slate-50 last:border-0"
+                            >
+                              {city}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
