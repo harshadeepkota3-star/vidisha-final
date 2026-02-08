@@ -49,6 +49,53 @@ const mpcCourses = [
     ],
     idealFor: "Ambitious students targeting top IITs and premier engineering institutions",
     duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 1st Year with JEE Mains Coaching",
+    learnings: [
+      "Complete Intermediate 1st Year syllabus (Mathematics, Physics, Chemistry)",
+      "Focused preparation for JEE Mains exam pattern",
+      "Conceptual clarity and problem-solving techniques",
+      "Regular tests and assessments"
+    ],
+    idealFor: "Students beginning intermediate education with engineering aspirations",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 1st Year with JEE Mains & Advanced Coaching",
+    learnings: [
+      "Complete Intermediate 1st Year syllabus",
+      "Comprehensive preparation for both JEE Mains and JEE Advanced",
+      "Advanced problem-solving and analytical thinking",
+      "Special modules for Olympiad-level questions",
+      "In-depth coverage of all topics"
+    ],
+    idealFor: "High-achieving students targeting IITs and top NITs",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 2nd Year with JEE Mains Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Intensive JEE Mains preparation",
+      "Revision of 1st Year concepts",
+      "Full-length mock tests and time management strategies",
+      "Final exam preparation"
+    ],
+    idealFor: "2nd Year students preparing for final board exams and JEE Mains",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 2nd Year with JEE Mains & Advanced Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Comprehensive preparation for JEE Mains and JEE Advanced",
+      "Advanced-level problem-solving",
+      "Comprehensive revision and doubt-clearing",
+      "Complete exam readiness"
+    ],
+    idealFor: "Ambitious students targeting top IITs and premier engineering institutions",
+    duration: "1 Academic Year"
   }
 ];
 
@@ -77,10 +124,45 @@ const bipcCourses = [
     ],
     idealFor: "2nd Year students preparing for board exams and NEET",
     duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 1st Year with NEET Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Intensive NEET preparation with full syllabus coverage",
+      "Revision of 1st Year Biology, Physics, Chemistry",
+      "NEET-specific problem-solving and shortcuts",
+      "Full-length mock tests in NEET pattern",
+      "Final exam readiness"
+    ],
+    idealFor: "2nd Year students preparing for board exams and NEET",
+    duration: "1 Academic Year"
+  },
+  {
+    title: "Long Term 2nd Year with NEET Coaching",
+    learnings: [
+      "Complete Intermediate 2nd Year syllabus",
+      "Intensive NEET preparation with full syllabus coverage",
+      "Revision of 1st Year Biology, Physics, Chemistry",
+      "NEET-specific problem-solving and shortcuts",
+      "Full-length mock tests in NEET pattern",
+      "Final exam readiness"
+    ],
+    idealFor: "2nd Year students preparing for board exams and NEET",
+    duration: "1 Academic Year"
   }
 ];
 
-const CourseCard: React.FC<{ course: any; icon: React.ReactNode; accentColor: string }> = ({ course, icon, accentColor }) => (
+interface CoursesProps {
+  onNavigate: (tab: string) => void;
+}
+
+const CourseCard: React.FC<{
+  course: any;
+  icon: React.ReactNode;
+  accentColor: string;
+  onNavigate: (tab: string) => void;
+}> = ({ course, icon, accentColor, onNavigate }) => (
   <div className="group bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
 
     <div className="mb-6 flex items-start justify-between">
@@ -113,13 +195,16 @@ const CourseCard: React.FC<{ course: any; icon: React.ReactNode; accentColor: st
       </div>
     </div>
 
-    <button className={`w-full mt-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all text-white shadow-lg hover:opacity-90 active:scale-95 ${accentColor}`}>
+    <button
+      onClick={() => onNavigate('contact')}
+      className={`w-full mt-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all text-white shadow-lg hover:opacity-90 active:scale-95 ${accentColor}`}
+    >
       Enroll Now <ArrowRight size={14} />
     </button>
   </div>
 );
 
-const Courses: React.FC = () => {
+const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
   return (
     <div className="py-24 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 selection:bg-yellow-200 selection:text-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,7 +244,7 @@ const Courses: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mpcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />} accentColor="bg-blue-600" />
+              <CourseCard key={idx} course={course} icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />} accentColor="bg-blue-600" onNavigate={onNavigate} />
             ))}
           </div>
         </div>
@@ -188,15 +273,61 @@ const Courses: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {bipcCourses.map((course, idx) => (
-              <CourseCard key={idx} course={course} icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />} accentColor="bg-emerald-600" />
+              <CourseCard key={idx} course={course} icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />} accentColor="bg-emerald-600" onNavigate={onNavigate} />
+            ))}
+          </div>
+        </div>
+
+        {/* Campus Contact Strip */}
+        <div className="mt-32 w-full bg-purple-950 py-3 lg:py-4 border-y border-yellow-400/30 overflow-hidden relative shadow-2xl rounded-2xl lg:rounded-[2rem]">
+          <div className="animate-marquee whitespace-nowrap flex text-[10px] lg:text-[12px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-white items-center">
+            {[
+              { name: "Novotel Branch", phone: "9885812847" },
+              { name: "Benz Circle Branch", phone: "9121147747" },
+              { name: "Edupugallu Branch", phone: "7675992821" },
+              { name: "Bharathi Nagar Branch", phone: "6366527168" },
+              { name: "Visakhapatnam Branch", phone: "9966789198" },
+              { name: "Hyderabad Branch", phone: "6366527167" },
+              { name: "Guntur Branch", phone: "6305086386" },
+              { name: "Kakinada Branch", phone: "6304531313" }
+            ].map((branch, i) => (
+              <span key={i} className="flex items-center">
+                <span className="mx-8 lg:mx-12 flex items-center gap-3">
+                  <span className="text-yellow-400">{branch.name}:</span>
+                  <span className="text-white/90">{branch.phone}</span>
+                </span>
+                <span className="text-yellow-400/30">•</span>
+              </span>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              { name: "Novotel Branch", phone: "9885812847" },
+              { name: "Benz Circle Branch", phone: "9121147747" },
+              { name: "Edupugallu Branch", phone: "7675992821" },
+              { name: "Bharathi Nagar Branch", phone: "6366527168" },
+              { name: "Visakhapatnam Branch", phone: "9966789198" },
+              { name: "Hyderabad Branch", phone: "6366527167" },
+              { name: "Guntur Branch", phone: "6305086386" },
+              { name: "Kakinada Branch", phone: "6304531313" }
+            ].map((branch, i) => (
+              <span key={`dup-${i}`} className="flex items-center">
+                <span className="mx-8 lg:mx-12 flex items-center gap-3">
+                  <span className="text-yellow-400">{branch.name}:</span>
+                  <span className="text-white/90">{branch.phone}</span>
+                </span>
+                <span className="text-yellow-400/30">•</span>
+              </span>
             ))}
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-24 text-center">
+        <div className="mt-16 text-center">
           <p className="text-slate-400 font-medium mb-6">Need guidance on which stream to choose?</p>
-          <button className="inline-flex items-center gap-2 text-purple-900 font-bold hover:text-purple-700 transition-colors border-b-2 border-yellow-400 hover:border-yellow-500 pb-1">
+          <button
+            onClick={() => onNavigate('contact')}
+            className="inline-flex items-center gap-2 text-purple-900 font-bold hover:text-purple-700 transition-colors border-b-2 border-yellow-400 hover:border-yellow-500 pb-1"
+          >
             Schedule a Counseling Session <ChevronRight size={16} />
           </button>
         </div>

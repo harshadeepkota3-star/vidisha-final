@@ -1,8 +1,28 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock, ArrowUpRight, Facebook, Instagram, Youtube, Linkedin, CheckCircle2, MessageCircle } from 'lucide-react';
 
+const campusImages = [
+  "/branch_bharathi_nagar_1.png",
+  "/branch_bharathi_nagar_2.png",
+  "/branch_benz_circle.png",
+  "/branch_edupugallu.png",
+  "/branch_guntur.png",
+  "/branch_hyderabad.jpeg",
+  "/branch_kakinada.png",
+  "/branch_visakhapatnam.png"
+];
+
 const Contact: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % campusImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="py-10 lg:py-20 animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -29,15 +49,20 @@ const Contact: React.FC = () => {
           </div>
           <div className="lg:w-1/2 relative w-full">
             <div className="absolute -top-8 lg:-top-16 -right-8 lg:-right-16 w-32 lg:w-64 h-32 lg:h-64 bg-yellow-400 rounded-2xl lg:rounded-[4rem] -z-10 rotate-12 opacity-20"></div>
-            <img
-              src="/branch_bharathi_nagar_1.png"
-              className="w-full h-64 lg:h-[550px] object-cover rounded-2xl lg:rounded-[5rem] shadow-2xl border-4 lg:border-[10px] border-white"
-              alt="College Entrance"
-            />
+            <div className="relative w-full h-64 lg:h-[550px] overflow-hidden rounded-2xl lg:rounded-[5rem] shadow-2xl border-4 lg:border-[10px] border-white bg-white">
+              {campusImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                  alt={`Campus ${index + 1}`}
+                />
+              ))}
+            </div>
             <div className="absolute bottom-4 lg:bottom-12 left-0 lg:-left-12 bg-white p-5 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-2xl max-w-[280px] lg:max-w-sm border border-slate-50">
               <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-6">
                 <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] text-slate-400">Principal Branch - Vijayawada</span>
+                <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] text-slate-400">Vijayawada</span>
               </div>
               <p className="text-slate-900 font-black text-sm lg:text-lg leading-tight">54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar</p>
               <a href="https://www.google.com/maps/search/?api=1&query=Vidisha+Junior+College+Bharathi+Nagar+Vijayawada+Srinagar+Colony+SBI+Road" target="_blank" rel="noopener noreferrer" className="text-purple-700 text-[10px] lg:text-xs font-black uppercase tracking-widest mt-4 lg:mt-6 inline-flex items-center gap-2 lg:gap-3 hover:text-yellow-600 transition-colors">Get Directions <ArrowUpRight size={14} /></a>
@@ -55,7 +80,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Email Your Queries</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg break-all">admissions@vidishaedusociety.com</p>
+                  <p className="text-slate-500 font-bold text-sm lg:text-lg break-all">
+                    <a href="mailto:admissions@vidishaedusociety.com" className="hover:text-purple-700 transition-colors">admissions@vidishaedusociety.com</a>
+                  </p>
                 </div>
               </div>
 
@@ -65,8 +92,12 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Call Us Directly</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg">+91 91211 47747</p>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg">+91 63665 27168</p>
+                  <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
+                    <a href="tel:+919121147747">+91 91211 47747</a>
+                  </p>
+                  <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
+                    <a href="tel:+916366527168">+91 63665 27168</a>
+                  </p>
                 </div>
               </div>
 
@@ -94,7 +125,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">WhatsApp Support</h3>
-                  <p className="text-slate-500 font-bold text-sm lg:text-lg">+91 91211 47747</p>
+                  <p className="text-slate-500 font-bold text-sm lg:text-lg hover:text-purple-700 transition-colors">
+                    <a href="https://wa.me/919121147747" target="_blank" rel="noopener noreferrer">+91 91211 47747</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -210,6 +243,26 @@ const Contact: React.FC = () => {
                       <option>BiPC with NEET</option>
                       <option>Need Counseling</option>
                     </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
+                  <div className="space-y-2 lg:space-y-4">
+                    <label className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] lg:tracking-[0.3em] text-slate-400 ml-1">City*</label>
+                    <input
+                      list="city-options"
+                      placeholder="Select or Type City"
+                      autoComplete="off"
+                      className="w-full bg-white border-2 border-slate-100 rounded-2xl lg:rounded-3xl px-5 lg:px-8 py-4 lg:py-6 focus:ring-4 focus:ring-purple-900/10 focus:border-purple-900 outline-none transition-all font-bold text-slate-700 shadow-sm text-sm lg:text-base"
+                      required
+                    />
+                    <datalist id="city-options">
+                      <option value="Vijayawada" />
+                      <option value="Visakhapatnam" />
+                      <option value="Guntur" />
+                      <option value="Kakinada" />
+                      <option value="Hyderabad" />
+                    </datalist>
                   </div>
                 </div>
 

@@ -23,28 +23,36 @@ const Gallery: React.FC = () => {
     { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
 
     // Labs
-    { id: 12, url: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800', title: 'Physics Research Lab', cat: 'Labs' },
-    { id: 13, url: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=800', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 12, url: '/labs0.jpeg', title: 'Physics Research Lab', cat: 'Labs' },
+    { id: 13, url: '/labs1.jpeg', title: 'Chemistry Lab Session', cat: 'Labs' },
+    { id: 14, url: '/labs2.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 15, url: '/labs3.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 16, url: '/labs4.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+    { id: 17, url: '/labs5.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 18, url: '/labs6.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 19, url: '/labs7.jpeg', title: 'Physics Lab Session', cat: 'Labs' },
+    { id: 20, url: '/labs8.jpeg', title: 'Lab Session', cat: 'Labs' },
+    { id: 21, url: '/labs9.jpeg', title: 'Lab Session', cat: 'Labs' },
 
-    // Classrooms - 7 slots
-    { id: 14, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
-    { id: 15, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
-    { id: 16, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
-    { id: 17, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
-    { id: 18, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
-    { id: 19, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
-    { id: 20, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
-    { id: 21, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
-    // Achievements - 11 slots
-    { id: 22, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
-    { id: 23, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
-    { id: 24, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
-    { id: 25, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
-    { id: 26, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
-    { id: 27, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
-    { id: 28, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
-    { id: 29, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
-    { id: 30, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
+    // Classrooms
+    { id: 22, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
+    { id: 23, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
+    { id: 24, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
+    { id: 25, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
+    { id: 26, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
+    { id: 27, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
+    { id: 28, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
+    { id: 29, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
+    // Achievements
+    { id: 30, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
+    { id: 31, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
+    { id: 32, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
+    { id: 33, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
+    { id: 34, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
+    { id: 35, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
+    { id: 36, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
+    { id: 37, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
+    { id: 38, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
   ];
 
   const filteredImages = images.filter(i => i.cat === filter);
@@ -73,26 +81,26 @@ const Gallery: React.FC = () => {
               {
                 id: 1,
                 location: "Vijayawada",
-                address: "Chaganti Mercantile, Near Nirmala Convent Signal, Benz Circle, Vijayawada, Andhra Pradesh 520010",
-                title: "Benz Circle Branch",
-                image: "/branch_benz_circle.png",
-                phone: "9123456789"
+                address: "VMC Revenue, 54-1-7/2D, High Tension Line Road, Bharathi Nagar, Ward 2, Vijayawada, Andhra Pradesh 520008",
+                title: "Bharathi Nagar (High Tension Line Branch)",
+                image: "/branch_bharathi_nagar_2.png",
+                phone: "6366527168"
               },
               {
                 id: 2,
                 location: "Vijayawada",
                 address: "54-14/8-68, Srinagar Colony SBI Road, near Novotel Hotel, Bharathi Nagar, Vijayawada, Andhra Pradesh 520008",
-                title: "Bharathi Nagar Principal Branch",
+                title: "Novotel Branch",
                 image: "/branch_bharathi_nagar_1.png",
-                phone: "9123456780"
+                phone: "9885812847"
               },
               {
                 id: 3,
                 location: "Vijayawada",
-                address: "VMC Revenue, 54-1-7/2D, High Tension Line Road, Bharathi Nagar, Ward 2, Vijayawada, Andhra Pradesh 520008",
-                title: "High Tension Line Branch",
-                image: "/branch_bharathi_nagar_2.png",
-                phone: "9123456781"
+                address: "Chaganti Mercantile, Near Nirmala Convent Signal, Benz Circle, Vijayawada, Andhra Pradesh 520010",
+                title: "Benz Circle Branch",
+                image: "/branch_benz_circle.png",
+                phone: "9121147747"
               },
               {
                 id: 4,
@@ -100,7 +108,7 @@ const Gallery: React.FC = () => {
                 address: "Vijayawada Rd, beside Anjaneya Towers, Edupugallu Vijayawada, Andhra Pradesh 521151",
                 title: "Edupugallu Branch",
                 image: "/branch_edupugallu.png",
-                phone: "9123456782"
+                phone: "7675992821"
               },
               {
                 id: 5,
@@ -108,7 +116,7 @@ const Gallery: React.FC = () => {
                 address: "Rednam Gardens, 10-12-1/b, Jail Road Junction opp: Central Park, Ramnagar, Visakhapatnam, Andhra Pradesh 530002",
                 title: "Visakhapatnam Branch",
                 image: "/branch_visakhapatnam.png",
-                phone: "9346270306"
+                phone: "9966789198"
               },
               {
                 id: 6,
@@ -169,14 +177,17 @@ const Gallery: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="mt-auto pt-6 border-t border-slate-50 flex items-center gap-3">
-                      <div className="bg-purple-50 p-2 rounded-lg">
+                    <a
+                      href={`tel:${branch.phone}`}
+                      className="mt-auto pt-6 border-t border-slate-50 flex items-center gap-3 group/phone hover:opacity-80 transition-opacity"
+                    >
+                      <div className="bg-purple-50 p-2 rounded-lg group-hover/phone:bg-purple-100 transition-colors">
                         <Phone size={14} className="text-purple-600" />
                       </div>
-                      <span className="text-purple-950 font-black text-lg tracking-wider">
+                      <span className="text-purple-950 font-black text-lg tracking-wider group-hover/phone:text-purple-700 transition-colors">
                         {branch.phone}
                       </span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -53,7 +53,7 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'home': return <Home onNavigate={navigateTo} />;
-      case 'courses': return <Courses />;
+      case 'courses': return <Courses onNavigate={navigateTo} />;
       case 'gallery': return <Gallery />;
       case 'about': return <About />;
       case 'contact': return <Contact />;

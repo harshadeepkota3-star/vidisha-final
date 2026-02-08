@@ -96,9 +96,6 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate }) => {
               <ChevronRight size={20} className={activeTab === item.id ? 'opacity-100' : 'opacity-0'} />
             </a>
           ))}
-          <button className="w-full mt-6 bg-purple-950 text-white py-6 rounded-[2rem] text-xs font-black uppercase tracking-widest shadow-xl">
-            Student Portal
-          </button>
         </div>
       </div>
     </nav>
