@@ -17,7 +17,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     { label: 'Success Rate', value: '98%' },
     { label: 'Students Enrolled', value: '5200+' },
     { label: 'Students Passed Out', value: '4500+' },
-    { label: 'Expert Faculty', value: '100+' },
+    { label: 'Expert Faculty', value: '150+' },
   ];
 
   const events = [
@@ -312,9 +312,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <h2 className="text-2xl lg:text-5xl font-black text-purple-900 mb-4 lg:mb-6">Why Choose Vidisha</h2>
               <div className="h-1.5 lg:h-2 w-20 lg:w-32 bg-yellow-400 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
               {vidishaFeatures.map((feature, idx) => (
-                <div key={idx} className="group p-6 lg:p-8 rounded-2xl lg:rounded-[2.5rem] bg-white/60 backdrop-blur-sm border border-white/40 hover:bg-purple-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2">
+                <div key={idx} className="group p-6 lg:p-8 rounded-xl lg:rounded-2xl bg-white/60 backdrop-blur-sm border border-white/40 hover:bg-purple-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2">
                   <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-sm group-hover:bg-yellow-400 transition-colors mx-auto">
                     {React.cloneElement(feature.icon as React.ReactElement, { className: 'w-6 h-6 lg:w-8 lg:h-8 text-purple-900' })}
                   </div>
@@ -373,9 +373,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <h2 className="text-2xl lg:text-5xl font-black text-purple-900">Important Dates & Updates</h2>
               <div className="h-1.5 lg:h-2 w-20 lg:w-32 bg-yellow-400 mx-auto mt-4 lg:mt-6 rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[2px]">
               {events.map((event: any, idx) => (
-                <div key={idx} className="group bg-white/60 backdrop-blur-sm rounded-2xl lg:rounded-[2.5rem] border border-white/40 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col h-full">
+                <div key={idx} className="group bg-white/60 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-white/40 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col h-full">
                   <div className={`h-40 lg:h-56 bg-indigo-50 border-b border-indigo-100 relative group-hover:bg-indigo-100 transition-colors flex flex-col items-center justify-center text-center cursor-pointer overflow-hidden ${event.image ? 'p-0' : 'p-4 lg:p-6'}`}>
                     {event.image ? (
                       <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -404,7 +404,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
         </section>
 
-        <section className="py-12 lg:py-20 relative overflow-hidden text-center">
+        <section className="py-12 lg:pt-4 lg:pb-20 relative overflow-hidden text-center">
           <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Visual Journey</span>
@@ -543,12 +543,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
               <div className="lg:w-[45%] lg:mt-0 mt-12 grid grid-cols-2 gap-3 lg:gap-5 w-full">
                 <div className="space-y-3 lg:space-y-5">
-                  <img src="/classrooms1.jpg" className="w-full h-32 lg:h-44 object-cover rounded-2xl lg:rounded-[2.5rem] shadow-2xl border-2 border-white/10" alt="Students Studying" />
-                  <img src="/achievement2.jpg" className="w-full h-44 lg:h-64 object-cover rounded-2xl lg:rounded-[3.5rem] shadow-2xl border-2 border-white/10" alt="Laboratory" />
+                  <img src="/classrooms1.jpg" className="w-full h-32 lg:h-44 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Students Studying" />
+                  <img src="/achievement2.jpg" className="w-full h-44 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Laboratory" />
                 </div>
                 <div className="space-y-3 lg:space-y-5 pt-8 lg:pt-16">
-                  <img src="/events3.JPG" className="w-full h-44 lg:h-64 object-cover rounded-2xl lg:rounded-[3.5rem] shadow-2xl border-2 border-white/10" alt="Classroom" />
-                  <img src="/classrooms2.jpeg" className="w-full h-32 lg:h-44 object-cover rounded-2xl lg:rounded-[2.5rem] shadow-2xl border-2 border-white/10" alt="Library" />
+                  <img src="/events3.JPG" className="w-full h-44 lg:h-64 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Classroom" />
+                  <img src="/classrooms2.jpeg" className="w-full h-32 lg:h-44 object-cover rounded-xl lg:rounded-2xl shadow-2xl border-2 border-white/10" alt="Library" />
                 </div>
               </div>
             </div>
