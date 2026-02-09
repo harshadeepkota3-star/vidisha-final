@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Target, Eye, ShieldCheck, Users2, Sparkles, Zap, Shield, Heart, GraduationCap, BookOpen, FlaskConical, Monitor, Bus, Home as HomeIcon, CheckCircle2, MessageCircle, ChevronDown } from 'lucide-react';
+import { Target, Eye, ShieldCheck, Users2, Sparkles, Zap, Shield, Heart, GraduationCap, BookOpen, FlaskConical, Monitor, Bus, Home as HomeIcon, MessageCircle, ChevronDown } from 'lucide-react';
 
 const About: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -51,7 +51,7 @@ const About: React.FC = () => {
               "Regular doubt-clearing sessions and personalized mentoring"
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3 text-slate-900 font-bold text-sm bg-slate-50 p-3 rounded-lg">
-                <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 shrink-0" />
+                <img src="/logo.png" alt="Vidisha Logo" className="w-4 h-4 object-contain shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
@@ -203,7 +203,7 @@ const About: React.FC = () => {
                   "Dedicated mentorship and individualized attention"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 lg:gap-4 text-purple-100">
-                    <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6 text-yellow-400 shrink-0 mt-0.5" />
+                    <img src="/logo.png" alt="Vidisha Logo" className="w-5 h-5 lg:w-6 lg:h-6 object-contain shrink-0 mt-0.5" />
                     <span className="font-medium text-sm lg:text-base">{item}</span>
                   </li>
                 ))}

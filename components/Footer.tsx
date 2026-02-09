@@ -112,15 +112,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
             <div className="flex space-x-4 items-center mt-8 ml-1">
               {[
-                { Icon: Facebook, color: 'hover:bg-blue-600', href: '#' },
-                { Icon: Instagram, color: 'hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', href: '#' },
-                { Icon: Youtube, color: 'hover:bg-red-600', href: '#' },
-                { Icon: Linkedin, color: 'hover:bg-blue-700', href: '#' }
+                { Icon: Facebook, color: 'bg-blue-600', href: '#' },
+                { Icon: Instagram, color: 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', href: '#' },
+                { Icon: Youtube, color: 'bg-red-600', href: '#' },
+                { Icon: Linkedin, color: 'bg-blue-700', href: '#' }
               ].map(({ Icon, color, href }, i) => (
                 <a
                   key={i}
                   href={href}
-                  className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 transition-all duration-300 ${color} hover:text-white hover:scale-110 hover:shadow-lg group shadow-sm`}
+                  className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white transition-all duration-300 ${color} hover:scale-110 hover:shadow-lg group shadow-sm`}
                 >
                   <Icon size={18} className="transition-transform group-hover:rotate-12" />
                 </a>

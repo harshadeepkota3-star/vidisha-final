@@ -133,7 +133,7 @@ const Contact: React.FC = () => {
       <div className="min-h-[60vh] flex items-center justify-center py-20 animate-in fade-in zoom-in duration-700">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="w-28 h-28 bg-green-100/50 rounded-full flex items-center justify-center mx-auto mb-10 shadow-inner">
-            <CheckCircle2 className="w-14 h-14 text-green-600 animate-bounce" />
+            <img src="/logo.png" alt="Vidisha Logo" className="w-14 h-14 object-contain animate-bounce" />
           </div>
           <h1 className="text-4xl lg:text-6xl font-black text-purple-950 mb-8 tracking-tight">Message Sent!</h1>
           <p className="text-xl text-slate-900 mb-12 leading-relaxed font-bold">

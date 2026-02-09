@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, GraduationCap, ChevronRight, BookOpen, FlaskConical, ArrowRight } from 'lucide-react';
 
 const mpcCourses = [
   {
@@ -137,7 +137,7 @@ const CourseCard: React.FC<{
             <ul className="space-y-2">
               {course.learnings.map((item: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-950 font-black leading-relaxed">
-                  <CheckCircle2 className={`w-4 h-4 shrink-0 ${accentColor.replace('bg-', 'text-')} mt-0.5`} />
+                  <img src="/logo.png" alt="Vidisha Logo" className="w-4 h-4 object-contain shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}

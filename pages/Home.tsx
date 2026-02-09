@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Award, Users, GraduationCap, ArrowRight, CheckCircle2, FlaskConical, ChevronLeft, ChevronRight, Monitor, Home as HomeIcon, Bus, Calendar, MapPin, Image as ImageIcon, Plus, Minus, X, ChevronDown, Download } from 'lucide-react';
+import { BookOpen, Award, Users, GraduationCap, ArrowRight, FlaskConical, ChevronLeft, ChevronRight, Monitor, Home as HomeIcon, Bus, Calendar, MapPin, Image as ImageIcon, Plus, Minus, X, ChevronDown, Download } from 'lucide-react';
 
 const bannerImages = [
   "/banner_slide_1.jpg",
@@ -522,8 +522,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                         className="w-full py-4 flex items-center justify-between gap-4 text-left group"
                       >
                         <div className="flex items-center gap-5">
-                          <CheckCircle2 size={20} className={`transition-colors duration-300 ${openAccordion === i ? 'text-yellow-400' : 'text-white/20 group-hover:text-white/40'
-                            }`} />
+                          <img
+                            src="/footer_logo.png"
+                            alt="Vidisha Logo"
+                            className={`w-5 h-5 object-contain transition-all duration-300 ${openAccordion === i ? 'opacity-100 scale-110' : 'opacity-20 group-hover:opacity-40'
+                              }`}
+                          />
                           <span className={`font-black text-sm lg:text-base uppercase tracking-widest transition-all duration-300 ${openAccordion === i ? 'text-yellow-400 translate-x-1' : 'text-white/90'
                             }`}>
                             {item.title}
