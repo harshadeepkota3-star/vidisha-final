@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <ul className="space-y-2.5 text-sm font-bold">
                 {[
                   { name: 'Home', id: 'home' },
-                  { name: 'Streams', id: 'courses' },
+                  { name: 'Courses', id: 'courses' },
                   { name: 'Campuses', id: 'gallery' },
                   { name: 'About Us', id: 'about' },
                   { name: 'Admissions', id: 'contact' },

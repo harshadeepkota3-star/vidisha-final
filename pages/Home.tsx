@@ -63,9 +63,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       icon: <img src="/icon/expert_faculty.png" alt="Experienced Faculty" className="w-full h-full object-contain" />
     },
     {
-      title: 'Advanced Laboratories',
-      description: 'Well-equipped Physics, Chemistry, and Biology labs for hands-on practical learning',
-      icon: <img src="/icon/science_labs.png" alt="Science Labs" className="w-full h-full object-contain" />
+      title: 'Mentorship',
+      description: 'Result-oriented unique mentosrship by educators for personal caring of learners',
+      icon: <img src="/icon/mentorship.png" alt="Science Labs" className="w-full h-full object-contain" />
     },
     {
       title: 'Hostel Facilities',
@@ -86,6 +86,21 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       title: 'Air-Conditioned Smart Classrooms',
       description: 'State-of-the-art learning environment with digital teaching systems for enhanced understanding',
       icon: <img src="/icon/smart_classrooms.png" alt="Smart Classrooms" className="w-full h-full object-contain" />
+    },
+    {
+      title: 'Support For Entrance Exams',
+      description: 'Support for BITSAT, IAT, NEST, CUET, ISI, CMI, UCEED & EAPCET Exams along with JEE & NEET',
+      icon: <img src="/icon/support.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+    {
+      title: 'Focus on Olympiads',
+      description: 'IOQM & NSE [IAPT, HBSCE, TIFR, MTA(I)] Olympiads Focuses JEE & NEET Programs',
+      icon: <img src="/icon/olympiad.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+    {
+      title: 'Unique Faculty Selection',
+      description: 'Educators having personal experience of clearing entrance exams with proper background verification process ',
+      icon: <img src="/icon/unique_faculty.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
     }
   ];
 
