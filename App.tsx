@@ -8,6 +8,7 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import LaunchCountdown, { LAUNCH_DATE } from './components/LaunchCountdown';
 
 const BackgroundDecor: React.FC = () => {
   return (
@@ -28,6 +29,11 @@ const BackgroundDecor: React.FC = () => {
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [isLaunched, setIsLaunched] = useState<boolean>(() => {
+    const target = new Date(LAUNCH_DATE).getTime();
+    const now = new Date().getTime();
+    return now >= target;
+  });
 
   const navigateTo = useCallback((tab: string) => {
     setActiveTab(tab);
@@ -63,6 +69,10 @@ const App: React.FC = () => {
       default: return <Home />;
     }
   };
+
+  if (!isLaunched) {
+    return <LaunchCountdown onComplete={() => setIsLaunched(true)} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-yellow-200 selection:text-purple-900 relative">
