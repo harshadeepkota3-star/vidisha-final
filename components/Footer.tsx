@@ -130,7 +130,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="pt-6 border-t border-purple-900 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
-          <p className="w-full">© 2025 Vidisha Junior College. All Rights Reserved.</p>
+          <p className="w-full">© 2026 Vidisha Junior College. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
