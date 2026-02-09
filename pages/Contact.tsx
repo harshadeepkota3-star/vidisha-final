@@ -300,10 +300,19 @@ const Contact: React.FC = () => {
 
             <div className="mt-8 lg:mt-12">
               <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-4 lg:mb-6">Follow Us</h3>
-              <div className="flex gap-3 lg:gap-4">
-                {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 lg:w-12 lg:h-12 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-purple-900 shadow-sm hover:scale-110 hover:shadow-md transition-all">
-                    <Icon size={18} className="lg:w-5 lg:h-5" />
+              <div className="flex gap-4">
+                {[
+                  { Icon: Facebook, color: 'bg-blue-600', href: '#' },
+                  { Icon: Instagram, color: 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', href: '#' },
+                  { Icon: Youtube, color: 'bg-red-600', href: '#' },
+                  { Icon: Linkedin, color: 'bg-blue-700', href: '#' }
+                ].map(({ Icon, color, href }, i) => (
+                  <a
+                    key={i}
+                    href={href}
+                    className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white transition-all duration-300 ${color} hover:scale-110 hover:shadow-lg group shadow-sm`}
+                  >
+                    <Icon size={18} className="transition-transform group-hover:rotate-12" />
                   </a>
                 ))}
               </div>

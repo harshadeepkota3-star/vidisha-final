@@ -2,58 +2,87 @@
 import React, { useState } from 'react';
 import { Search, ImageIcon, FlaskConical, BookOpen, GraduationCap, Users, ChevronRight, MapPin, Phone, X, Download } from 'lucide-react';
 
+export const galleryImages = [
+  // Events - 11 slots
+  { id: 1, url: '/events0.JPG', title: 'Event 0', cat: 'Events' },
+  { id: 2, url: '/events1.JPG', title: 'Event 1', cat: 'Events' },
+  { id: 3, url: '/events2.JPG', title: 'Event 2', cat: 'Events' },
+  { id: 4, url: '/events3.JPG', title: 'Event 3', cat: 'Events' },
+  { id: 5, url: '/events4.JPG', title: 'Event 4', cat: 'Events' },
+  { id: 6, url: '/events5.JPG', title: 'Event 5', cat: 'Events' },
+  { id: 7, url: '/events6.JPG', title: 'Event 6', cat: 'Events' },
+  { id: 8, url: '/events7.JPG', title: 'Event 7', cat: 'Events' },
+  { id: 9, url: '/events8.jpeg', title: 'Event 8', cat: 'Events' },
+  { id: 10, url: '/events9.JPG', title: 'Event 9', cat: 'Events' },
+  { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
+  { id: 12, url: '/events11.jpeg', title: 'Event 11', cat: 'Events' },
+  { id: 13, url: '/events12.jpeg', title: 'Event 12', cat: 'Events' },
+  { id: 14, url: '/events13.jpeg', title: 'Event 13', cat: 'Events' },
+  { id: 15, url: '/events14.jpeg', title: 'Event 14', cat: 'Events' },
+  { id: 16, url: '/events15.jpeg', title: 'Event 15', cat: 'Events' },
+  { id: 17, url: '/events16.jpeg', title: 'Event 16', cat: 'Events' },
+  { id: 18, url: '/events17.jpeg', title: 'Event 17', cat: 'Events' },
+  { id: 19, url: '/events18.jpeg', title: 'Event 18', cat: 'Events' },
+  { id: 20, url: '/events19.jpeg', title: 'Event 19', cat: 'Events' },
+  { id: 21, url: '/events20.jpeg', title: 'Event 20', cat: 'Events' },
+  { id: 22, url: '/events21.jpeg', title: 'Event 21', cat: 'Events' },
+  { id: 23, url: '/events22.jpeg', title: 'Event 22', cat: 'Events' },
+  { id: 24, url: '/events23.jpeg', title: 'Event 23', cat: 'Events' },
+  { id: 25, url: '/events24.jpeg', title: 'Event 24', cat: 'Events' },
+  { id: 26, url: '/events25.jpeg', title: 'Event 25', cat: 'Events' },
+  { id: 27, url: '/events26.jpeg', title: 'Event 26', cat: 'Events' },
+  { id: 28, url: '/events27.jpeg', title: 'Event 27', cat: 'Events' },
+  { id: 29, url: '/events28.jpeg', title: 'Event 28', cat: 'Events' },
+  { id: 30, url: '/events29.jpeg', title: 'Event 29', cat: 'Events' },
+
+
+
+  // Labs
+  { id: 31, url: '/labs0.jpeg', title: 'Physics Research Lab', cat: 'Labs' },
+  { id: 32, url: '/labs1.jpeg', title: 'Chemistry Lab Session', cat: 'Labs' },
+  { id: 33, url: '/labs2.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+  { id: 34, url: '/labs3.jpeg', title: 'Lab Session', cat: 'Labs' },
+  { id: 35, url: '/labs4.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
+  { id: 36, url: '/labs5.jpeg', title: 'Lab Session', cat: 'Labs' },
+  { id: 37, url: '/labs6.jpeg', title: 'Lab Session', cat: 'Labs' },
+  { id: 38, url: '/labs7.jpeg', title: 'Physics Lab Session', cat: 'Labs' },
+  { id: 39, url: '/labs8.jpeg', title: 'Lab Session', cat: 'Labs' },
+  { id: 40, url: '/labs9.jpeg', title: 'Lab Session', cat: 'Labs' },
+
+  // Classrooms
+  { id: 41, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
+  { id: 42, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
+  { id: 43, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
+  { id: 44, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
+  { id: 45, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
+  { id: 46, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
+  { id: 47, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
+  { id: 48, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
+  // Achievements
+  { id: 49, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
+  { id: 50, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
+  { id: 51, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
+  { id: 52, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
+  { id: 53, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
+  { id: 54, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
+  { id: 55, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
+  { id: 56, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
+  { id: 57, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
+  { id: 58, url: '/achievement9.jpeg', title: 'Achievement 8', cat: 'Achievements' },
+  { id: 59, url: '/achievement10.jpeg', title: 'Achievement 8', cat: 'Achievements' },
+  { id: 60, url: '/achievement11.jpeg', title: 'Achievement 8', cat: 'Achievements' },
+  { id: 61, url: '/achievement12.jpeg', title: 'Achievement 8', cat: 'Achievements' }
+];
+
 const Gallery: React.FC = () => {
   const [filter, setFilter] = useState('Events');
   const [selectedImage, setSelectedImage] = useState<any>(null);
 
   const categories = ['Events', 'Labs', 'Classrooms', 'Achievements'];
 
-  const images = [
-    // Events - 11 slots
-    { id: 1, url: '/events0.JPG', title: 'Event 0', cat: 'Events' },
-    { id: 2, url: '/events1.JPG', title: 'Event 1', cat: 'Events' },
-    { id: 3, url: '/events2.JPG', title: 'Event 2', cat: 'Events' },
-    { id: 4, url: '/events3.JPG', title: 'Event 3', cat: 'Events' },
-    { id: 5, url: '/events4.JPG', title: 'Event 4', cat: 'Events' },
-    { id: 6, url: '/events5.JPG', title: 'Event 5', cat: 'Events' },
-    { id: 7, url: '/events6.JPG', title: 'Event 6', cat: 'Events' },
-    { id: 8, url: '/events7.JPG', title: 'Event 7', cat: 'Events' },
-    { id: 9, url: '/events8.JPG', title: 'Event 8', cat: 'Events' },
-    { id: 10, url: '/events9.JPG', title: 'Event 9', cat: 'Events' },
-    { id: 11, url: '/events10.JPG', title: 'Event 10', cat: 'Events' },
 
-    // Labs
-    { id: 12, url: '/labs0.jpeg', title: 'Physics Research Lab', cat: 'Labs' },
-    { id: 13, url: '/labs1.jpeg', title: 'Chemistry Lab Session', cat: 'Labs' },
-    { id: 14, url: '/labs2.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
-    { id: 15, url: '/labs3.jpeg', title: 'Lab Session', cat: 'Labs' },
-    { id: 16, url: '/labs4.jpeg', title: 'Biology Lab Session', cat: 'Labs' },
-    { id: 17, url: '/labs5.jpeg', title: 'Lab Session', cat: 'Labs' },
-    { id: 18, url: '/labs6.jpeg', title: 'Lab Session', cat: 'Labs' },
-    { id: 19, url: '/labs7.jpeg', title: 'Physics Lab Session', cat: 'Labs' },
-    { id: 20, url: '/labs8.jpeg', title: 'Lab Session', cat: 'Labs' },
-    { id: 21, url: '/labs9.jpeg', title: 'Lab Session', cat: 'Labs' },
 
-    // Classrooms
-    { id: 22, url: '/classrooms0.jpg', title: 'Classroom 0', cat: 'Classrooms' },
-    { id: 23, url: '/classrooms1.jpg', title: 'Classroom 1', cat: 'Classrooms' },
-    { id: 24, url: '/classrooms2.jpeg', title: 'Classroom 2', cat: 'Classrooms' },
-    { id: 25, url: '/classrooms3.jpeg', title: 'Classroom 3', cat: 'Classrooms' },
-    { id: 26, url: '/classrooms4.jpeg', title: 'Classroom 4', cat: 'Classrooms' },
-    { id: 27, url: '/classrooms5.jpg', title: 'Classroom 5', cat: 'Classrooms' },
-    { id: 28, url: '/classrooms6.jpg', title: 'Classroom 6', cat: 'Classrooms' },
-    { id: 29, url: '/classrooms7.jpg', title: 'Classroom 7', cat: 'Classrooms' },
-    // Achievements
-    { id: 30, url: '/achievement0.jpg', title: 'Achievement 0', cat: 'Achievements' },
-    { id: 31, url: '/achievement1.jpg', title: 'Achievement 1', cat: 'Achievements' },
-    { id: 32, url: '/achievement2.jpg', title: 'Achievement 2', cat: 'Achievements' },
-    { id: 33, url: '/achievement3.jpg', title: 'Achievement 3', cat: 'Achievements' },
-    { id: 34, url: '/achievement4.jpg', title: 'Achievement 4', cat: 'Achievements' },
-    { id: 35, url: '/achievement5.jpg', title: 'Achievement 5', cat: 'Achievements' },
-    { id: 36, url: '/achievement6.jpg', title: 'Achievement 6', cat: 'Achievements' },
-    { id: 37, url: '/achievement7.jpg', title: 'Achievement 7', cat: 'Achievements' },
-    { id: 38, url: '/achievement8.jpg', title: 'Achievement 8', cat: 'Achievements' },
-  ];
+  const images = galleryImages;
 
   const filteredImages = images.filter(i => i.cat === filter);
 
