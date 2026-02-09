@@ -169,8 +169,8 @@ const About: React.FC = () => {
         {/* Vision/Mission Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 mb-12 lg:mb-24">
           <div className="bg-white p-8 lg:p-16 rounded-xl lg:rounded-2xl border border-slate-100 shadow-xl relative overflow-hidden group">
-            <div className="w-14 h-14 lg:w-16 lg:h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 lg:mb-8">
-              <Eye className="w-7 h-7 lg:w-8 lg:h-8 text-purple-700" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-6 lg:mb-8">
+              <img src="/icon/our_vision.png" alt="Our Vision" className="w-full h-full object-contain" />
             </div>
             <h2 className="text-2xl lg:text-4xl font-black text-purple-950 mb-4 lg:mb-8">Our Vision</h2>
             <div className="space-y-4 lg:space-y-6 text-slate-800 font-bold leading-relaxed text-sm lg:text-base">
@@ -187,8 +187,8 @@ const About: React.FC = () => {
           </div>
 
           <div className="bg-purple-950 p-8 lg:p-16 rounded-xl lg:rounded-2xl text-white shadow-2xl relative overflow-hidden group">
-            <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 lg:mb-8">
-              <Target className="w-7 h-7 lg:w-8 lg:h-8 text-yellow-400" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-6 lg:mb-8">
+              <img src="/icon/our_mission.png" alt="Our Mission" className="w-full h-full object-contain" />
             </div>
             <h2 className="text-2xl lg:text-4xl font-black mb-4 lg:mb-8">Our Mission</h2>
             <div className="space-y-4 lg:space-y-6">
@@ -235,8 +235,8 @@ const About: React.FC = () => {
                 </div>
               </div>
               <div className="lg:w-2/3 w-full bg-slate-50 p-6 lg:p-16 rounded-2xl lg:rounded-2xl border border-slate-100 relative">
-                <div className="hidden lg:flex absolute -top-6 -left-6 w-16 h-16 bg-yellow-400 rounded-full items-center justify-center text-purple-950">
-                  <MessageCircle className="w-8 h-8" />
+                <div className="hidden lg:flex absolute -top-12 -left-12 w-28 h-28 items-center justify-center">
+                  <img src="/icon/chairmans_message.png" alt="Chairman's Message" className="w-full h-full object-contain" />
                 </div>
                 <h4 className="text-xl lg:text-2xl font-black text-purple-950 mb-4 lg:mb-8 border-b border-slate-200 pb-4">Chairman's Message</h4>
                 <div className="space-y-4 lg:space-y-6 text-slate-800 font-bold leading-relaxed text-sm lg:text-base">
@@ -268,25 +268,31 @@ const About: React.FC = () => {
               {
                 title: "MPC Stream",
                 sub: "Mathematics, Physics, Chemistry",
-                icon: <GraduationCap />,
+                iconType: "mpc",
                 desc: "Designed for students aspiring to become engineers, our MPC program integrates board syllabus with comprehensive IIT JEE coaching."
               },
               {
                 title: "BiPC Stream",
                 sub: "Biology, Physics, Chemistry",
-                icon: <FlaskConical />,
+                iconType: "bipc",
                 desc: "Tailored for future doctors, our BiPC program combines board preparation with rigorous NEET coaching."
               },
               {
                 title: "Integrated Approach",
                 sub: "Board + Competitive Coaching",
-                icon: <BookOpen />,
+                iconType: "integrated",
                 desc: "Vidisha offers both board and competitive exam preparation under one roof, eliminating the need for separate coaching centers."
               }
             ].map((item, i) => (
               <div key={i} className="bg-white p-8 lg:p-12 rounded-2xl lg:rounded-2xl border border-slate-100 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 group">
-                <div className="w-14 h-14 lg:w-20 lg:h-20 bg-purple-50 rounded-2xl lg:rounded-xl flex items-center justify-center mb-6 lg:mb-8 text-purple-700 transition-colors group-hover:bg-purple-900 group-hover:text-white">
-                  {React.cloneElement(item.icon, { className: 'w-7 h-7 lg:w-10 lg:h-10' })}
+                <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-6 lg:mb-8">
+                  {item.iconType === "mpc" ? (
+                    <img src="/icon/mpc.png" alt="MPC Stream" className="w-full h-full object-contain" />
+                  ) : item.iconType === "bipc" ? (
+                    <img src="/icon/bipc.png" alt="BiPC Stream" className="w-full h-full object-contain" />
+                  ) : (
+                    <img src="/icon/library.png" alt="Integrated Approach" className="w-full h-full object-contain" />
+                  )}
                 </div>
                 <h3 className="text-xl lg:text-2xl font-black text-purple-950 mb-2">{item.title}</h3>
                 <p className="text-yellow-600 font-bold text-[10px] lg:text-xs uppercase tracking-widest mb-4 lg:mb-6">{item.sub}</p>
@@ -305,15 +311,15 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
             {[
-              { icon: <Monitor />, title: "Smart Classrooms", desc: "Temperature controlled classrooms with digital teaching systems." },
-              { icon: <FlaskConical />, title: "Science Labs", desc: "State of the art Physics, Chemistry, and Biology labs." },
-              { icon: <BookOpen />, title: "Library", desc: "Well stocked with reference books and study materials." },
-              { icon: <HomeIcon />, title: "Hostel Facilities", desc: "Separate, secure hostels for boys and girls." },
-              { icon: <Bus />, title: "Transportation", desc: "Safe and reliable transport across Vijayawada." }
+              { iconSrc: "/icon/smart_classrooms.png", title: "Smart Classrooms", desc: "Temperature controlled classrooms with digital teaching systems." },
+              { iconSrc: "/icon/science_labs.png", title: "Science Labs", desc: "State of the art Physics, Chemistry, and Biology labs." },
+              { iconSrc: "/icon/library.png", title: "Library", desc: "Well stocked with reference books and study materials." },
+              { iconSrc: "/icon/hostel_facilities.png", title: "Hostel Facilities", desc: "Separate, secure hostels for boys and girls." },
+              { iconSrc: "/icon/transportation.png", title: "Transportation", desc: "Safe and reliable transport across Vijayawada." }
             ].map((item, i) => (
               <div key={i} className="p-6 lg:p-10 rounded-2xl lg:rounded-2xl border border-slate-100 bg-slate-50 transition-all">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 bg-white text-purple-700 shadow-sm">
-                  {React.cloneElement(item.icon, { className: 'w-6 h-6 lg:w-8 lg:h-8' })}
+                <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center mb-4 lg:mb-6">
+                  <img src={item.iconSrc} alt={item.title} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-lg lg:text-2xl font-black mb-2 lg:mb-4 text-purple-950">{item.title}</h3>
                 <p className="font-bold leading-relaxed text-slate-700 text-sm lg:text-base">{item.desc}</p>

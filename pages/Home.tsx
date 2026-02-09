@@ -59,32 +59,32 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     {
       title: 'Experienced Faculty',
       description: 'Separate experienced faculty for IIT-JEE/NEET and board preparation',
-      icon: <Users className="w-8 h-8" />
+      icon: <img src="/icon/expert_faculty.png" alt="Experienced Faculty" className="w-full h-full object-contain" />
     },
     {
       title: 'Advanced Laboratories',
       description: 'Well-equipped Physics, Chemistry, and Biology labs for hands-on practical learning',
-      icon: <FlaskConical className="w-8 h-8" />
+      icon: <img src="/icon/science_labs.png" alt="Science Labs" className="w-full h-full object-contain" />
     },
     {
       title: 'Hostel Facilities',
       description: 'Separate hostel accommodation for boys and girls with nutritious, home-like food',
-      icon: <HomeIcon className="w-8 h-8" />
+      icon: <img src="/icon/hostel_facilities.png" alt="Hostel Facilities" className="w-full h-full object-contain" />
     },
     {
       title: 'Transportation Available',
       description: 'Safe and reliable transport facility for day-scholar students across Vijayawada',
-      icon: <Bus className="w-8 h-8" />
+      icon: <img src="/icon/transportation.png" alt="Transportation" className="w-full h-full object-contain" />
     },
     {
       title: 'Integrated Coaching',
       description: 'Board preparation combined with IIT-JEE Mains, Advanced, and NEET coaching under one roof',
-      icon: <BookOpen className="w-8 h-8" />
+      icon: <img src="/icon/library.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
     },
     {
       title: 'Air-Conditioned Smart Classrooms',
       description: 'State-of-the-art learning environment with digital teaching systems for enhanced understanding',
-      icon: <Monitor className="w-8 h-8" />
+      icon: <img src="/icon/smart_classrooms.png" alt="Smart Classrooms" className="w-full h-full object-contain" />
     }
   ];
 
@@ -323,8 +323,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
               {vidishaFeatures.map((feature, idx) => (
                 <div key={idx} className="group p-6 lg:p-8 rounded-xl lg:rounded-2xl bg-white/60 backdrop-blur-sm border border-white/40 hover:bg-purple-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-sm group-hover:bg-yellow-400 transition-colors mx-auto">
-                    {React.cloneElement(feature.icon as React.ReactElement, { className: 'w-6 h-6 lg:w-8 lg:h-8 text-purple-900' })}
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                    {feature.icon}
                   </div>
                   <h3 className="text-lg lg:text-xl font-black mb-2 lg:mb-3 group-hover:text-white text-purple-950 transition-colors text-center">{feature.title}</h3>
                   <p className="font-bold text-slate-900 leading-relaxed group-hover:text-purple-100 transition-colors text-xs lg:text-sm text-center">

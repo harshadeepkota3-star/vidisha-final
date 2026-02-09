@@ -195,7 +195,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
         <div className="text-center mb-20">
           <span className="text-purple-600 font-bold uppercase tracking-[0.2em] text-xs block mb-3">Excellence in Education</span>
           <h1 className="text-5xl md:text-7xl font-black text-purple-950 mb-6 leading-tight">
-            Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Streams</span>
+            Academic Streams
           </h1>
           <p className="text-xl text-slate-900 max-w-2xl mx-auto leading-relaxed font-bold">
             Tailored programs for engineering and medical aspirants, designed to deliver exceptional results in competitive exams and board preparations.
@@ -207,8 +207,8 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="flex items-center justify-center">
-                  <img src="/mpc-stream.png" alt="MPC Stream" className="w-16 h-16 object-contain" />
+                <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20">
+                  <img src="/icon/mpc.png" alt="MPC Stream" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-purple-950">MPC Stream</h2>
@@ -229,7 +229,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
               <CourseCard
                 key={idx}
                 course={course}
-                icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />}
+                icon={<div className="w-16 h-16 flex items-center justify-center"><img src="/icon/mpc.png" alt="MPC" className="w-full h-full object-contain" /></div>}
                 accentColor="bg-blue-600"
                 onNavigate={onNavigate}
                 id={idx === 0 ? "target-jee" : idx === 1 ? "target-iit" : undefined}
@@ -240,7 +240,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
           <div className="mt-12 max-w-5xl mx-auto">
             <CourseCard
               course={mpcCourses[4]}
-              icon={<img src="/mpc-stream.png" alt="MPC" className="w-14 h-14 object-contain" />}
+              icon={<div className="w-16 h-16 flex items-center justify-center"><img src="/icon/mpc.png" alt="MPC" className="w-full h-full object-contain" /></div>}
               accentColor="bg-blue-600"
               onNavigate={onNavigate}
               isFeatured={true}
@@ -254,8 +254,8 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
           <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="flex items-center justify-center">
-                  <img src="/bipc-stream.png" alt="BiPC Stream" className="w-16 h-16 object-contain" />
+                <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20">
+                  <img src="/icon/bipc.png" alt="BiPC Stream" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-black text-purple-950">BiPC Stream</h2>
@@ -276,7 +276,7 @@ const Courses: React.FC<CoursesProps> = ({ onNavigate }) => {
               <CourseCard
                 key={idx}
                 course={course}
-                icon={<img src="/bipc-stream.png" alt="BiPC" className="w-14 h-14 object-contain" />}
+                icon={<div className="w-16 h-16 flex items-center justify-center"><img src="/icon/bipc.png" alt="BiPC" className="w-full h-full object-contain" /></div>}
                 accentColor="bg-emerald-600"
                 onNavigate={onNavigate}
                 id={idx === 0 ? "target-neet" : undefined}

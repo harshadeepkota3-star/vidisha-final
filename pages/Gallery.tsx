@@ -63,7 +63,7 @@ const Gallery: React.FC = () => {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-24">
           <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-xs block mb-6">Campus Gallery</span>
-          <h1 className="text-6xl font-black text-purple-950 mb-8 leading-tight">Visualizing <span className="text-silver-400">Excellence.</span></h1>
+          <h1 className="text-6xl font-black text-purple-950 mb-8 leading-tight">Visualizing <span className="text-silver-400">Excellence</span></h1>
           <p className="text-xl text-slate-900 max-w-2xl mx-auto font-black leading-relaxed">
             A window into the vibrant academic life at Hardcoded Junior College, where MPC and BiPC dreams take flight.
           </p>
@@ -295,19 +295,21 @@ const Gallery: React.FC = () => {
               <img src="classrooms4.jpeg" className="rounded-xl shadow-lg -mt-12" alt="Scene 4" />
             </div>
             <div className="md:w-1/2">
-              <h2 className="text-5xl font-black text-purple-950 mb-8 leading-tight">Beyond <span className="text-yellow-500">Academics.</span></h2>
+              <h2 className="text-5xl font-black text-purple-950 mb-8 leading-tight">Beyond <span className="text-yellow-500">Academics</span></h2>
               <p className="text-xl text-slate-900 leading-relaxed mb-10 font-black">
                 Our campus in the heart of the educational hub is designed to nurture discipline, creativity, and mental well-being for our MPC and BiPC students.
               </p>
               <div className="space-y-8">
                 {[
-                  { icon: <FlaskConical className="text-purple-700" />, title: "Precision Laboratories", desc: "Equipped for rigorous practical testing for both streams." },
-                  { icon: <BookOpen className="text-purple-700" />, title: "Entrance Preparation Room", desc: "A quiet space dedicated to JEE and NEET mock examinations." },
-                  { icon: <Users className="text-purple-700" />, title: "Student Council Hub", desc: "Where student leadership and peer support flourished." },
-                  { icon: <GraduationCap className="text-purple-700" />, title: "Counseling Center", desc: "Professional guidance for college and career roadmaps." },
+                  { iconSrc: "/icon/precise_labs.png", title: "Precision Laboratories", desc: "Equipped for rigorous practical testing for both streams." },
+                  { iconSrc: "/icon/entrance_preparation.png", title: "Entrance Preparation Room", desc: "A quiet space dedicated to JEE and NEET mock examinations." },
+                  { iconSrc: "/icon/student_council_hub.png", title: "Student Council Hub", desc: "Where student leadership and peer support flourished." },
+                  { iconSrc: "/icon/Counseling_center.png", title: "Counseling Center", desc: "Professional guidance for college and career roadmaps." },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-6 items-start">
-                    <div className="bg-slate-50 p-4 rounded-2xl h-fit border border-slate-100">{item.icon}</div>
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center shrink-0">
+                      <img src={item.iconSrc} alt={item.title} className="w-full h-full object-contain" />
+                    </div>
                     <div>
                       <h4 className="font-black text-purple-950 mb-1">{item.title}</h4>
                       <p className="text-sm text-slate-900 font-bold leading-relaxed">{item.desc}</p>

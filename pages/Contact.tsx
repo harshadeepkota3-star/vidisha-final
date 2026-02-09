@@ -163,12 +163,16 @@ const Contact: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-4 lg:gap-8">
               <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-2xl border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
-                <Clock className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
+                <div className="mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-12 h-12 lg:w-16 lg:h-16">
+                  <img src="/icon/visiting_hours.png" alt="Visiting Hours" className="w-full h-full object-contain" />
+                </div>
                 <h4 className="font-black text-slate-900 text-sm lg:text-base">Visiting Hours</h4>
                 <p className="text-xs lg:text-sm text-slate-800 mt-2 lg:mt-3 font-bold">Mon-Sun, 8 AM - 8 PM<br /><span className="text-[10px] lg:text-xs italic opacity-70">Sunday: Appointment Only</span></p>
               </div>
               <div className="p-5 lg:p-10 bg-slate-50 rounded-2xl lg:rounded-2xl border border-slate-100 shadow-sm group hover:bg-white hover:shadow-xl transition-all">
-                <MessageSquare className="text-purple-700 mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-6 h-6 lg:w-8 lg:h-8" />
+                <div className="mb-3 lg:mb-4 group-hover:scale-110 transition-transform w-12 h-12 lg:w-16 lg:h-16">
+                  <img src="/icon/career_counseling.png" alt="Career Counseling" className="w-full h-full object-contain" />
+                </div>
                 <h4 className="font-black text-slate-900 text-sm lg:text-base">Career Counseling</h4>
                 <p className="text-xs lg:text-sm text-slate-800 mt-2 lg:mt-3 font-bold">Free 30-min expert consultation for MPC & BiPC.</p>
               </div>
@@ -212,9 +216,9 @@ const Contact: React.FC = () => {
           <div className="lg:w-1/3">
             <h2 className="text-2xl lg:text-4xl font-black text-purple-950 mb-8 lg:mb-12">Contact Information</h2>
             <div className="space-y-6 lg:space-y-12 mb-10 lg:mb-20">
-              <div className="flex items-start gap-4 lg:gap-8">
-                <div className="bg-purple-900 p-4 lg:p-6 rounded-xl lg:rounded-[1.5rem] text-yellow-400 shadow-xl">
-                  <Mail size={20} className="lg:w-6 lg:h-6" />
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center shrink-0">
+                  <img src="/icon/mail.png" alt="Email" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Email Your Queries</h3>
@@ -224,9 +228,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 lg:gap-8">
-                <div className="bg-purple-900 p-4 lg:p-6 rounded-xl lg:rounded-[1.5rem] text-yellow-400 shadow-xl">
-                  <Phone size={20} className="lg:w-6 lg:h-6" />
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center shrink-0">
+                  <img src="/icon/phone.png" alt="Phone" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Call Us Directly</h3>
@@ -239,9 +243,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 lg:gap-8">
-                <div className="bg-purple-900 p-4 lg:p-6 rounded-xl lg:rounded-[1.5rem] text-yellow-400 shadow-xl">
-                  <MapPin size={20} className="lg:w-6 lg:h-6" />
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center shrink-0">
+                  <img src="/icon/location.png" alt="Location" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">Vijayawada HQ</h3>
@@ -249,17 +253,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 lg:gap-8">
-                <div className="bg-purple-900 p-4 lg:p-6 rounded-xl lg:rounded-[1.5rem] text-yellow-400 shadow-xl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    className="lg:w-6 lg:h-6"
-                  >
-                    <path d="M17.472 14.382c-.301-.15-1.767-.872-2.036-.969-.269-.099-.465-.148-.659.15s-.759.969-.928 1.162c-.171.192-.341.217-.642.066-1.132-.567-1.856-.917-2.607-2.193-.61-.957-.503-1.446-.35-1.86.1-.274.301-.565.452-.716.151-.15.201-.257.301-.428.1-.171.05-.323-.025-.473-.075-.15-.659-1.591-.904-2.18-.243-.585-.488-.504-.66-.513-.171-.01-.367-.01-.563-.01-.196 0-.514.075-.783.367-.269.292-1.027 1.004-1.027 2.449 0 1.445 1.051 2.844 1.196 3.037.145.193 2.067 3.155 5.006 4.42 2.939 1.265 2.939.844 3.473.794.534-.05 1.716-.7 1.956-1.378.24-.678.24-1.258.169-1.378-.071-.121-.263-.194-.564-.344zm-5.467 5.617c-1.832 0-3.619-.485-5.204-1.403l-.372-.218-3.874 1.016 1.034-3.778-.239-.38a8.956 8.956 0 0 1-1.373-4.79c0-4.964 4.041-9.005 9.006-9.005 2.404 0 4.664.936 6.362 2.635 1.697 1.698 2.633 3.96 2.632 6.369a9.014 9.014 0 0 1-9.006 9.006zm0-18.35c-5.147 0-9.335 4.187-9.335 9.335 0 1.643.43 3.248 1.246 4.665L1.5 22.502l6.814-1.788a9.293 9.293 0 0 0 4.654 1.25c5.143 0 9.329-4.187 9.333-9.333a9.28 9.28 0 0 0-2.73-6.607S17.11 3.65 12.005 3.65z" />
-                  </svg>
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center shrink-0">
+                  <img src="/icon/whatsapp.png" alt="WhatsApp" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h3 className="font-black text-slate-900 uppercase tracking-widest text-[9px] lg:text-[10px] mb-1 lg:mb-2">WhatsApp Support</h3>
@@ -274,7 +270,7 @@ const Contact: React.FC = () => {
             <div className="bg-purple-950 text-white rounded-2xl lg:rounded-2xl p-6 lg:p-10 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 lg:w-32 h-24 lg:h-32 bg-yellow-400/10 rounded-full -mr-12 lg:-mr-16 -mt-12 lg:-mt-16 blur-2xl"></div>
               <h3 className="text-xl lg:text-2xl font-black mb-6 lg:mb-8 flex items-center gap-3 lg:gap-4">
-                <Mail className="text-yellow-400 w-5 h-5 lg:w-7 lg:h-7" />
+                <img src="/icon/mail.png" alt="Email" className="w-7 h-7 lg:w-9 lg:h-9 object-contain" />
                 Email Us
               </h3>
               <div className="space-y-4 lg:space-y-6">
