@@ -68,6 +68,27 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       icon: <img src="/icon/mentorship.png" alt="Science Labs" className="w-full h-full object-contain" />
     },
     {
+      title: 'Unique Faculty Selection',
+      description: 'Educators having personal experience of clearing entrance exams with proper background verification process ',
+      icon: <img src="/icon/unique_faculty.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+    {
+      title: 'Integrated Coaching',
+      description: 'Board preparation combined with IIT-JEE Mains, Advanced, and NEET coaching under one roof',
+      icon: <img src="/icon/library.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+    {
+      title: 'Focus on Olympiad',
+      description: 'IOQM & NSE [IAPT, HBSCE, TIFR, MTA(I)] Olympiad Focused JEE & NEET Programs',
+      icon: <img src="/icon/olympiad.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+
+    {
+      title: 'Support For Entrance Exams',
+      description: 'Support for BITSAT, IAT, NEST, CUET, ISI, CMI, UCEED & EAPCET Exams along with JEE & NEET',
+      icon: <img src="/icon/support.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
+    },
+    {
       title: 'Hostel Facilities',
       description: 'Separate hostel accommodation for boys and girls with nutritious, home-like food',
       icon: <img src="/icon/hostel_facilities.png" alt="Hostel Facilities" className="w-full h-full object-contain" />
@@ -78,29 +99,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       icon: <img src="/icon/transportation.png" alt="Transportation" className="w-full h-full object-contain" />
     },
     {
-      title: 'Integrated Coaching',
-      description: 'Board preparation combined with IIT-JEE Mains, Advanced, and NEET coaching under one roof',
-      icon: <img src="/icon/library.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
-    },
-    {
       title: 'Air-Conditioned Smart Classrooms',
       description: 'State-of-the-art learning environment with digital teaching systems for enhanced understanding',
       icon: <img src="/icon/smart_classrooms.png" alt="Smart Classrooms" className="w-full h-full object-contain" />
-    },
-    {
-      title: 'Support For Entrance Exams',
-      description: 'Support for BITSAT, IAT, NEST, CUET, ISI, CMI, UCEED & EAPCET Exams along with JEE & NEET',
-      icon: <img src="/icon/support.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
-    },
-    {
-      title: 'Focus on Olympiads',
-      description: 'IOQM & NSE [IAPT, HBSCE, TIFR, MTA(I)] Olympiads Focuses JEE & NEET Programs',
-      icon: <img src="/icon/olympiad.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
-    },
-    {
-      title: 'Unique Faculty Selection',
-      description: 'Educators having personal experience of clearing entrance exams with proper background verification process ',
-      icon: <img src="/icon/unique_faculty.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
     }
   ];
 
@@ -133,7 +134,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     },
     {
       title: "Complete Support",
-      // Edited to reflect the user's specific text
       content: "Academic monitoring, progress reviews, doubt-clearing sessions, and personalized study plans"
     },
     {
