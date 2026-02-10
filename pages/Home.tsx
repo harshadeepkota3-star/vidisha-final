@@ -79,7 +79,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     },
     {
       title: 'Focus on Olympiad',
-      description: 'IOQM & NSE [IAPT, HBSCE, TIFR, MTA(I)] Olympiad Focused JEE & NEET Programs',
+      description: 'IOQM & NSE [IAPT, HBCSE, TIFR, MTA(I)] Olympiad-Focused JEE & NEET Programs',
       icon: <img src="/icon/olympiad.png" alt="Integrated Coaching" className="w-full h-full object-contain" />
     },
 
