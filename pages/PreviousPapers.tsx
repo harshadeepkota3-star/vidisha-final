@@ -8,7 +8,7 @@ interface PreviousPapersProps {
 
 const paperCategories = [
     {
-        title: 'JEE Question Papers',
+        title: "JEE PYQ's & Solutions",
         description: 'Access previous year JEE Main question papers with solutions. Practice with authentic exam papers to strengthen your preparation for engineering entrance exams.',
         icon: <img src="/icon/mpc.png" alt="JEE" className="w-8 h-8 object-contain" />,
         accentColor: 'blue',
@@ -17,11 +17,11 @@ const paperCategories = [
         buttonBg: 'bg-blue-600 hover:bg-blue-700',
         tagBg: 'bg-blue-50 text-blue-700 border-blue-100',
         navigateTo: 'jee-papers',
-        paperCount: 8,
+        paperCount: 10,
         examType: 'Engineering Entrance',
     },
     {
-        title: 'NEET Question Papers',
+        title: "NEET PYQ's & Solutions",
         description: 'Access previous year NEET UG question papers with solutions. Prepare effectively for the medical entrance exam with real exam papers and detailed solutions.',
         icon: <img src="/icon/bipc.png" alt="NEET" className="w-8 h-8 object-contain" />,
         accentColor: 'emerald',

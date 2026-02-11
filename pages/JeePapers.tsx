@@ -8,6 +8,13 @@ interface JeePapersProps {
 
 const jeePapers = [
     {
+        name: 'JEE Main - 21 Jan 2026 (Shift 1)',
+        fileName: 'JEE Main 21st Jan 2026 Morning Shift.pdf',
+        date: '21 January 2026',
+        shift: 'Morning Shift',
+        phase: 'Phase 1',
+    },
+    {
         name: 'JEE Main - 21 Jan 2026 (Shift 2)',
         fileName: 'JEE Main_Question Paper_21-01-2026 (Shift-2).pdf',
         date: '21 January 2026',
@@ -19,6 +26,13 @@ const jeePapers = [
         fileName: 'JEE Main_Question Paper_22-01-2026 (Shift-1).pdf',
         date: '22 January 2026',
         shift: 'Morning Shift',
+        phase: 'Phase 1',
+    },
+    {
+        name: 'JEE Main - 22 Jan 2026 (Shift 2)',
+        fileName: 'JEE(Main)-2026_Phase-1_(22-01-2026)_Evening_ANS&SOL.pdf',
+        date: '22 January 2026',
+        shift: 'Evening Shift',
         phase: 'Phase 1',
     },
     {
