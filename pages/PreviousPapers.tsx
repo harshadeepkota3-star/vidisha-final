@@ -44,7 +44,7 @@ const PreviousPapers: React.FC<PreviousPapersProps> = ({ onNavigate }) => {
                 <div className="text-center mb-20">
                     <span className="text-purple-600 font-bold uppercase tracking-[0.2em] text-xs block mb-3">Study Resources</span>
                     <h1 className="text-5xl md:text-7xl font-black text-purple-950 mb-6 leading-tight">
-                        Previous Papers
+                        PYQ's & Solutions
                     </h1>
                     <p className="text-xl text-slate-900 max-w-2xl mx-auto leading-relaxed font-bold">
                         Practice with authentic previous year question papers to sharpen your skills and boost your confidence for competitive exams.
