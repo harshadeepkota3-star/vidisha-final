@@ -14,7 +14,7 @@ interface LaunchCountdownProps {
 
 // CONFIGURATION: Set the launch date and time here
 // Format: YYYY-MM-DDTHH:mm:ss
-export const LAUNCH_DATE = '2026-02-12T10:00:00';
+export const LAUNCH_DATE = '2026-02-11T07:31:00';
 
 const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ onComplete }) => {
     const calculateTimeLeft = (): TimeLeft | null => {

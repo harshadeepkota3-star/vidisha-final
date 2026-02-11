@@ -47,6 +47,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   { name: 'Courses', id: 'courses' },
                   { name: 'Campuses', id: 'gallery' },
                   { name: 'About Us', id: 'about' },
+                  { name: 'Previous Papers', id: 'previous-papers' },
                   { name: 'Admissions', id: 'contact' },
                   { name: 'Careers', id: 'careers' }
                 ].map((link, idx) => (

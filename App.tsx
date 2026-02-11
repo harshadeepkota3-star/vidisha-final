@@ -8,6 +8,9 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import PreviousPapers from './pages/PreviousPapers';
+import JeePapers from './pages/JeePapers';
+import NeetPapers from './pages/NeetPapers';
 import LaunchCountdown, { LAUNCH_DATE } from './components/LaunchCountdown';
 
 const BackgroundDecor: React.FC = () => {
@@ -47,7 +50,9 @@ const App: React.FC = () => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') || 'home';
       const mainTab = hash.split('-')[0];
-      if (['home', 'courses', 'gallery', 'about', 'contact', 'careers'].includes(mainTab)) {
+      if (['home', 'courses', 'gallery', 'about', 'contact', 'careers', 'previous-papers', 'jee-papers', 'neet-papers'].includes(hash)) {
+        setActiveTab(hash);
+      } else if (['home', 'courses', 'gallery', 'about', 'contact', 'careers'].includes(mainTab)) {
         setActiveTab(mainTab);
       }
     };
@@ -66,6 +71,9 @@ const App: React.FC = () => {
       case 'about': return <About />;
       case 'contact': return <Contact />;
       case 'careers': return <Careers />;
+      case 'previous-papers': return <PreviousPapers onNavigate={navigateTo} />;
+      case 'jee-papers': return <JeePapers onNavigate={navigateTo} />;
+      case 'neet-papers': return <NeetPapers onNavigate={navigateTo} />;
       default: return <Home />;
     }
   };
