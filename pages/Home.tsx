@@ -6,7 +6,9 @@ const bannerImages = [
   "/banner_slide_1.jpg",
   "/banner_slide_2.jpg",
   "/banner_slide_3.jpg",
-  "/banner_slide_4.jpg"
+  "/banner_slide_4.jpg",
+  "/banner_slide_5.jpg",
+  "/banner_slide_6.jpg",
 ];
 
 interface HomeProps {
